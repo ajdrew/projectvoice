@@ -50,7 +50,7 @@ app.get('/', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('index.html', { layout : false , 'title' : 'Monode-crud', 'results' : results });
+            res.render('index.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 
@@ -63,7 +63,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/add_record', function(req, res){
-    res.render('add.html', { layout : false , 'title' : 'Monode-crud'});
+    res.render('add.html', { layout : false , 'title' : 'Amway.voice'});
 })
 
 app.post('/save_record', function(req, res){
@@ -76,7 +76,7 @@ app.post('/save_record', function(req, res){
     Client.open(function(err, pClient) {
         Client.collection('users', insertData);
         Client.close();
-    });    
+    });
 
     res.redirect('/');
 });
@@ -90,7 +90,7 @@ app.get('/edit_record/:id', function(req, res){
         var chosenId = new ObjectID(req.params.id);
         collection.findOne({'_id' : chosenId} , function(err, results) {
             console.log(results);
-            res.render('edit.html', { layout : false , 'title' : 'Monode-crud', 'results' : results });
+            res.render('edit.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 
@@ -116,7 +116,7 @@ app.post('/update_record', function(req, res){
     Client.open(function(err, pClient) {
         Client.collection('users', updateData);
         Client.close();
-    });    
+    });
 
     res.redirect('/');
 });
@@ -133,7 +133,7 @@ app.get('/delete_record/:id', function(req, res){
     Client.open(function(err, pClient) {
         Client.collection('users', removeData);
         //Client.close();
-    });  
+    });
     res.redirect('/');
 });
 

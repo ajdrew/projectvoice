@@ -66,6 +66,10 @@ app.get('/add_record', function(req, res){
     res.render('add.html', { layout : false , 'title' : 'Amway.voice'});
 })
 
+app.get('/extensions', function(req, res){
+    res.render('extensions.html', { layout : false , 'title' : 'Amway.voice.extensions'});
+})
+
 app.post('/save_record', function(req, res){
     console.log(req.body);
     var data = {'first_name' : req.body.first_name , 'last_name' : req.body.last_name, 'email' : req.body.email, 'password' : req.body.pwd };

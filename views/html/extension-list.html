@@ -93,18 +93,31 @@
                 <table class="table table-striped table-bordered table-condensed">
                     <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Extension</th>
+                            <th>User ID</th>
+                            <th>Name</th>
                             <th>Email</th>
-                            <th>Action</th>
+                            <th>Location</th>
+                            <th>Device - Jabber</th>
+                            <th>Device - Phone 1</th>
+                            <th>Device - Phone 2</th>
+                            <th>Phone Number - Jabber</th>
+                            <th>DID</th>
                         </tr>
                     </thead>
                     <tbody>
                         {{#each results}}
                         <tr>
-                            <td>{{this.first_name}}</td>
-                            <td>{{this.last_name}}</td>
+                            <td>{{this.extension}}</td>
+                            <td>{{this.user_id}}</td>
+                            <td>{{this.whole_name}}</td>
                             <td>{{this.email}}</td>
+                            <td>{{this.place}}</td>
+                            <td>{{this.device_jabber}}</td>
+                            <td>{{this.device_phone1}}</td>
+                            <td>{{this.device_phone2}}</td>
+                            <td>{{this.phone_number_jabber}}</td>
+                            <td>{{this.did}}</td>
                             <td>
                                 <a href="edit_record/{{this._id}}" class="btn btn-warning"><i class="icon-edit icon-white"></i> Edit</a>
                                 <a href="delete_record/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you want to remove this item?')"><i class="icon-trash icon-white"></i> Delete</a>

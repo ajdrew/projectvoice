@@ -70,6 +70,22 @@ app.get('/extensions', function(req, res){
     res.render('extensions.html', { layout : false , 'title' : 'Amway.voice.extensions'});
 })
 
+app.get('/extension-list', function(req, res){
+
+    var listData = function(err, collection) {
+        collection.find().toArray(function(err, results) {
+            res.render('index.html', { layout : false , 'title' : 'Amway.voice.extensions', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', listData);
+        //Client.close();
+    });
+
+})
+
 app.post('/save_record', function(req, res){
     console.log(req.body);
     var data = {'first_name' : req.body.first_name , 'last_name' : req.body.last_name, 'email' : req.body.email, 'password' : req.body.pwd };

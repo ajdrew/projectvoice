@@ -74,7 +74,7 @@ app.get('/extension-list', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('index.html', { layout : false , 'title' : 'Amway.voice.extensions', 'results' : results });
+            res.render('extension-list.html', { layout : false , 'title' : 'Amway.voice.extensions', 'results' : results });
         });
     }
 

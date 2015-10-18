@@ -54,7 +54,7 @@ app.get('/', function(req, res){
         });
     }
 
-    var Client = new Db('amway.voice', new Server('127.0.0.1', 27017, {}));
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('users', listData);
         //Client.close();
@@ -76,7 +76,7 @@ app.post('/save_record', function(req, res){
     var insertData = function(err, collection) {
         collection.insert(data);
     }
-    var Client = new Db('amway.voice', new Server('127.0.0.1', 27017, {}));
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('users', insertData);
         Client.close();
@@ -98,7 +98,7 @@ app.get('/edit_record/:id', function(req, res){
         });
     }
 
-    var Client = new Db('amway.voice', new Server('127.0.0.1', 27017, {}));
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('users', listData);
         //Client.close();
@@ -116,7 +116,7 @@ app.post('/update_record', function(req, res){
         var chosenId = new ObjectID(req.body.id);
         collection.update({"_id": chosenId}, {$set: data });
     }
-    var Client = new Db('amway.voice', new Server('127.0.0.1', 27017, {}));
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('users', updateData);
         Client.close();
@@ -133,7 +133,7 @@ app.get('/delete_record/:id', function(req, res){
         collection.remove({'_id' : chosenId});
     }
 
-    var Client = new Db('amway.voice', new Server('127.0.0.1', 27017, {}));
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('users', removeData);
         //Client.close();

@@ -85,6 +85,21 @@ app.post('/save_record', function(req, res){
     res.redirect('/');
 });
 
+app.post('/save_extension', function(req, res){
+    console.log(req.body);
+    var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'device_jabber' : req.body.device_jabber, 'device_phone1' : req.body.device_phone1, 'device_phone2' : req.body.device_phone2, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did };
+    var insertData = function(err, collection) {
+        collection.insert(data);
+    }
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', insertData);
+        Client.close();
+    });
+
+    res.redirect('/');
+});
+
 app.get('/edit_record/:id', function(req, res){
 
     var ObjectID = require('mongodb').ObjectID;

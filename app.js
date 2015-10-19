@@ -66,8 +66,8 @@ app.get('/add_record', function(req, res){
     res.render('add.html', { layout : false , 'title' : 'Amway.voice'});
 })
 
-app.get('/extensions', function(req, res){
-    res.render('extensions.html', { layout : false , 'title' : 'Amway.voice'});
+app.get('/extensions-add', function(req, res){
+    res.render('extensions-add.html', { layout : false , 'title' : 'Amway.voice'});
 })
 
 app.get('/extensions-list', function(req, res){

@@ -20,13 +20,12 @@
     <!-- Favicon and Touch Icons -->
     <link rel="shortcut icon" href="/assets/ico/favicon.ico">
 
+    <!-- CSS: Show/Hide add Divs-->
     <style>
     div[id^=toggle-add] {
       display:none;
     }
     </style>
-
-
 
     <!-- JS - Function: Show/Hide add Divs -->
     <script language="JavaScript" type="text/javascript">
@@ -97,9 +96,8 @@
         <!-- Content -->
         <div class="col-md-9">
           <h3>Extension List</h3>
-          <p>Manage extensions : add, edit, delete.</p>
-          <a href="#" onclick="toggle('toggle-add-bookmark');">AddD</a>
-          <div id="toggle-add-bookmark">
+          <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
+          <div id="toggle-add-extension">
             <form method="post" action="save_extension">
               <div class="form-group">
                 <label for="extension">Extension</label>

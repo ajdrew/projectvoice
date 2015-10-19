@@ -45,7 +45,8 @@ app.configure('development', function(){
 });
 
 
-// ROUTE HANDLING
+// EXPRESS ROUTING
+// NAVIGATION
 app.get('/', function(req, res){
 
     var listData = function(err, collection) {
@@ -85,7 +86,9 @@ app.get('/extensions-list', function(req, res){
     });
 
 })
+// END - NAVIGATION
 
+// DB CRUD - record
 app.post('/save_record', function(req, res){
     console.log(req.body);
     var data = {'first_name' : req.body.first_name , 'last_name' : req.body.last_name, 'email' : req.body.email, 'password' : req.body.pwd };
@@ -99,21 +102,6 @@ app.post('/save_record', function(req, res){
     });
 
     res.redirect('/');
-});
-
-app.post('/save_extension', function(req, res){
-    console.log(req.body);
-    var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did };
-    var insertData = function(err, collection) {
-        collection.insert(data);
-    }
-    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
-    Client.open(function(err, pClient) {
-        Client.collection('extensions', insertData);
-        Client.close();
-    });
-
-    res.redirect('extensions-list');
 });
 
 app.get('/edit_record/:id', function(req, res){
@@ -171,8 +159,82 @@ app.get('/delete_record/:id', function(req, res){
     });
     res.redirect('/');
 });
+// END - DB CRUD - record
 
-// END ROUTE
+// DB CRUD - extension
+app.post('/save_extension', function(req, res){
+    console.log(req.body);
+    var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did };
+    var insertData = function(err, collection) {
+        collection.insert(data);
+    }
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', insertData);
+        Client.close();
+    });
+
+    res.redirect('extensions-list');
+});
+
+app.get('/edit_extension/:id', function(req, res){
+
+    var ObjectID = require('mongodb').ObjectID;
+
+    var listData = function(err, collection) {
+
+        var chosenId = new ObjectID(req.params.id);
+        collection.findOne({'_id' : chosenId} , function(err, results) {
+            console.log(results);
+            res.render('extensions-edit.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', listData);
+        //Client.close();
+    });
+
+});
+
+app.post('/update_extension', function(req, res){
+    console.log(req.body);
+
+    var ObjectID = require('mongodb').ObjectID;
+
+    var data = {'first_name' : req.body.first_name , 'last_name' : req.body.last_name, 'email' : req.body.email };
+    var updateData = function(err, collection) {
+        var chosenId = new ObjectID(req.body.id);
+        collection.update({"_id": chosenId}, {$set: data });
+    }
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', updateData);
+        Client.close();
+    });
+
+    res.redirect('/');
+});
+
+app.get('/delete_extension/:id', function(req, res){
+    var ObjectID = require('mongodb').ObjectID;
+
+    var removeData = function(err, collection) {
+        var chosenId = new ObjectID(req.params.id);
+        collection.remove({'_id' : chosenId});
+    }
+
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', removeData);
+        //Client.close();
+    });
+    res.redirect('/');
+});
+// END - DB CRUD - extension
+
+// END - EXPRESS ROUTING
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

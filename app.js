@@ -113,7 +113,7 @@ app.post('/save_extension', function(req, res){
         Client.close();
     });
 
-    res.redirect('/');
+    res.redirect('extensions-list');
 });
 
 app.get('/edit_record/:id', function(req, res){

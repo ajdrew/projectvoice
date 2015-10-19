@@ -74,7 +74,7 @@
         <!-- END - Management Console -->
 
         <div class="col-md-9">
-          <h3>Add - Extension</h3>
+          <h3>Edit - Extension</h3>
           <form method="post" action="/update_extension">
             <input type="hidden" name="id" value="{{results._id}}">
             <div class="form-group">
@@ -96,6 +96,7 @@
             <div class="form-group">
               <label for="place">Location</label>
               <select name="place" form="extension-add" class="form-control">
+                <option value="{{results.place}}">Default</option>
                 <option value="US">US</option>
                 <option value="BP">BP</option>
                 <option value="CA">CA</option>

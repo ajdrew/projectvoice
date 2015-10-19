@@ -203,7 +203,7 @@ app.post('/update_extension', function(req, res){
 
     var ObjectID = require('mongodb').ObjectID;
 
-    var data = {'first_name' : req.body.first_name , 'last_name' : req.body.last_name, 'email' : req.body.email };
+    var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did };
     var updateData = function(err, collection) {
         var chosenId = new ObjectID(req.body.id);
         collection.update({"_id": chosenId}, {$set: data });
@@ -214,7 +214,7 @@ app.post('/update_extension', function(req, res){
         Client.close();
     });
 
-    res.redirect('/');
+    res.redirect('extensions-list');
 });
 
 app.get('/delete_extension/:id', function(req, res){
@@ -230,7 +230,7 @@ app.get('/delete_extension/:id', function(req, res){
         Client.collection('extensions', removeData);
         //Client.close();
     });
-    res.redirect('/');
+    res.redirect('extensions-list');
 });
 // END - DB CRUD - extension
 

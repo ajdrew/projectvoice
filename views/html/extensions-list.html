@@ -97,11 +97,15 @@
         <div class="col-md-9">
           <h3>Extension List</h3>
           <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
+
+          <!-- Extension Add Form -->
           <div id="toggle-add-extension">
             <form class="form-inline" method="post" action="save_extension">
-              <div class="form-group" class="col-xs-1">
-                <label class="sr-only" for="extension">Extension</label>
-                <input type="text" class="form-control" placeholder="Extension" name="extension">
+              <div class="col-md-1">
+                <div class="form-group">
+                  <label class="sr-only" for="extension">Extension</label>
+                  <input type="text" class="form-control" placeholder="Extension" name="extension">
+                </div>
               </div>
               <div class="form-group">
                 <label class="sr-only" for"user_id">User ID</label>
@@ -130,6 +134,8 @@
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
           </div>
+          <!-- END - Extension Add Form -->
+
           <div class="row-fluid">
                 <table class="table table-striped table-bordered table-condensed">
                     <thead>

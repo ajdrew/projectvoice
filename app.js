@@ -67,14 +67,14 @@ app.get('/add_record', function(req, res){
 })
 
 app.get('/extensions', function(req, res){
-    res.render('extensions.html', { layout : false , 'title' : 'Amway.voice.extensions'});
+    res.render('extensions.html', { layout : false , 'title' : 'Amway.voice'});
 })
 
 app.get('/extensions-list', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('extensions-list.html', { layout : false , 'title' : 'Amway.voice.extensions', 'results' : results });
+            res.render('extensions-list.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 

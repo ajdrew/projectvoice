@@ -86,6 +86,22 @@ app.get('/extensions-list', function(req, res){
     });
 
 })
+
+app.get('/extensions', function(req, res){
+
+    var listData = function(err, collection) {
+        collection.find().toArray(function(err, results) {
+            res.render('extensions-list.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', listData);
+        //Client.close();
+    });
+
+})
 // END - NAVIGATION
 
 // DB CRUD - record

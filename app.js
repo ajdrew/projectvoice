@@ -71,7 +71,7 @@ app.get('/extensions-add', function(req, res){
     res.render('extensions-add.html', { layout : false , 'title' : 'Amway.voice'});
 })
 
-app.get('/extensions-list', function(req, res){
+app.get('/extensions', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
@@ -87,11 +87,11 @@ app.get('/extensions-list', function(req, res){
 
 })
 
-app.get('/extensions', function(req, res){
+app.get('/passwords', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('extensions-list.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+            res.render('passwords.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 

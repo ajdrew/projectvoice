@@ -246,7 +246,7 @@ app.get('/delete_extension/:id', function(req, res){
         Client.collection('extensions', removeData);
         //Client.close();
     });
-    res.redirect('extensions-list');
+    res.redirect('extensions');
 });
 // END - DB CRUD - extension
 

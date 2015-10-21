@@ -79,7 +79,7 @@ app.get('/extensions', function(req, res){
         });
     }
 
-    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('extensions', listData);
         //Client.close();

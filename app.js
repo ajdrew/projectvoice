@@ -55,7 +55,7 @@ app.get('/', function(req, res){
         });
     }
 
-    var Client = new Db('amway-voice', new Server('127.0.0.1', 27017, {}));
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('users', listData);
         //Client.close();
@@ -190,7 +190,7 @@ app.post('/save_extension', function(req, res){
         Client.close();
     });
 
-    res.redirect('extensions-list');
+    res.redirect('extensions');
 });
 
 app.get('/edit_extension/:id', function(req, res){
@@ -230,7 +230,7 @@ app.post('/update_extension', function(req, res){
         Client.close();
     });
 
-    res.redirect('extensions-list');
+    res.redirect('extensions');
 });
 
 app.get('/delete_extension/:id', function(req, res){

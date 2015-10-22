@@ -263,6 +263,21 @@ app.get('/extentions/filter/ad', function(req, res){
       //Client.close();
     });
   });
+
+app.get('/extentions/filter/bp', function(req, res){
+
+    var listData = function(err, collection) {
+        collection.find({place:"BP"}).toArray(function(err, results) {
+            res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', listData);
+        //Client.close();
+      });
+});
 // END - DB CRUD - extension
 
 // END - EXPRESS ROUTING

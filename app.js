@@ -312,7 +312,7 @@ app.get('/extentions/filter/ca', function(req, res){
 app.get('/extentions/filter/co', function(req, res){
 
     var listData = function(err, collection) {
-        collection.find({place:"co"}).toArray(function(err, results) {
+        collection.find({place:"CO"}).toArray(function(err, results) {
             res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }

@@ -264,7 +264,7 @@ app.get('/extentions/filter/ad', function(req, res){
     });
   });
 
-app.get('/extentions/filter/bp', function(req, res){
+app.get('/extensions/filter/bp', function(req, res){
 
     var listData = function(err, collection) {
         collection.find({place:"BP"}).toArray(function(err, results) {
@@ -279,7 +279,7 @@ app.get('/extentions/filter/bp', function(req, res){
       });
 });
 
-app.get('/extentions/filter/br', function(req, res){
+app.get('/extensions/filter/br', function(req, res){
 
     var listData = function(err, collection) {
         collection.find({place:"BR"}).toArray(function(err, results) {
@@ -294,7 +294,7 @@ app.get('/extentions/filter/br', function(req, res){
       });
 });
 
-app.get('/extentions/filter/ca', function(req, res){
+app.get('/extensions/filter/ca', function(req, res){
 
     var listData = function(err, collection) {
         collection.find({place:"CA"}).toArray(function(err, results) {
@@ -309,7 +309,7 @@ app.get('/extentions/filter/ca', function(req, res){
       });
 });
 
-app.get('/extentions/filter/co', function(req, res){
+app.get('/extensions/filter/co', function(req, res){
 
     var listData = function(err, collection) {
         collection.find({place:"CO"}).toArray(function(err, results) {
@@ -324,7 +324,7 @@ app.get('/extentions/filter/co', function(req, res){
       });
 });
 
-app.get('/extentions/filter/cr', function(req, res){
+app.get('/extensions/filter/cr', function(req, res){
 
     var listData = function(err, collection) {
         collection.find({place:"CR"}).toArray(function(err, results) {
@@ -339,7 +339,7 @@ app.get('/extentions/filter/cr', function(req, res){
       });
 });
 
-app.get('/extentions/filter/mx', function(req, res){
+app.get('/extensions/filter/mx', function(req, res){
 
     var listData = function(err, collection) {
         collection.find({place:"MX"}).toArray(function(err, results) {

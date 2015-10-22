@@ -249,7 +249,7 @@ app.get('/delete_extension/:id', function(req, res){
     res.redirect('extensions');
 });
 
-app.get('/extentions/filter/ad', function(req, res){
+app.get('/extensions/filter/ad', function(req, res){
 
   var listData = function(err, collection) {
       collection.find({place:"AD"}).toArray(function(err, results) {

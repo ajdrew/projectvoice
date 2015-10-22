@@ -253,7 +253,7 @@ app.get('/extentions/filter/ad', function(req, res){
 
   var listData = function(err, collection) {
       collection.find({place:"AD"}).toArray(function(err, results) {
-          res.render('extensions-filter-ad.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+          res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
       });
   }
 

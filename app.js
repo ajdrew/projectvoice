@@ -75,7 +75,7 @@ app.get('/extensions', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('extensions-list.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+            res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 
@@ -249,11 +249,11 @@ app.get('/delete_extension/:id', function(req, res){
     res.redirect('extensions');
 });
 
-app.get('/extentions/filter/br', function(req, res){
+app.get('/extentions/filter/ad', function(req, res){
 
   var listData = function(err, collection) {
-      collection.find({place:"BR"}).toArray(function(err, results) {
-          res.render('extensions-list.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+      collection.find({place:"AD"}).toArray(function(err, results) {
+          res.render('extensions-filter-ad.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
       });
   }
 

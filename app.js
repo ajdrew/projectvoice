@@ -261,6 +261,7 @@ app.get('/extentions/filter/ad', function(req, res){
   Client.open(function(err, pClient) {
       Client.collection('extensions', listData);
       //Client.close();
+    });
   });
 
   app.get('/extentions/filter/bp', function(req, res){
@@ -276,6 +277,7 @@ app.get('/extentions/filter/ad', function(req, res){
         Client.collection('extensions', listData);
         //Client.close();
     });
+  });
 
     app.get('/extentions/filter/br', function(req, res){
 
@@ -290,6 +292,7 @@ app.get('/extentions/filter/ad', function(req, res){
           Client.collection('extensions', listData);
           //Client.close();
       });
+    });
 
       app.get('/extentions/filter/ca', function(req, res){
 
@@ -304,6 +307,7 @@ app.get('/extentions/filter/ad', function(req, res){
             Client.collection('extensions', listData);
             //Client.close();
         });
+      });
 
         app.get('/extentions/filter/co', function(req, res){
 
@@ -318,6 +322,7 @@ app.get('/extentions/filter/ad', function(req, res){
               Client.collection('extensions', listData);
               //Client.close();
           });
+        });
 
           app.get('/extentions/filter/cr', function(req, res){
 
@@ -332,6 +337,7 @@ app.get('/extentions/filter/ad', function(req, res){
                 Client.collection('extensions', listData);
                 //Client.close();
             });
+          });
 
             app.get('/extentions/filter/mx', function(req, res){
 
@@ -346,6 +352,8 @@ app.get('/extentions/filter/ad', function(req, res){
                   Client.collection('extensions', listData);
                   //Client.close();
               });
+
+                });
 
 });
 // END - DB CRUD - extension

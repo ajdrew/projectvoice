@@ -91,14 +91,18 @@
           <a href="/extensions/filter/cr" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CR</a>
           <a href="/extensions/filter/mx" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MX</a>
           <a href="/extensions" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
-          <div class="col-lg-3">
-            <div class="input-group">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
-              </span>
-              <input type="text" class="form-control" placeholder="Search for ...">
-            </div><!-- /input-group -->
-          </div>
+          <form class="form-inline" method="post" action="/extension-find" id="extension-find">
+            <div class="col-lg-3">
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Search for ..." name="search">
+                </div><!-- /input-group -->
+              </div>
+            </div>
+          </form>
           <p>&nbsp;</p>
 
           <!-- Extension Add Form -->

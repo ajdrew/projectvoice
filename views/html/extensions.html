@@ -94,7 +94,7 @@
 
           <!-- Extension Add Form -->
           <div id="toggle-add-extension">
-              <form class="form-inline" method="post" action="save_extension" id="extension-add">
+              <form class="form-inline" method="post" action="/save_extension" id="extension-add">
                 <div class="form-group">
                   <label class="sr-only" for="extension">Extension</label>
                   <input type="text" class="form-control" placeholder="Extension" name="extension">
@@ -165,8 +165,8 @@
                             <td>{{this.phone_number_jabber}}</td>
                             <td>{{this.did}}</td>
                             <td>
-                                <a href="edit_extension/{{this._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                                <a href="delete_extension/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you want to remove this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
+                                <a href="/edit_extension/{{this._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                                <a href="/delete_extension/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you want to remove this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
                             </td>
                         </tr>
                         {{/each}}

@@ -308,6 +308,51 @@ app.get('/extentions/filter/ca', function(req, res){
         //Client.close();
       });
 });
+
+app.get('/extentions/filter/co', function(req, res){
+
+    var listData = function(err, collection) {
+        collection.find({place:"co"}).toArray(function(err, results) {
+            res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', listData);
+        //Client.close();
+      });
+});
+
+app.get('/extentions/filter/cr', function(req, res){
+
+    var listData = function(err, collection) {
+        collection.find({place:"CR"}).toArray(function(err, results) {
+            res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', listData);
+        //Client.close();
+      });
+});
+
+app.get('/extentions/filter/mx', function(req, res){
+
+    var listData = function(err, collection) {
+        collection.find({place:"MX"}).toArray(function(err, results) {
+            res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extensions', listData);
+        //Client.close();
+      });
+});
 // END - DB CRUD - extension
 
 // END - EXPRESS ROUTING

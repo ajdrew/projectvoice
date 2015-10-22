@@ -99,14 +99,11 @@
             </div>
             <div class="form-group">
               <label for="phone_number_jabber">Phone Number - Jabber</label>
-              <input type="text" class="form-control" placeholder="+[DID] for DIDs or **[site code][extension] for internal numbers" name="phone_number_jabber" value="{{results.phone_number_jabber}}">
+              <input type="text" class="form-control" placeholder="+[DID] or **[site code][extension]" name="phone_number_jabber" value="{{results.phone_number_jabber}}">
             </div>
             <div class="form-group">
               <label for="did">DID</label>
-              <select name="did" form="extension-add" class="form-control">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
+              <input type="text" class="form-control" placeholder="Yes or No" name="did" value="{{results.did}}">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>

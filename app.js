@@ -249,8 +249,11 @@ app.get('/delete_extension/:id', function(req, res){
     res.redirect('extensions');
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 });
+=======
+>>>>>>> parent of f9ac860... BR filter
 =======
 >>>>>>> parent of f9ac860... BR filter
 // END - DB CRUD - extension

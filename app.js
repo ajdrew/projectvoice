@@ -248,8 +248,11 @@ app.get('/delete_extension/:id', function(req, res){
     });
     res.redirect('extensions');
 });
+<<<<<<< HEAD
 
 });
+=======
+>>>>>>> parent of f9ac860... BR filter
 // END - DB CRUD - extension
 
 // END - EXPRESS ROUTING

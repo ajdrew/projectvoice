@@ -354,7 +354,7 @@ app.get('/extensions/filter/mx', function(req, res){
       });
 });
 
-app.get('/extensions-find', function(req, res){
+app.post('/extensions-find', function(req, res){
     console.log(req.body);
     //var data = {'search' : req.body.search };
     var data = "MX";

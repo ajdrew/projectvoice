@@ -356,17 +356,13 @@ app.get('/extensions/filter/mx', function(req, res){
 
 app.get('/extensions-find', function(req, res){
     console.log(req.body);
-
-    var ObjectID = require('mongodb').ObjectID;
-
-    var data = {'search' : req.body.search };
-
+    //var data = {'search' : req.body.search };
+    var data = "MX";
     var listData = function(err, collection) {
-        collection.find({place:"$data"}).toArray(function(err, results) {
+        collection.find({place: $data}).toArray(function(err, results) {
             res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
-
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
         Client.collection('extensions', listData);

@@ -248,6 +248,27 @@ app.get('/delete_extension/:id', function(req, res){
     });
     res.redirect('extensions');
 });
+
+app.get('/extentions/view/br', function(req, res){
+
+    var ObjectID = require('mongodb').ObjectID;
+
+    var listData = function(err, collection) {
+
+        var chosenId = new ObjectID(req.params.id);
+        collection.findOne({'place' : 'BR'} , function(err, results) {
+            console.log(results);
+            res.render('extensions-list.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('extentions', listData);
+        //Client.close();
+    });
+
+});
 // END - DB CRUD - extension
 
 // END - EXPRESS ROUTING

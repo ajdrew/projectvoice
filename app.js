@@ -359,7 +359,7 @@ app.post('/extensions-find', function(req, res){
     //var data = {'search' : req.body.search };
     var search = 'MX';
     var listData = function(err, collection) {
-        collection.find(place: new RegExp(search)).toArray(function(err, results) {
+        collection.find({place: new RegExp(search)}).toArray(function(err, results) {
             res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }

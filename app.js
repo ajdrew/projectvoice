@@ -356,8 +356,8 @@ app.get('/extensions/filter/mx', function(req, res){
 
 app.post('/extensions-find', function(req, res){
     console.log(req.body);
-    var search = 'req.body.search';
-    console.log(echo $search);
+    var search = req.body.search;
+    //console.log(echo $search);
     //var search = 'MX';
     var listData = function(err, collection) {
         collection.find({place: new RegExp(search)}).toArray(function(err, results) {

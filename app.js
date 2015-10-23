@@ -355,9 +355,9 @@ app.get('/extensions/filter/mx', function(req, res){
 });
 
 app.post('/extensions-find', function(req, res){
-    console.log(req.body);
-    //var data = {'search' : req.body.search };
-    var search = 'MX';
+    //console.log(req.body);
+    var search = {'search' : req.body.search };
+    //var search = 'MX';
     var listData = function(err, collection) {
         collection.find({place: new RegExp(search)}).toArray(function(err, results) {
             res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });

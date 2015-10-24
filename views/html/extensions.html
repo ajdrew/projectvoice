@@ -50,8 +50,7 @@
 
   <body>
 
-    <!--Navigation Bar -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default"><!--Navigation Bar -->
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -64,12 +63,11 @@
           <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
         </div>
       </div>
-    </nav>
-    <!-- END - Navigation Bar -->
+    </nav><!-- END - Navigation Bar -->
 
     <div class="container-fluid"> <!-- GRID SYSTEM -->
 
-      <div class="row"> <!-- ROW (FULL LENGTH) -->
+      <div class="row"> <!-- ROW - SEARCH -->
         <div class="col-lg-4 col-md-offset-4">
           <form class="form-inline" method="post" action="/extensions/search" id="extension-find">
             <div class="form-group">
@@ -82,14 +80,11 @@
             </div>
           </form>
         </div>
-      </div> <!-- END ROW -->
+      </div> <!-- END ROW - SEARCH-->
       <p>&nbsp;</p>
 
-      <div class="row"> <!-- ROW (FULL LENGTH) -->
-
-        <!-- Content -->
-        <div class="col-md-12">
-          <!-- <h3>Extension List</h3> -->
+      <div class="row"> <!-- ROW - FILTERS -->
+        <div class="col-md-6 col-md-offset-3">
           <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
           <a href="/extensions/filter/ad" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>AD</a>
           <a href="/extensions/filter/bp" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BP</a>
@@ -99,9 +94,12 @@
           <a href="/extensions/filter/cr" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CR</a>
           <a href="/extensions/filter/mx" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MX</a>
           <a href="/extensions" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
-          <p>&nbsp;</p>
+        </div>
+      </div> <!-- END ROW - FILTERS -->
+      <p>&nbsp;</p>
 
-          <!-- Extension Add Form -->
+      <div class="row"> <!-- ROW - ADD FORM -->
+        <div class="col-md-12">
           <div id="toggle-add-extension">
               <form class="form-inline" method="post" action="/save_extension" id="extension-add">
                 <div class="form-group">
@@ -145,11 +143,14 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>
-              <span>&nbsp;</span>
+            </div>
           </div>
-          <!-- END - Extension Add Form -->
+        </div> <!-- END - ROW - ADD FORM -->
+        <span>&nbsp;</span>
 
-          <div class="row-fluid">
+        <div class="row"> <!-- ROW - SHOW TABLE -->
+          <div class="col-md-12">
+            <div id="toggle-show">
                 <table class="table table-striped table-bordered table-condensed">
                     <thead>
                         <tr>
@@ -183,17 +184,13 @@
                 </table>
               </div>
             </div>
-            <!-- END - Content -->
-
-          </div> <!-- END - ROW 1 (FULL LENGTH) -->
+          </div>
 
           <hr>
 
-          <!-- Footer -->
-          <footer>
+          <footer> <!-- Footer -->
             <p>Amway.voice - Testing platform</p>
-          </footer>
-          <!-- END - Footer -->
+          </footer> <!-- END - Footer -->
 
         </div> <!-- END - GRID SYSTEM -->
 

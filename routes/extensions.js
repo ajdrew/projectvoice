@@ -1,4 +1,4 @@
-module.exports = function(extensions) {
+module.exports = function(rtgextensions) {
   // DB CRUD - extension
   app.post('/save_extension', function(req, res){
       console.log(req.body);

@@ -178,7 +178,7 @@ app.get('/delete_record/:id', function(req, res){
 // END - DB CRUD - record
 
 // Include - Extensions DB app routes
-var routing-extensions = require('./routes')(extensions);
+var routingextensions = require('./routes')(extensions);
 
 
 

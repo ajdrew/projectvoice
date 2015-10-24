@@ -1,4 +1,9 @@
 module.exports = function(app) {
+
+  // mongodb
+  var Db = require('mongodb').Db;
+  var Server = require('mongodb').Server;
+
   // DB CRUD - extension
   app.post('/save_extension', function(req, res){
       console.log(req.body);

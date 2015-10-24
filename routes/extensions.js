@@ -4,7 +4,24 @@ module.exports = function(app) {
   var Db = require('mongodb').Db;
   var Server = require('mongodb').Server;
 
-  // DB CRUD - extension
+  // Main navigation page
+  app.get('/extensions', function(req, res){
+
+      var listData = function(err, collection) {
+          collection.find().toArray(function(err, results) {
+              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+          });
+      }
+
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('extensions', listData);
+          //Client.close();
+      });
+
+  })
+
+  // DB - CRUD
   app.post('/save_extension', function(req, res){
       console.log(req.body);
       var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did };
@@ -76,6 +93,7 @@ module.exports = function(app) {
       res.redirect('extensions');
   });
 
+  // DB - FILTERS
   app.get('/extensions/filter/ad', function(req, res){
 
     var listData = function(err, collection) {
@@ -181,6 +199,7 @@ module.exports = function(app) {
         });
   });
 
+  // DB - SEARCH
   app.post('/extensions/search', function(req, res){
       console.log(req.body);
       var search = req.body.search;
@@ -197,5 +216,4 @@ module.exports = function(app) {
           //Client.close();
         });
   });
-  // END - DB CRUD - extension
 }

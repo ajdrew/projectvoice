@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = function(app) {
   // DB CRUD - extension
   app.post('/save_extension', function(req, res){
       console.log(req.body);

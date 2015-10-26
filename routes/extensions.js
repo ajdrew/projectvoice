@@ -93,7 +93,7 @@ module.exports = function(app) {
       res.redirect('extensions');
   });
 
-  app.get('/delete_extension/:id', function(req, res){
+  app.get('/extensions/delete/:id', function(req, res){
       var ObjectID = require('mongodb').ObjectID;
 
       var removeData = function(err, collection) {

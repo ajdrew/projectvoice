@@ -21,6 +21,22 @@ module.exports = function(app) {
 
   })
 
+  app.get('/extensions/show', function(req, res){
+
+      var listData = function(err, collection) {
+          collection.find().toArray(function(err, results) {
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+          });
+      }
+
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('extensions', listData);
+          //Client.close();
+      });
+
+  })
+
   // DB - CRUD
   app.post('/save_extension', function(req, res){
       console.log(req.body);
@@ -207,7 +223,7 @@ module.exports = function(app) {
       //var search = 'MX';
       var listData = function(err, collection) {
           collection.find({extension: new RegExp(search)}).toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));

@@ -53,7 +53,7 @@ module.exports = function(app) {
       res.redirect('extensions');
   });
 
-  app.get('/edit_extension/:id', function(req, res){
+  app.get('/extensions/edit/:id', function(req, res){
 
       var ObjectID = require('mongodb').ObjectID;
 

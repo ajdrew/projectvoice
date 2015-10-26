@@ -74,7 +74,7 @@ module.exports = function(app) {
 
   });
 
-  app.post('/update_extension', function(req, res){
+  app.post('/extensions/update', function(req, res){
       console.log(req.body);
 
       var ObjectID = require('mongodb').ObjectID;

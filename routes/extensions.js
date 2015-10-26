@@ -222,7 +222,7 @@ module.exports = function(app) {
       //console.log(echo $search);
       //var search = 'MX';
       var listData = function(err, collection) {
-          collection.find({name: new RegExp(search)},).toArray(function(err, results) {
+          collection.find({name: new RegExp(search)}).toArray(function(err, results) {
               res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }

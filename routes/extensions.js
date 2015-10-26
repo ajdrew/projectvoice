@@ -114,7 +114,7 @@ module.exports = function(app) {
 
     var listData = function(err, collection) {
         collection.find({place:"AD"}).toArray(function(err, results) {
-            res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+            res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 
@@ -129,7 +129,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({place:"BP"}).toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 
@@ -144,7 +144,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({place:"BR"}).toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 
@@ -159,7 +159,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({place:"CA"}).toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 
@@ -174,7 +174,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({place:"CO"}).toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 
@@ -189,7 +189,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({place:"CR"}).toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 
@@ -204,7 +204,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({place:"MX"}).toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 

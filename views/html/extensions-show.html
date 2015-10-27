@@ -217,7 +217,9 @@
         <!-- JS: Date picker for ADD FORM -->
         <script type="text/javascript">
         (function($) {
-                $('#out_date').val(time.toDateString());
+                $('#time').on('click', function(event) {
+                  var time = new Date();
+                  $('#out_date').val(time.toDateString());
                 });
 
             })(jQuery);

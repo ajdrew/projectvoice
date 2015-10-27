@@ -116,22 +116,38 @@
       <div class="row"> <!-- ROW - ADD FORM -->
         <div class="col-lg-4 col-md-offset-4">
           <div id="toggle-add-lms">
-              <form class="form-inline" method="post" action="/save_extension" id="extension-add">
+              <form class="form-horizontal" method="post" action="/lms/save" id="lms-add">
                 <div class="form-group">
-                  <label class="sr-only" for="extension">Extension</label>
-                  <input type="text" class="form-control" placeholder="Extension" name="extension">
+                  <label for="ip">IP</label>
+                  <input type="text" class="form-control" placeholder="IP" name="ip">
                 </div>
                 <div class="form-group">
-                  <label class="sr-only" for"user_id">User ID</label>
-                  <input type="text" class="form-control" placeholder="User ID" name="user_id">
+                  <label for"hostname">Hostname</label>
+                  <input type="text" class="form-control" placeholder="Hostname" name="hostname">
                 </div>
                 <div class="form-group">
-                  <label class="sr-only" for="whole_name">Name</label>
-                  <input type="text" class="form-control" placeholder="First and Last Name" name="whole_name">
+                  <label for="country">Country</label>
+                  <input type="text" class="form-control" placeholder="Country" name="country">
                 </div>
                 <div class="form-group">
-                  <label class="sr-only" for="email">Email</label>
-                  <input type="text" class="form-control" placeholder="email@email.com" name="email">
+                  <label for="site">Site</label>
+                  <input type="text" class="form-control" placeholder="Site" name="site">
+                </div>
+                <div class="form-group">
+                  <label for="type">Type</label>
+                  <input type="text" class="form-control" placeholder="Type" name="type">
+                </div>
+                <div class="form-group">
+                  <label for="version">Version</label>
+                  <input type="text" class="form-control" placeholder="Version" name="version">
+                </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <input type="text" class="form-control" placeholder="Description" name="description">
+                </div>
+                <div class="form-group">
+                  <label for="access">Access</label>
+                  <input type="text" class="form-control" placeholder="Access" name="access">
                 </div>
                 <div class="form-group">
                   <label class="sr-only" for="place">Location</label>

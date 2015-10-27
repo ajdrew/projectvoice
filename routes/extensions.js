@@ -22,7 +22,7 @@ module.exports = function(app) {
   })
 
   app.get('/extensions/show', function(req, res){
-
+      console.log(req.body);
       var listData = function(err, collection) {
           collection.find().toArray(function(err, results) {
               res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
@@ -54,7 +54,7 @@ module.exports = function(app) {
   });
 
   app.get('/extensions/edit/:id', function(req, res){
-
+      console.log(req.body);
       var ObjectID = require('mongodb').ObjectID;
 
       var listData = function(err, collection) {
@@ -94,6 +94,7 @@ module.exports = function(app) {
   });
 
   app.get('/extensions/delete/:id', function(req, res){
+      console.log(req.body);
       var ObjectID = require('mongodb').ObjectID;
 
       var removeData = function(err, collection) {

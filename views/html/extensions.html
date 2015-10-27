@@ -41,17 +41,6 @@
     }
     </style>
 
-    <!-- JS: Date picker for ADD FORM -->
-    <script type="text/javascript">
-    (function($) {
-            $('#time').on('click', function(event) {
-              var time = new Date();
-              $('#time-holder').val(time.toDateString());
-            });
-
-        })(jQuery);
-    </script>
-
     <!-- JS: Show/Hide add Divs -->
     <script type="text/javascript">
     function toggle(id) {
@@ -181,6 +170,17 @@
           </footer> <!-- END - Footer -->
 
         </div> <!-- END - GRID SYSTEM -->
+
+        <!-- JS: Date picker for ADD FORM -->
+        <script type="text/javascript">
+        (function($) {
+                $('#time').on('click', function(event) {
+                  var time = new Date();
+                  $('#time-holder').val(time.toDateString());
+                });
+
+            })(jQuery);
+        </script>
 
       </body>
     </html>

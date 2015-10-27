@@ -40,7 +40,7 @@ module.exports = function(app) {
   // DB - CRUD
   app.post('/extensions/save', function(req, res){
       console.log(req.body);
-      var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did, 'out_date' : req.body.ot_date };
+      var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did, 'out_date' : req.body.out_date };
       var insertData = function(err, collection) {
           collection.insert(data);
       }

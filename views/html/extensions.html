@@ -150,7 +150,7 @@
                 <div class="form-group">
                     <label class="sr-only" for="OUT Date">OUT Date</label>
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Out Date" name="out_date" id="time-holder">
+                      <input type="text" class="form-control" placeholder="Out Date" name="out_date" id="out_date">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
                       </span>
@@ -174,9 +174,7 @@
         <!-- JS: Date picker for ADD FORM -->
         <script type="text/javascript">
         (function($) {
-                $('#time').on('click', function(event) {
-                  var time = new Date();
-                  $('#time-holder').val(time.toDateString());
+                $('#out_date').val(time.toDateString());
                 });
 
             })(jQuery);

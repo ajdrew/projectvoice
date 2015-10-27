@@ -5,17 +5,17 @@ module.exports = function(app) {
   var Server = require('mongodb').Server;
 
   // Main navigation page
-  app.get('/extensions', function(req, res){
+  app.get('/lms', function(req, res){
 
       var listData = function(err, collection) {
           collection.find().toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('lms.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
+          Client.collection('lms', listData);
           //Client.close();
       });
 

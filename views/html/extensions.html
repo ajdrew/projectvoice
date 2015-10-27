@@ -9,6 +9,7 @@
 
     <!-- CSS Styles -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/datepicker.css" rel="stylesheet">
 
     <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
@@ -53,6 +54,7 @@
     <script src="/assets/js/bootstrap-collapse.js"></script>
     <script src="/assets/js/bootstrap-carousel.js"></script>
     <script src="/assets/js/bootstrap-typeahead.js"></script>
+    <script src="/assets/js/bootstrap-datepicker.js"></script>
     <!-- END - Javascript Includes -->
 
   </head>
@@ -148,6 +150,11 @@
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                   </select>
+                </div>
+                <div class="form-group input-append date" id="dp3" data-date="10-26-2015" data-date-format="dd-mm-yyyy">
+                  <label class="sr-only" for="OUT Date">OUT Date</label>
+                  <input type="text" class="form-control span2" placeholder="Out Date" value="10-26-2015" name="out_date">
+                  <span class="add-on"><i class="icon-th"></i></span>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>

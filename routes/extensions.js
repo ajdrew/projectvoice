@@ -218,8 +218,10 @@ module.exports = function(app) {
 
   app.get('/extensions/filter/open', function(req, res){
 
+      var options = {"limit":1, "sort": "out_date"}
+
       var listData = function(err, collection) {
-          collection.find({whole_name:"OPEN"}).toArray(function(err, results) {
+          collection.find({whole_name:"OPEN"}, options).toArray(function(err, results) {
               res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }

@@ -44,10 +44,9 @@
     <!-- JS: Date picker for ADD FORM -->
     <script type="text/javascript">
     (function($) {
-
-            $('#time').click(function(){
-                      var time = new Date();
-                      $('#time-holder').val(time.toDateString());
+            $('#time').on('click', function(event) {
+              var time = new Date();
+              $('#time-holder').val(time.toDateString());
             });
 
         })(jQuery);

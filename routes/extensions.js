@@ -79,7 +79,7 @@ module.exports = function(app) {
 
       var ObjectID = require('mongodb').ObjectID;
 
-      var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did };
+      var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did, 'out_date' : req.body.out_date};
       var updateData = function(err, collection) {
           var chosenId = new ObjectID(req.body.id);
           collection.update({"_id": chosenId}, {$set: data });

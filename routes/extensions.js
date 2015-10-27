@@ -222,7 +222,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({whole_name:"OPEN"}, options).toArray(function(err, results) {
-              res.render('extensions-edit.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 

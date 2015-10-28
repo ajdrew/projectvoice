@@ -21,7 +21,7 @@ module.exports = function(app) {
 
   })
 
-  // DB - CRUD
+  // DB - CRUD - TYPE
   app.post('/lms/admin/type/save', function(req, res){
       console.log(req.body);
       var data = {'lmsadmintype' : req.body.lmsadmintype };
@@ -53,21 +53,38 @@ module.exports = function(app) {
       res.redirect('/lms/admin');
   });
 
-  // DB - SEARCH
-  app.post('/extensions/search', function(req, res){
+  // DB - CRUD - TYPE
+  app.post('/lms/admin/access/save', function(req, res){
       console.log(req.body);
-      var search = req.body.search;
-      //console.log(echo $search);
-      //var search = 'MX';
-      var listData = function(err, collection) {
-          collection.find({$or:[{extension: new RegExp(search)},{whole_name: new RegExp(search)}]}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
+      var data = {'lmsadminaccess' : req.body.lmsadminaccess };
+      var insertData = function(err, collection) {
+          collection.insert(data);
       }
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-        });
+          Client.collection('lmsadminaccess', insertData);
+          Client.close();
+      });
+
+      res.redirect('/lms/admin');
   });
+
+  app.get('/lms/admin/access/delete/:id', function(req, res){
+      var ObjectID = require('mongodb').ObjectID;
+
+      var removeData = function(err, collection) {
+          var chosenId = new ObjectID(req.params.id);
+          collection.remove({'_id' : chosenId});
+      }
+
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('lmsadminaccess', removeData);
+          //Client.close();
+      });
+      res.redirect('/lms/admin');
+  });
+
+
+
 }

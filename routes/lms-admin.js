@@ -15,14 +15,14 @@ module.exports = function(app) {
 
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('lmsadmin-type', listData);
+          Client.collection('lmsadmintype', listData);
           //Client.close();
       });
 
   })
 
   // DB - CRUD
-  app.post('/lms-admin-type/save', function(req, res){
+  app.post('/lms/admin/type/save', function(req, res){
       console.log(req.body);
       var data = {'lmsadmintype' : req.body.lmsadmintype };
       var insertData = function(err, collection) {
@@ -30,14 +30,14 @@ module.exports = function(app) {
       }
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('lmsadmin-type', insertData);
+          Client.collection('lmsadmintype', insertData);
           Client.close();
       });
 
       res.redirect('/lms/admin');
   });
 
-  app.get('/extensions/edit/:id', function(req, res){
+  app.get('/lms/admin/type/edit/:id', function(req, res){
 
       var ObjectID = require('mongodb').ObjectID;
 
@@ -52,13 +52,13 @@ module.exports = function(app) {
 
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
+          Client.collection('lmsadmintype', listData);
           //Client.close();
       });
 
   });
 
-  app.post('/extensions/update', function(req, res){
+  app.post('/lms/admin/type/update', function(req, res){
       console.log(req.body);
 
       var ObjectID = require('mongodb').ObjectID;
@@ -70,14 +70,14 @@ module.exports = function(app) {
       }
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('extensions', updateData);
+          Client.collection('lmsadmintype', updateData);
           Client.close();
       });
 
-      res.redirect('extensions');
+      res.redirect('/lsm/admin');
   });
 
-  app.get('/extensions/delete/:id', function(req, res){
+  app.get('/lms/admin/type/delete/:id', function(req, res){
       var ObjectID = require('mongodb').ObjectID;
 
       var removeData = function(err, collection) {
@@ -87,116 +87,10 @@ module.exports = function(app) {
 
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('extensions', removeData);
+          Client.collection('lmsadmintype', removeData);
           //Client.close();
       });
-      res.redirect('extensions');
-  });
-
-  // DB - FILTERS
-  app.get('/extensions/filter/ad', function(req, res){
-
-    var listData = function(err, collection) {
-        collection.find({place:"AD"}).toArray(function(err, results) {
-            res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-        });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-        Client.collection('extensions', listData);
-        //Client.close();
-      });
-    });
-
-  app.get('/extensions/filter/bp', function(req, res){
-
-      var listData = function(err, collection) {
-          collection.find({place:"BP"}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
-
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-        });
-  });
-
-  app.get('/extensions/filter/br', function(req, res){
-
-      var listData = function(err, collection) {
-          collection.find({place:"BR"}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
-
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-        });
-  });
-
-  app.get('/extensions/filter/ca', function(req, res){
-
-      var listData = function(err, collection) {
-          collection.find({place:"CA"}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
-
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-        });
-  });
-
-  app.get('/extensions/filter/co', function(req, res){
-
-      var listData = function(err, collection) {
-          collection.find({place:"CO"}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
-
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-        });
-  });
-
-  app.get('/extensions/filter/cr', function(req, res){
-
-      var listData = function(err, collection) {
-          collection.find({place:"CR"}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
-
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-        });
-  });
-
-  app.get('/extensions/filter/mx', function(req, res){
-
-      var listData = function(err, collection) {
-          collection.find({place:"MX"}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
-
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-        });
+      res.redirect('/lms/admin');
   });
 
   // DB - SEARCH

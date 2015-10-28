@@ -77,11 +77,11 @@
       <div class="row"> <!-- ROW 2 (FULL LENGTH) -->
 
       <!-- POD-TYPE -->
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="well well-sm">
-            <p align="center"><h3>LMS Data Types</h3></p>
-            <p align="center">Manage the data types for the LMS.</p>
-            <form class="form-inline" method="post" action="/lms-admin-type/save">
+            <p><h3>LMS - Types</h3></p>
+            <p>Manage equipment types for the LMS.</p>
+            <form class="form-inline" method="post" action="/lms/admin/type/save">
               <div class="form-group">
                 <label class="sr-only" for="lmsadmintype">Type</label>
                 <input type="text" class="form-control" placeholder="Type" name="lmsadmintype">
@@ -101,8 +101,8 @@
                     <tr>
                         <td>{{this.lmsadmintype}}</td>
                         <td>
-                            <a href="/extensions/edit/{{this._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                            <a href="/extensions/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
+                            <a href="/lms/admin/type/edit/{{this._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                            <a href="/lms/admin/type/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
                         </td>
                     </tr>
                     {{/each}}

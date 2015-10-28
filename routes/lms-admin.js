@@ -24,7 +24,7 @@ module.exports = function(app) {
   // DB - CRUD
   app.post('/lms-admin-type/save', function(req, res){
       console.log(req.body);
-      var data = {'lmsadmin-type' : req.body.lmsadmin-type };
+      var data = {'lmsadmintype' : req.body.lmsadmintype };
       var insertData = function(err, collection) {
           collection.insert(data);
       }

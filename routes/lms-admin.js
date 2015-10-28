@@ -7,9 +7,13 @@ module.exports = function(app) {
   // Main navigation page
   app.get('/lms/admin', function(req, res){
 
+    var type = null;
+    var access = null;
+
         var listData = function(err, collection) {
             collection.find().toArray(function(err, results) {
-                res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+                if (err) throw err;
+                type = results;
             });
         }
 
@@ -18,6 +22,12 @@ module.exports = function(app) {
           Client.collection('lmsadmintype', listData);
           //Client.close();
       });
+
+      function complete() {
+        if (type !== null) {
+          res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type });
+        }
+      }
 
   })
 

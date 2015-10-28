@@ -24,13 +24,13 @@ module.exports = function(app) {
   // DB - CRUD
   app.post('/lms-admin-type/save', function(req, res){
       console.log(req.body);
-      var data = {'lms-admin-type' : req.body.lms-admin-type };
+      var data = {'lmsadmin-type' : req.body.lmsadmin-type };
       var insertData = function(err, collection) {
           collection.insert(data);
       }
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('lms-admin-type', insertData);
+          Client.collection('lmsadmin-type', insertData);
           Client.close();
       });
 

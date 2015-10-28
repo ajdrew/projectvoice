@@ -66,8 +66,11 @@ app.get('/', function(req, res){
 // INCLUDE - Extensions DB app routes
 var routingextensions = require('./routes/extensions.js')(app);
 
-// INCLUDE - Extensions DB app routes
+// INCLUDE - LMS DB app routes
 var routingextensions = require('./routes/lms.js')(app);
+
+// INCLUDE - LMS-admin DB app routes
+var routingextensions = require('./routes/lms-admin.js')(app);
 
 
 

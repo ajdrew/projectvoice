@@ -78,7 +78,7 @@ module.exports = function(app) {
       res.redirect('/lms/admin');
   });
 
-  // DB - CRUD - TYPE
+  // DB - CRUD - ACCESS
   app.post('/lms/admin/access/save', function(req, res){
       console.log(req.body);
       var data = {'lmsadminaccess' : req.body.lmsadminaccess };

@@ -118,8 +118,8 @@
             <p>Manage access types for the LMS.</p>
             <form class="form-inline" method="post" action="/lms/admin/access/save">
               <div class="form-group">
-                <label class="sr-only" for="lmsadminaccess">Type</label>
-                <input type="text" class="form-control" placeholder="Type" name="lmsadminaccess">
+                <label class="sr-only" for="lmsadminaccess">Access</label>
+                <input type="text" class="form-control" placeholder="Access" name="lmsadminaccess">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -132,7 +132,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each results2}}
+                    {{#each Access}}
                     <tr>
                         <td>{{this.lmsadminaccess}}</td>
                         <td>

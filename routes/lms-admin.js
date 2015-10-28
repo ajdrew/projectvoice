@@ -24,9 +24,23 @@ module.exports = function(app) {
           //Client.close();
       });
 
+      var listDataAccess = function(err, collection) {
+          collection.find().toArray(function(err, results) {
+              if (err) throw err;
+              access = results;
+              complete();
+          });
+      }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+        Client.collection('lmsadminaccess', listDataAccess);
+        //Client.close();
+    });
+
       function complete() {
-        if (type !== null) {
-          res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type });
+        if (type !== null && access !== null) {
+          res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type , 'Access' : access});
         }
       }
 

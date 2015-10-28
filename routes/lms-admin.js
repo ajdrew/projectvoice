@@ -14,6 +14,7 @@ module.exports = function(app) {
             collection.find().toArray(function(err, results) {
                 if (err) throw err;
                 type = results;
+                complete();
             });
         }
 

@@ -9,13 +9,23 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find().toArray(function(err, results) {
-              res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+            var listData2 = function(err, collection2) {
+              collection.find().toArray(function(err, results2) {
+                res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'results' : results , "results2" : results2 });
+              });
+            };
           });
-      }
+        }
 
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
-          Client.collection('lmsadminaccess', listData);
+          Client.collection('lmsadmintype', listData);
+          //Client.close();
+      });
+
+      var Client2 = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client2.open(function(err, pClient) {
+          Client2.collection2('lmsadminaccess', listData2);
           //Client.close();
       });
 

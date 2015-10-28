@@ -25,7 +25,7 @@ module.exports = function(app) {
       });
 
       function complete() {
-        if (type !== null && access) {
+        if (type !== null) {
           res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type });
         }
       }

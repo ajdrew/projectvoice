@@ -193,7 +193,7 @@
           </div>
       <!-- END - POD-COUNTRY -->
 
-      <!-- POD-COUNTRY -->
+      <!-- POD-LDAP -->
         <div class="col-md-2">
           <div class="well well-sm">
             <p><h3>LMS - LDAP</h3></p>
@@ -230,7 +230,46 @@
             </table>
             </div>
           </div>
-      <!-- END - POD-COUNTRY -->
+      <!-- END - POD-LDAP -->
+
+      <!-- POD-CONTRACT -->
+        <div class="col-md-2">
+          <div class="well well-sm">
+            <p><h3>LMS - Contract</h3></p>
+            <p>Manage contracts.</p>
+            <form class="form-inline" method="post" action="/lms/admin/contract/save">
+              <div class="form-group">
+                <div class="input-group">
+                  <label class="sr-only" for="lmsadmincontract">Country</label>
+                  <input type="text" class="form-control" placeholder="Contract" name="lmsadmincontract">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </span>
+              </div>
+            </div>
+            </form>
+            <span>&nbsp;</span>
+            <table class="table table-striped table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>LDAP</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Contract}}
+                    <tr>
+                        <td>{{this.lmsadmincontract}}</td>
+                        <td>
+                            <a href="/lms/admin/contract/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            </div>
+          </div>
+      <!-- END - POD-CONTRACT -->
 
 
     </div>

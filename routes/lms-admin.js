@@ -11,6 +11,7 @@ module.exports = function(app) {
     var access = null;
     var country = null;
     var ldap = null;
+    var contract = null;
 
     var optionstype = {"sort": "lmsadminaccess"}
     var optionsaccess = {"sort": "lmsadminaccess"}
@@ -48,18 +49,27 @@ module.exports = function(app) {
               });
             }
 
+            var listDataContract = function(err, collection) {
+              collection.find().toArray(function(err, results) {
+                if (err) throw err;
+                  contract = results;
+                  complete();
+                });
+              }
+
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
           Client.collection('lmsadmintype', listDataType);
           Client.collection('lmsadminaccess', listDataAccess);
           Client.collection('lmsadmincountry', listDataCountry);
           Client.collection('lmsadminldap', listDataLdap);
+          Client.collection('lmsadmincontract', listDataLdap);
           //Client.close();
       });
 
       function complete() {
-        if (type !== null && access !== null && country !== null && ldap !== null) {
-          res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type, 'Access' : access , 'Country' : country , 'Ldap' : ldap});
+        if (type !== null && access !== null && country !== null && ldap !== null && contract !== null) {
+          res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type, 'Access' : access , 'Country' : country , 'Ldap' : ldap , 'Contract' : contract});
         }
       }
 
@@ -192,6 +202,39 @@ module.exports = function(app) {
       });
       res.redirect('/lms/admin');
   });
+
+  // DB - CRUD - CONTRACT
+  app.post('/lms/admin/contract/save', function(req, res){
+      console.log(req.body);
+      var data = {'lmsadmincontract' : req.body.lmsadmincontract };
+      var insertData = function(err, collection) {
+          collection.insert(data);
+      }
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('lmsadmincontract', insertData);
+          Client.close();
+      });
+
+      res.redirect('/lms/admin');
+  });
+
+  app.get('/lms/admin/contract/delete/:id', function(req, res){
+      var ObjectID = require('mongodb').ObjectID;
+
+      var removeData = function(err, collection) {
+          var chosenId = new ObjectID(req.params.id);
+          collection.remove({'_id' : chosenId});
+      }
+
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('lmsadmincontract', removeData);
+          //Client.close();
+      });
+      res.redirect('/lms/admin');
+  });
+
 
 
 

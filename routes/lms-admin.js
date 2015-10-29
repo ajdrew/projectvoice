@@ -105,6 +105,39 @@ module.exports = function(app) {
       res.redirect('/lms/admin');
   });
 
+  // DB - CRUD - Country
+  app.post('/lms/admin/country/save', function(req, res){
+      console.log(req.body);
+      var data = {'lmsadmincountry' : req.body.lmsadmincountry };
+      var insertData = function(err, collection) {
+          collection.insert(data);
+      }
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('lmsadmincountry', insertData);
+          Client.close();
+      });
+
+      res.redirect('/lms/admin');
+  });
+
+  app.get('/lms/admin/country/delete/:id', function(req, res){
+      var ObjectID = require('mongodb').ObjectID;
+
+      var removeData = function(err, collection) {
+          var chosenId = new ObjectID(req.params.id);
+          collection.remove({'_id' : chosenId});
+      }
+
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('lmsadmincountry', removeData);
+          Client.close();
+      });
+      res.redirect('/lms/admin');
+  });
+
+
 
 
 }

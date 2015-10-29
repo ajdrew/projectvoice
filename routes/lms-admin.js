@@ -11,10 +11,12 @@ module.exports = function(app) {
     var access = null;
     var country = null;
 
+    var optionstype = {"sort": "lmsadminaccess"}
     var optionsaccess = {"sort": "lmsadminaccess"}
+    var optionscountry = {"sort": "lmsadmincountry"}
 
     var listDataType = function(err, collection) {
-      collection.find().toArray(function(err, results) {
+      collection.find({}, optionstype).toArray(function(err, results) {
         if (err) throw err;
           type = results;
           complete();
@@ -30,7 +32,7 @@ module.exports = function(app) {
         }
 
         var listDataCountry = function(err, collection) {
-          collection.find().toArray(function(err, results) {
+          collection.find({}, optionscountry).toArray(function(err, results) {
             if (err) throw err;
               country = results;
               complete();

@@ -11,6 +11,8 @@ module.exports = function(app) {
     var access = null;
     var country = null;
 
+    var options = {"sort": "lmsadminaccess"}
+
     var listDataType = function(err, collection) {
       collection.find().toArray(function(err, results) {
         if (err) throw err;
@@ -20,7 +22,7 @@ module.exports = function(app) {
       }
 
       var listDataAccess = function(err, collection) {
-        collection.find().toArray(function(err, results) {
+        collection.find({}, options).toArray(function(err, results) {
           if (err) throw err;
             access = results;
             complete();

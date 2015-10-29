@@ -68,7 +68,7 @@ module.exports = function(app) {
     }
 
     var listDataUcschassis = function(err, collection) {
-      collection.find().toArray(function(err, results) {
+      collection.find({}, optionsucschassis).toArray(function(err, results) {
         if (err) throw err;
         ucschassis = results;
         complete();

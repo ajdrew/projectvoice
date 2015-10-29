@@ -9,6 +9,7 @@ module.exports = function(app) {
 
     var type = null;
     var access = null;
+    var country = null;
 
     var listDataType = function(err, collection) {
       collection.find().toArray(function(err, results) {
@@ -26,16 +27,25 @@ module.exports = function(app) {
           });
         }
 
+        var listDataCountry = function(err, collection) {
+          collection.find().toArray(function(err, results) {
+            if (err) throw err;
+              country = results;
+              complete();
+            });
+          }
+
       var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
       Client.open(function(err, pClient) {
           Client.collection('lmsadmintype', listDataType);
           Client.collection('lmsadminaccess', listDataAccess);
+          Client.collection('lmsadmincountry', listDataCountry);
           //Client.close();
       });
 
       function complete() {
-        if (type !== null && access !== null) {
-          res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type, 'Access' : access});
+        if (type !== null && access !== null && country !== null) {
+          res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type, 'Access' : access , 'Country' : country});
         }
       }
 

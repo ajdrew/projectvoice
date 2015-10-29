@@ -334,7 +334,7 @@ module.exports = function(app) {
   });
 
   // DB - CRUD - VSPHERE
-  app.post('/lms/admin/vshpere/save', function(req, res) {
+  app.post('/lms/admin/vsphere/save', function(req, res) {
     console.log(req.body);
     var data = {
       'lmsadminvsphere': req.body.lmsadminvsphere

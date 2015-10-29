@@ -63,7 +63,7 @@ module.exports = function(app) {
           Client.collection('lmsadminaccess', listDataAccess);
           Client.collection('lmsadmincountry', listDataCountry);
           Client.collection('lmsadminldap', listDataLdap);
-          Client.collection('lmsadmincontract', listDataLdap);
+          Client.collection('lmsadmincontract', listDataContract);
           //Client.close();
       });
 

@@ -58,7 +58,7 @@ module.exports = function(app) {
       });
 
       function complete() {
-        if (type !== null && access !== null && country !== null && ldap) {
+        if (type !== null && access !== null && country !== null && ldap !== null) {
           res.render('lms-admin.html', { layout : false , 'title' : 'Amway.voice', 'Type' : type, 'Access' : access , 'Country' : country , 'Ldap' : ldap});
         }
       }

@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- CSS Styles -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+  <!-- CSS Styles -->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+  <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Favicon and Touch Icons -->
-    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+  <!-- Favicon and Touch Icons -->
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico">
 
-    <!-- CSS: Show/Hide add Divs-->
-    <style>
+  <!-- CSS: Show/Hide add Divs-->
+  <style>
     div[id^=toggle-add] {
-      display:none;
+      display: none;
     }
-    </style>
+  </style>
 
-    <!-- JS: Show/Hide add Divs -->
-    <script language="JavaScript" type="text/javascript">
+  <!-- JS: Show/Hide add Divs -->
+  <script language="JavaScript" type="text/javascript">
     function toggle(id) {
       var state = document.getElementById(id).style.display;
       if (state == 'block') {
@@ -37,239 +38,296 @@
         document.getElementById(id).style.display = 'block';
       }
     }
-    </script>
+  </script>
 
-    <!-- Javascript Includes -->
-    <script src="/assets/js/jquery.js"></script>
-    <script src="/assets/js/bootstrap-transition.js"></script>
-    <script src="/assets/js/bootstrap-alert.js"></script>
-    <script src="/assets/js/bootstrap-modal.js"></script>
-    <script src="/assets/js/bootstrap-dropdown.js"></script>
-    <script src="/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="/assets/js/bootstrap-tab.js"></script>
-    <script src="/assets/js/bootstrap-tooltip.js"></script>
-    <script src="/assets/js/bootstrap-popover.js"></script>
-    <script src="/assets/js/bootstrap-button.js"></script>
-    <script src="/assets/js/bootstrap-collapse.js"></script>
-    <script src="/assets/js/bootstrap-carousel.js"></script>
-    <script src="/assets/js/bootstrap-typeahead.js"></script>
-    <!-- END - Javascript Includes -->
+  <!-- Javascript Includes -->
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/bootstrap-transition.js"></script>
+  <script src="/assets/js/bootstrap-alert.js"></script>
+  <script src="/assets/js/bootstrap-modal.js"></script>
+  <script src="/assets/js/bootstrap-dropdown.js"></script>
+  <script src="/assets/js/bootstrap-scrollspy.js"></script>
+  <script src="/assets/js/bootstrap-tab.js"></script>
+  <script src="/assets/js/bootstrap-tooltip.js"></script>
+  <script src="/assets/js/bootstrap-popover.js"></script>
+  <script src="/assets/js/bootstrap-button.js"></script>
+  <script src="/assets/js/bootstrap-collapse.js"></script>
+  <script src="/assets/js/bootstrap-carousel.js"></script>
+  <script src="/assets/js/bootstrap-typeahead.js"></script>
+  <!-- END - Javascript Includes -->
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <nav class="navbar navbar-default"><!--Navigation Bar -->
-        <div class="container-fluid"> <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
-        </div>
+  <nav class="navbar navbar-default">
+    <!--Navigation Bar -->
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
       </div>
-    </nav><!-- END - Navigation Bar -->
+    </div>
+  </nav>
+  <!-- END - Navigation Bar -->
 
-    <div class="container-fluid"> <!-- GRID SYSTEM -->
-      <div class="row"> <!-- ROW 2 (FULL LENGTH) -->
+  <div class="container-fluid">
+    <!-- GRID SYSTEM -->
+    <div class="row">
+      <!-- ROW 2 (FULL LENGTH) -->
 
       <!-- POD-TYPE -->
-        <div class="col-md-2">
-          <div class="well well-sm">
-            <p><h3>LMS - Types</h3></p>
-            <p>Manage equipment types.</p>
-            <form class="form-inline" method="post" action="/lms/admin/type/save">
-              <div class="form-group">
-                <div class="input-group">
-                  <label class="sr-only" for="lmsadmintype">Type</label>
-                  <input type="text" class="form-control" placeholder="Type" name="lmsadmintype">
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </span>
-                </div>
+      <div class="col-md-2">
+        <div class="well well-sm">
+          <p>
+            <h3>LMS - Types</h3>
+          </p>
+          <p>Manage equipment types.</p>
+          <form class="form-inline" method="post" action="/lms/admin/type/save">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="sr-only" for="lmsadmintype">Type</label>
+                <input type="text" class="form-control" placeholder="Type" name="lmsadmintype">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </span>
               </div>
-            </form>
-            <span>&nbsp;</span>
-            <table class="table table-striped table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each Type}}
-                    <tr>
-                        <td>{{this.lmsadmintype}}</td>
-                        <td>
-                            <a href="/lms/admin/type/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
             </div>
-          </div>
+          </form>
+          <span>&nbsp;</span>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each Type}}
+              <tr>
+                <td>{{this.lmsadmintype}}</td>
+                <td>
+                  <a href="/lms/admin/type/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
       <!-- END - POD-TYPE -->
 
       <!-- POD-ACCESS -->
-        <div class="col-md-2">
-          <div class="well well-sm">
-            <p><h3>LMS - Access</h3></p>
-            <p>Manage access types.</p>
-            <form class="form-inline" method="post" action="/lms/admin/access/save">
-              <div class="form-group">
-                <div class="input-group">
-                  <label class="sr-only" for="lmsadminaccess">Access</label>
-                  <input type="text" class="form-control" placeholder="Access" name="lmsadminaccess">
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </span>
+      <div class="col-md-2">
+        <div class="well well-sm">
+          <p>
+            <h3>LMS - Access</h3>
+          </p>
+          <p>Manage access types.</p>
+          <form class="form-inline" method="post" action="/lms/admin/access/save">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="sr-only" for="lmsadminaccess">Access</label>
+                <input type="text" class="form-control" placeholder="Access" name="lmsadminaccess">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </span>
               </div>
             </div>
-            </form>
-            <span>&nbsp;</span>
-            <table class="table table-striped table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th>Access</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each Access}}
-                    <tr>
-                        <td>{{this.lmsadminaccess}}</td>
-                        <td>
-                            <a href="/lms/admin/access/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            </div>
-          </div>
+          </form>
+          <span>&nbsp;</span>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Access</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each Access}}
+              <tr>
+                <td>{{this.lmsadminaccess}}</td>
+                <td>
+                  <a href="/lms/admin/access/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
       <!-- END - POD-ACCESS -->
 
       <!-- POD-COUNTRY -->
-        <div class="col-md-2">
-          <div class="well well-sm">
-            <p><h3>LMS - Country</h3></p>
-            <p>Manage countries.</p>
-            <form class="form-inline" method="post" action="/lms/admin/country/save">
-              <div class="form-group">
-                <div class="input-group">
-                  <label class="sr-only" for="lmsadmincountry">Country</label>
-                  <input type="text" class="form-control" placeholder="Country" name="lmsadmincountry">
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </span>
+      <div class="col-md-2">
+        <div class="well well-sm">
+          <p>
+            <h3>LMS - Country</h3>
+          </p>
+          <p>Manage countries.</p>
+          <form class="form-inline" method="post" action="/lms/admin/country/save">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="sr-only" for="lmsadmincountry">Country</label>
+                <input type="text" class="form-control" placeholder="Country" name="lmsadmincountry">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </span>
               </div>
             </div>
-            </form>
-            <span>&nbsp;</span>
-            <table class="table table-striped table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th>Country</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each Country}}
-                    <tr>
-                        <td>{{this.lmsadmincountry}}</td>
-                        <td>
-                            <a href="/lms/admin/country/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            </div>
-          </div>
+          </form>
+          <span>&nbsp;</span>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each Country}}
+              <tr>
+                <td>{{this.lmsadmincountry}}</td>
+                <td>
+                  <a href="/lms/admin/country/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
       <!-- END - POD-COUNTRY -->
 
       <!-- POD-LDAP -->
-        <div class="col-md-2">
-          <div class="well well-sm">
-            <p><h3>LMS - LDAP</h3></p>
-            <p>Manage LDAP.</p>
-            <form class="form-inline" method="post" action="/lms/admin/ldap/save">
-              <div class="form-group">
-                <div class="input-group">
-                  <label class="sr-only" for="lmsadminldap">Country</label>
-                  <input type="text" class="form-control" placeholder="LDAP" name="lmsadminldap">
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </span>
+      <div class="col-md-2">
+        <div class="well well-sm">
+          <p>
+            <h3>LMS - LDAP</h3>
+          </p>
+          <p>Manage LDAP.</p>
+          <form class="form-inline" method="post" action="/lms/admin/ldap/save">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="sr-only" for="lmsadminldap">Country</label>
+                <input type="text" class="form-control" placeholder="LDAP" name="lmsadminldap">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </span>
               </div>
             </div>
-            </form>
-            <span>&nbsp;</span>
-            <table class="table table-striped table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th>LDAP</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each Ldap}}
-                    <tr>
-                        <td>{{this.lmsadminldap}}</td>
-                        <td>
-                            <a href="/lms/admin/ldap/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            </div>
-          </div>
+          </form>
+          <span>&nbsp;</span>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>LDAP</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each Ldap}}
+              <tr>
+                <td>{{this.lmsadminldap}}</td>
+                <td>
+                  <a href="/lms/admin/ldap/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
       <!-- END - POD-LDAP -->
 
       <!-- POD-CONTRACT -->
-        <div class="col-md-2">
-          <div class="well well-sm">
-            <p><h3>LMS - Contract</h3></p>
-            <p>Manage contracts.</p>
-            <form class="form-inline" method="post" action="/lms/admin/contract/save">
-              <div class="form-group">
-                <div class="input-group">
-                  <label class="sr-only" for="lmsadmincontract">Country</label>
-                  <input type="text" class="form-control" placeholder="Contract" name="lmsadmincontract">
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </span>
+      <div class="col-md-2">
+        <div class="well well-sm">
+          <p>
+            <h3>LMS - Contract</h3>
+          </p>
+          <p>Manage contracts.</p>
+          <form class="form-inline" method="post" action="/lms/admin/contract/save">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="sr-only" for="lmsadmincontract">Country</label>
+                <input type="text" class="form-control" placeholder="Contract" name="lmsadmincontract">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </span>
               </div>
             </div>
-            </form>
-            <span>&nbsp;</span>
-            <table class="table table-striped table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th>LDAP</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each Contract}}
-                    <tr>
-                        <td>{{this.lmsadmincontract}}</td>
-                        <td>
-                            <a href="/lms/admin/contract/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            </div>
-          </div>
+          </form>
+          <span>&nbsp;</span>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>LDAP</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each Contract}}
+              <tr>
+                <td>{{this.lmsadmincontract}}</td>
+                <td>
+                  <a href="/lms/admin/contract/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
       <!-- END - POD-CONTRACT -->
+
+      <!-- POD-UCSCHASSIS -->
+      <div class="col-md-2">
+        <div class="well well-sm">
+          <p>
+            <h3>LMS - UCS Chassis</h3>
+          </p>
+          <p>Manage UCS Chassis.</p>
+          <form class="form-inline" method="post" action="/lms/admin/ucschassis/save">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="sr-only" for="lmsadminucschassis">Country</label>
+                <input type="text" class="form-control" placeholder="Contract" name="lmsadminucschassis">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </span>
+              </div>
+            </div>
+          </form>
+          <span>&nbsp;</span>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>UCS Chassis</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each Ucschassis}}
+              <tr>
+                <td>{{this.lmsadminucschassis}}</td>
+                <td>
+                  <a href="/lms/admin/ucschassis/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- END - POD-UCSCHASSIS -->
 
 
     </div>
@@ -281,13 +339,17 @@
 
 
 
-          <hr>
+  <hr>
 
-          <footer> <!-- Footer -->
-            <p>Amway.voice - Testing platform</p>
-          </footer> <!-- END - Footer -->
+  <footer>
+    <!-- Footer -->
+    <p>Amway.voice - Testing platform</p>
+  </footer>
+  <!-- END - Footer -->
 
-        </div> <!-- END - GRID SYSTEM -->
+  </div>
+  <!-- END - GRID SYSTEM -->
 
-      </body>
-    </html>
+</body>
+
+</html>

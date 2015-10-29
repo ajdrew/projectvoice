@@ -122,10 +122,14 @@
             <p>Manage access types for the LMS.</p>
             <form class="form-inline" method="post" action="/lms/admin/access/save">
               <div class="form-group">
-                <label class="sr-only" for="lmsadminaccess">Access</label>
-                <input type="text" class="form-control" placeholder="Access" name="lmsadminaccess">
+                <div class="input-group">
+                  <label class="sr-only" for="lmsadminaccess">Access</label>
+                  <input type="text" class="form-control" placeholder="Access" name="lmsadminaccess">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </span>
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
             </form>
             <span>&nbsp;</span>
             <table class="table table-striped table-bordered table-condensed">

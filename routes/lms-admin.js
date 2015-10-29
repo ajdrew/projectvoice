@@ -83,7 +83,7 @@ module.exports = function(app) {
       Client.collection('lmsadminldap', listDataLdap);
       Client.collection('lmsadmincontract', listDataContract);
       Client.collection('lmsadminucschassis', listDataUcschassis);
-      Client.close();
+      //Client.close();
     });
 
     function complete() {

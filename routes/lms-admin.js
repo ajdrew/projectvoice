@@ -10,7 +10,6 @@ module.exports = function(app) {
     var type = null;
     var access = null;
     var country = null;
-    var ldap = null;
     var contract = null;
     var ucschassis = null;
     var vsphere = null;
@@ -55,14 +54,6 @@ module.exports = function(app) {
       });
     }
 
-    var listDataLdap = function(err, collection) {
-      collection.find().toArray(function(err, results) {
-        if (err) throw err;
-        ldap = results;
-        complete();
-      });
-    }
-
     var listDataContract = function(err, collection) {
       collection.find().toArray(function(err, results) {
         if (err) throw err;
@@ -92,7 +83,6 @@ module.exports = function(app) {
       Client.collection('lmsadmintype', listDataType);
       Client.collection('lmsadminaccess', listDataAccess);
       Client.collection('lmsadmincountry', listDataCountry);
-      Client.collection('lmsadminldap', listDataLdap);
       Client.collection('lmsadmincontract', listDataContract);
       Client.collection('lmsadminucschassis', listDataUcschassis);
       Client.collection('lmsadminvsphere', listDataVsphere);
@@ -100,14 +90,13 @@ module.exports = function(app) {
     });
 
     function complete() {
-      if (type !== null && access !== null && country !== null && ldap !== null && contract !== null && ucschassis !== null && vsphere !== null) {
+      if (type !== null && access !== null && country !== null && contract !== null && ucschassis !== null && vsphere !== null) {
         res.render('lms-admin.html', {
           layout: false,
           'title': 'Amway.voice',
           'Type': type,
           'Access': access,
           'Country': country,
-          'Ldap': ldap,
           'Contract': contract,
           'Ucschassis': ucschassis,
           'Vsphere': vsphere
@@ -221,42 +210,6 @@ module.exports = function(app) {
     Client.open(function(err, pClient) {
       Client.collection('lmsadmincountry', removeData);
       Client.close();
-    });
-    res.redirect('/lms/admin');
-  });
-
-  // DB - CRUD - LDAP
-  app.post('/lms/admin/ldap/save', function(req, res) {
-    console.log(req.body);
-    var data = {
-      'lmsadminldap': req.body.lmsadminldap
-    };
-    var insertData = function(err, collection) {
-      collection.insert(data);
-    }
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('lmsadminldap', insertData);
-      Client.close();
-    });
-
-    res.redirect('/lms/admin');
-  });
-
-  app.get('/lms/admin/ldap/delete/:id', function(req, res) {
-    var ObjectID = require('mongodb').ObjectID;
-
-    var removeData = function(err, collection) {
-      var chosenId = new ObjectID(req.params.id);
-      collection.remove({
-        '_id': chosenId
-      });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('lmsadminldap', removeData);
-      //Client.close();
     });
     res.redirect('/lms/admin');
   });

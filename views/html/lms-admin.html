@@ -327,7 +327,48 @@
           </table>
         </div>
       </div>
-      <!-- END - POD-UCSCHASSIS -->
+      <!-- END - POD-VSPHERE -->
+
+      <!-- POD-VSPHERE -->
+      <div class="col-md-2">
+        <div class="well well-sm">
+          <p>
+            <h3>LMS - ELM</h3>
+          </p>
+          <p>Manage ELM.</p>
+          <form class="form-inline" method="post" action="/lms/admin/elm/save">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="sr-only" for="lmsadminelm">vSphere</label>
+                <input type="text" class="form-control" placeholder="ELM" name="lmsadminelm">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </span>
+              </div>
+            </div>
+          </form>
+          <span>&nbsp;</span>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>ELM</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each Elm}}
+              <tr>
+                <td>{{this.lmsadminelm}}</td>
+                <td>
+                  <a href="/lms/admin/elm/delete/{{this._id}}" class="btn btn-danger" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- END - POD-ELM -->
 
 
     </div>

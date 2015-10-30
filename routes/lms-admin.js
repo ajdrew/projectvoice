@@ -13,6 +13,7 @@ module.exports = function(app) {
     var contract = null;
     var ucschassis = null;
     var vsphere = null;
+    var elm = null;
 
     var optionstype = {
       "sort": "lmsadminaccess"
@@ -28,6 +29,9 @@ module.exports = function(app) {
     }
     var optionsvsphere = {
       "sort": "lmsadminvsphere"
+    }
+    var optionselm = {
+      "sort": "lmsadminelm"
     }
 
     var listDataType = function(err, collection) {
@@ -78,6 +82,14 @@ module.exports = function(app) {
       });
     }
 
+    var listDataElm = function(err, collection) {
+      collection.find({}, optionselm).toArray(function(err, results) {
+        if (err) throw err;
+        vsphere = results;
+        complete();
+      });
+    }
+
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('lmsadmintype', listDataType);
@@ -86,11 +98,11 @@ module.exports = function(app) {
       Client.collection('lmsadmincontract', listDataContract);
       Client.collection('lmsadminucschassis', listDataUcschassis);
       Client.collection('lmsadminvsphere', listDataVsphere);
-      //Client.close();
+      Client.collection('lmsadminelm', listDataElm);
     });
 
     function complete() {
-      if (type !== null && access !== null && country !== null && contract !== null && ucschassis !== null && vsphere !== null) {
+      if (type !== null && access !== null && country !== null && contract !== null && ucschassis !== null && vsphere !== null && elm !== null) {
         res.render('lms-admin.html', {
           layout: false,
           'title': 'Amway.voice',
@@ -99,7 +111,8 @@ module.exports = function(app) {
           'Country': country,
           'Contract': contract,
           'Ucschassis': ucschassis,
-          'Vsphere': vsphere
+          'Vsphere': vsphere,
+          'Elm': elm
         });
       }
     }
@@ -321,6 +334,43 @@ module.exports = function(app) {
     });
     res.redirect('/lms/admin');
   });
+
+  // DB - CRUD - VSPHERE
+  app.post('/lms/admin/elm/save', function(req, res) {
+    console.log(req.body);
+    var data = {
+      'lmsadminelm': req.body.lmsadminelm
+    };
+    var insertData = function(err, collection) {
+      collection.insert(data);
+    }
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lmsadminelm', insertData);
+      Client.close();
+    });
+
+    res.redirect('/lms/admin');
+  });
+
+  app.get('/lms/admin/elm/delete/:id', function(req, res) {
+    var ObjectID = require('mongodb').ObjectID;
+
+    var removeData = function(err, collection) {
+      var chosenId = new ObjectID(req.params.id);
+      collection.remove({
+        '_id': chosenId
+      });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lmsadminelm', removeData);
+      //Client.close();
+    });
+    res.redirect('/lms/admin');
+  });
+
 
 
 

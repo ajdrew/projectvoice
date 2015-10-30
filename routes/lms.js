@@ -21,20 +21,118 @@ module.exports = function(app) {
 
   })
 
-  app.get('/extensions/show', function(req, res){
+  app.get('/lms/add', function(req, res){
 
-      var listData = function(err, collection) {
-          collection.find().toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
 
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('lms', listData);
-          //Client.close();
+    var type = null;
+    var access = null;
+    var country = null;
+    var contract = null;
+    var ucschassis = null;
+    var vsphere = null;
+    var elm = null;
+
+    var optionstype = {
+      "sort": "lmsadminaccess"
+    }
+    var optionsaccess = {
+      "sort": "lmsadminaccess"
+    }
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
+    var optionsucschassis = {
+      "sort": "lmsadminucschassis"
+    }
+    var optionsvsphere = {
+      "sort": "lmsadminvsphere"
+    }
+    var optionselm = {
+      "sort": "lmsadminelm"
+    }
+
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
       });
+    }
 
+    var listDataAccess = function(err, collection) {
+      collection.find({}, optionsaccess).toArray(function(err, results) {
+        if (err) throw err;
+        access = results;
+        complete();
+      });
+    }
+
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
+      });
+    }
+
+    var listDataContract = function(err, collection) {
+      collection.find().toArray(function(err, results) {
+        if (err) throw err;
+        contract = results;
+        complete();
+      });
+    }
+
+    var listDataUcschassis = function(err, collection) {
+      collection.find({}, optionsucschassis).toArray(function(err, results) {
+        if (err) throw err;
+        ucschassis = results;
+        complete();
+      });
+    }
+
+    var listDataVsphere = function(err, collection) {
+      collection.find({}, optionsvsphere).toArray(function(err, results) {
+        if (err) throw err;
+        vsphere = results;
+        complete();
+      });
+    }
+
+    var listDataElm = function(err, collection) {
+      collection.find().toArray(function(err, results) {
+        if (err) throw err;
+        elm = results;
+        complete();
+      });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lmsadmintype', listDataType);
+      Client.collection('lmsadminaccess', listDataAccess);
+      Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmincontract', listDataContract);
+      Client.collection('lmsadminucschassis', listDataUcschassis);
+      Client.collection('lmsadminvsphere', listDataVsphere);
+      Client.collection('lmsadminelm', listDataElm);
+    });
+
+    function complete() {
+      if (type !== null && access !== null && country !== null && contract !== null && ucschassis !== null && vsphere !== null && elm !== null) {
+        res.render('lms-admin.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Type': type,
+          'Access': access,
+          'Country': country,
+          'Contract': contract,
+          'Ucschassis': ucschassis,
+          'Vsphere': vsphere,
+          'Elm': elm
+        });
+      }
+    }
   })
 
   // DB - CRUD

@@ -83,9 +83,9 @@ module.exports = function(app) {
     }
 
     var listDataElm = function(err, collection) {
-      collection.find({}, optionselm).toArray(function(err, results) {
+      collection.find().toArray(function(err, results) {
         if (err) throw err;
-        vsphere = results;
+        elm = results;
         complete();
       });
     }

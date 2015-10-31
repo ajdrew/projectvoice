@@ -116,18 +116,10 @@
                 </div>
                 <div class="form-group">
                   <label for="access">Access</label>
-                  <input type="text" class="form-control" placeholder="Access" name="access">
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for="place">Location</label>
-                  <select name="place" form="extension-add" class="form-control">
-                    <option value="AD">AD</option>
-                    <option value="BP">BP</option>
-                    <option value="BR">BR</option>
-                    <option value="CA">CA</option>
-                    <option value="CO">CO</option>
-                    <option value="CR">CR</option>
-                    <option value="MX">MX</option>
+                  <select name="access" form="lms-add" class="form-control">
+                    {{#each Access}}
+                    <option value="{{this.lmsadminaccess}}">{{this.lmsadminaccess}}</option>
+                    {{/each}}
                   </select>
                 </div>
                 <div class="form-group">

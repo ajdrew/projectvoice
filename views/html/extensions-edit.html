@@ -73,7 +73,7 @@
 
       <div class="row"> <!-- ROW - EDIT FORM -->
         <div class="col-md-12">
-          <form method="post" class="form-inline" action="/extensions/update">
+          <form method="post" class="form-inline" action="/extensions/update" id="extensions-edit">
             <input type="hidden" name="id" value="{{results._id}}">
             <div class="form-group">
               <label  class="sr-only" for="extension">Extension</label>
@@ -101,7 +101,11 @@
             </div>
             <div class="form-group">
               <label class="sr-only" for="did">DID</label>
-              <input type="text" class="form-control" placeholder="DID: Yes or No" name="did" value="{{results.did}}">
+              <input class="did_group" type="hidden" value="{{results.did}}" />
+              <select name="did" form="extension-edit" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div class="form-group">
               <label class="sr-only" for="out_date">Out Date</label>
@@ -153,6 +157,12 @@
                 });
 
             })(jQuery);
+        </script>
+
+        <script type="text/javascript">
+        (function($) {
+          var group = $('input.did_group').val();
+          $('option[value="'+ group +'"]').attr('selected', 'selected');
         </script>
 
 

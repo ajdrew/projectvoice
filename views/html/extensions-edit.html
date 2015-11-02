@@ -1,126 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- CSS Styles -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+  <!-- CSS Styles -->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+  <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Favicon and Touch Icons -->
-    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
-  </head>
+  <!-- Favicon and Touch Icons -->
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+</head>
 
-  <body>
+<body>
 
-    <nav class="navbar navbar-default"><!--Navigation Bar -->
-        <div class="container-fluid"> <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
-        </div>
+  <nav class="navbar navbar-default">
+    <!--Navigation Bar -->
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
       </div>
-    </nav><!-- END - Navigation Bar -->
+    </div>
+  </nav>
+  <!-- END - Navigation Bar -->
 
-    <div class="container-fluid"> <!-- GRID SYSTEM -->
+  <div class="container-fluid">
+    <!-- GRID SYSTEM -->
 
-      <div class="row"> <!-- ROW - SEARCH -->
-        <div class="col-lg-4 col-md-offset-4">
-          <form class="form-inline" method="post" action="/extensions/search" id="extension-find">
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
-                </span>
-                <input type="text" class="form-control" placeholder="Extension ..." name="search">
-              </div><!-- /input-group -->
+    <div class="row">
+      <!-- ROW - SEARCH -->
+      <div class="col-lg-4 col-md-offset-4">
+        <form class="form-inline" method="post" action="/extensions/search" id="extension-find">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
+              </span>
+              <input type="text" class="form-control" placeholder="Extension ..." name="search">
             </div>
-          </form>
-        </div>
-      </div> <!-- END ROW - SEARCH-->
-      <p>&nbsp;</p>
+            <!-- /input-group -->
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- END ROW - SEARCH-->
+    <p>&nbsp;</p>
 
-      <div class="row"> <!-- ROW - FILTERS -->
-        <div class="col-md-6 col-md-offset-3">
-          <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
-          <a href="/extensions/filter/ad" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>AD</a>
-          <a href="/extensions/filter/bp" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BP</a>
-          <a href="/extensions/filter/br" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BR</a>
-          <a href="/extensions/filter/ca" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CA</a>
-          <a href="/extensions/filter/co" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CO</a>
-          <a href="/extensions/filter/cr" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CR</a>
-          <a href="/extensions/filter/mx" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MX</a>
-          <a href="/extensions/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
-          <a href="/extensions/filter/open" class="btn btn-warning"><i class="glyphicon glyphicon-asterisk"></i>Magic Button</a>
-        </div>
-      </div> <!-- END ROW - FILTERS -->
-      <p>&nbsp;</p>
+    <div class="row">
+      <!-- ROW - FILTERS -->
+      <div class="col-md-6 col-md-offset-3">
+        <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
+        <a href="/extensions/filter/ad" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>AD</a>
+        <a href="/extensions/filter/bp" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BP</a>
+        <a href="/extensions/filter/br" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BR</a>
+        <a href="/extensions/filter/ca" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CA</a>
+        <a href="/extensions/filter/co" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CO</a>
+        <a href="/extensions/filter/cr" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CR</a>
+        <a href="/extensions/filter/mx" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MX</a>
+        <a href="/extensions/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
+        <a href="/extensions/filter/open" class="btn btn-warning"><i class="glyphicon glyphicon-asterisk"></i>Magic Button</a>
+      </div>
+    </div>
+    <!-- END ROW - FILTERS -->
+    <p>&nbsp;</p>
 
-      <div class="row"> <!-- ROW - EDIT FORM -->
-        <div class="col-md-12">
-          <form method="post" class="form-inline" action="/extensions/update" id="extensions-edit">
-            <input type="hidden" name="id" value="{{results._id}}">
-            <div class="form-group">
-              <label  class="sr-only" for="extension">Extension</label>
-              <input type="text" class="form-control" placeholder="Extension" name="extension" value="{{results.extension}}">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for"user_id">User ID</label>
-              <input type="text" class="form-control" placeholder="User ID" name="user_id" value="{{results.user_id}}">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="whole_name">Name or Description</label>
-              <input type="text" class="form-control" placeholder="Name or Description" name="whole_name" value="{{results.whole_name}}">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="email">Email</label>
-              <input type="text" class="form-control" placeholder="email@email.com" name="email" value="{{results.email}}">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="place">Location</label>
-              <input type="text" class="form-control" placeholder="AD, BP, BR, CA, CO, CR, MX" name="place" value="{{results.place}}">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="phone_number_jabber">Phone Number - Jabber</label>
-              <input type="text" class="form-control" placeholder="+[DID] or **[site code][extension]" name="phone_number_jabber" value="{{results.phone_number_jabber}}">
-            </div>
-            <div class="form-group">
-              <label for="did">DID</label>
-              <!-- <input type="text" class="form-control" placeholder="DID" name="did" value="{{results.did}}"> -->
-              <input class="did_group" type="text" value="{{results.did}}">
-              <select name="did" form="extensions-edit" class="form-control">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="out_date">Out Date</label>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Out Date" name="out_date" value="{{results.out_date}}" id="out_date">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
+    <div class="row">
+      <!-- ROW - EDIT FORM -->
+      <div class="col-md-12">
+        <form method="post" class="form-inline" action="/extensions/update" id="extensions-edit">
+          <input type="hidden" name="id" value="{{results._id}}">
+          <div class="form-group">
+            <label class="sr-only" for="extension">Extension</label>
+            <input type="text" class="form-control" placeholder="Extension" name="extension" value="{{results.extension}}">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for "user_id">User ID</label>
+            <input type="text" class="form-control" placeholder="User ID" name="user_id" value="{{results.user_id}}">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="whole_name">Name or Description</label>
+            <input type="text" class="form-control" placeholder="Name or Description" name="whole_name" value="{{results.whole_name}}">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="email">Email</label>
+            <input type="text" class="form-control" placeholder="email@email.com" name="email" value="{{results.email}}">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="place">Location</label>
+            <input type="text" class="form-control" placeholder="AD, BP, BR, CA, CO, CR, MX" name="place" value="{{results.place}}">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="phone_number_jabber">Phone Number - Jabber</label>
+            <input type="text" class="form-control" placeholder="+[DID] or **[site code][extension]" name="phone_number_jabber" value="{{results.phone_number_jabber}}">
+          </div>
+          <div class="form-group">
+            <label for="did">DID</label>
+            <!-- <input type="text" class="form-control" placeholder="DID" name="did" value="{{results.did}}"> -->
+            <input class="did_group" type="text" value="{{results.did}}">
+            <select name="did" form="extensions-edit" class="form-control">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="out_date">Out Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Out Date" name="out_date" value="{{results.out_date}}" id="out_date">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
             </div>
           </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-        </div>
-      </div> <!-- END - ROW - EDIT FORM -->
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!-- END - ROW - EDIT FORM -->
 
     <hr>
 
@@ -130,42 +143,45 @@
     </footer>
     <!-- END - Footer -->
 
-  </div> <!-- END - GRID SYSTEM -->
+  </div>
+  <!-- END - GRID SYSTEM -->
 
-        <!-- Javascript Includes -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="/assets/js/jquery.js"></script>
-        <script src="/assets/js/bootstrap-transition.js"></script>
-        <script src="/assets/js/bootstrap-alert.js"></script>
-        <script src="/assets/js/bootstrap-modal.js"></script>
-        <script src="/assets/js/bootstrap-dropdown.js"></script>
-        <script src="/assets/js/bootstrap-scrollspy.js"></script>
-        <script src="/assets/js/bootstrap-tab.js"></script>
-        <script src="/assets/js/bootstrap-tooltip.js"></script>
-        <script src="/assets/js/bootstrap-popover.js"></script>
-        <script src="/assets/js/bootstrap-button.js"></script>
-        <script src="/assets/js/bootstrap-collapse.js"></script>
-        <script src="/assets/js/bootstrap-carousel.js"></script>
-        <script src="/assets/js/bootstrap-typeahead.js"></script>
-        <!-- END - Javascript Includes -->
+  <!-- Javascript Includes -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/bootstrap-transition.js"></script>
+  <script src="/assets/js/bootstrap-alert.js"></script>
+  <script src="/assets/js/bootstrap-modal.js"></script>
+  <script src="/assets/js/bootstrap-dropdown.js"></script>
+  <script src="/assets/js/bootstrap-scrollspy.js"></script>
+  <script src="/assets/js/bootstrap-tab.js"></script>
+  <script src="/assets/js/bootstrap-tooltip.js"></script>
+  <script src="/assets/js/bootstrap-popover.js"></script>
+  <script src="/assets/js/bootstrap-button.js"></script>
+  <script src="/assets/js/bootstrap-collapse.js"></script>
+  <script src="/assets/js/bootstrap-carousel.js"></script>
+  <script src="/assets/js/bootstrap-typeahead.js"></script>
+  <!-- END - Javascript Includes -->
 
-        <!-- JS: Date Insert Function for ADD FORM -->
-        <script type="text/javascript">
-        (function($) {
-                $('#time').on('click', function(event) {
-                  var time = new Date();
-                  $('#out_date').val(time.toISOString().substring(0, 10));
-                });
+  <!-- JS: Date Insert Function for ADD FORM -->
+  <script type="text/javascript">
+    (function($) {
+      $('#time').on('click', function(event) {
+        var time = new Date();
+        $('#out_date').val(time.toISOString().substring(0, 10));
+      });
 
-            })(jQuery);
-        </script>
+    })(jQuery);
+  </script>
 
-        <script type="text/javascript">
-        (function($) {
-          var group = $('input.did_group').val();
-          $('option[value="'+ group +'"]').attr('selected', 'selected');
-        </script>
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.did_group').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
 
 
-      </body>
-    </html>
+</body>
+
+</html>

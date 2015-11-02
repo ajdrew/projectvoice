@@ -107,7 +107,12 @@
             </div>
             <div class="form-group">
               <label class="sr-only" for="did">DID</label>
+              <input class="default_group" type="hidden" value="{{results.did}}" />
               <input type="text" class="form-control" placeholder="DID: Yes or No" name="did" value="{{results.did}}">
+              <select name="did" form="extension-add" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div class="form-group">
               <label class="sr-only" for="out_date">Out Date</label>

@@ -79,7 +79,7 @@
 
       <div class="row"> <!-- ROW - EDIT FORM -->
         <div class="col-md-12">
-          <form method="post" class="form-inline" action="/extensions/update">
+          <form method="post" class="form-inline" action="/extensions/update" id="extensions-edit">
             <input type="hidden" name="id" value="{{results._id}}">
             <div class="form-group">
               <label  class="sr-only" for="extension">Extension</label>
@@ -109,7 +109,7 @@
               <label for="did">DID</label>
               <input class="default_group" type="hidden" value="{{results.did}}">
               <!-- <input type="text" class="form-control" placeholder="DID: Yes or No" name="did" value="{{results.did}}"> -->
-              <select name="did" form="extension-add" class="form-control">
+              <select name="did" form="extensions-edit" class="form-control">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>

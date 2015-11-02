@@ -220,7 +220,7 @@
         (function($) {
                 $('#time').on('click', function(event) {
                   var time = new Date();
-                  $('#out_date').val(time.toDateString());
+                  $('#out_date').val(time.toISOString().substring(0, 10));
                 });
 
             })(jQuery);

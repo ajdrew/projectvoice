@@ -108,7 +108,6 @@
             <div class="form-group">
               <label for="did">DID</label>
               <input class="default_group" type="hidden" value="{{results.did}}">
-              <!-- <input type="text" class="form-control" placeholder="DID: Yes or No" name="did" value="{{results.did}}"> -->
               <select name="did" form="extensions-edit" class="form-control">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -167,7 +166,7 @@
     })(jQuery);
   </script>
 
-<!-- JS: Menu matchup -->
+<!-- JS: Populate a dropdown menu with correct DB value -->
   <script type="text/javascript">
   (function($) {
   var group = $('input.default_group').val();

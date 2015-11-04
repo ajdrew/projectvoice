@@ -1,5 +1,34 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+.container-fluid
+    // GRID SYSTEM
+      .row
+        // ROW 2 (FULL LENGTH)
+        // POD-Extension DB
+        a(href='extensions')
+          .col-md-3
+            .well.well-sm
+              p(align='center')
+              h3 Extension Database
+              p
+              |
+              p(align='center')
+                img(src='/assets/img/database.png', alt='Database')
+              |
+              p(align='center') Database for extension management.
+        // END - POD-Extension DB
+        // POD-Password DB
+        a(href='lms')
+          .col-md-3
+            .well.well-sm
+              p(align='center')
+              h3 Lifecycle Management
+              p
+              |
+              p(align='center')
+                img(src='/assets/img/key.png', alt='Key')
+              |
+              p(align='center') Database for equipment management.
+        // END - POD-Password DB
+      // END - ROW 2 (FULL LENGTH)

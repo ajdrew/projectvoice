@@ -20,10 +20,6 @@ var app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 80);
-  /*
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  */
 
   app.use(express.favicon());
   app.use(express.logger('dev'));
@@ -37,6 +33,9 @@ app.configure(function(){
   app.set('views', __dirname + '/views/html');
   app.set('view engine', 'html');
 
+  // app.set('view engine', 'jade');
+  // app.engine('jade', require('hbs').__express);
+  // app.set('views', __dirname + '/views');
 
 });
 

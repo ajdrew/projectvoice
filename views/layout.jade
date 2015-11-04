@@ -12,26 +12,8 @@ html
 				.navbar-header
 					a.navbar-brand(href='/') #{title}
 						.glyphicon.glyphicon-earphone &nbsp;
-		.row
-			// ROW 2 (FULL LENGTH)
-			// POD-Extension DB
-			a(href='extensions')
-				.col-md-2
-					.well.well-sm
-						h3(align='center') Extension Database
-						p(align='center')
-							img(src='/assets/img/database.png', alt='Database')
-						p(align='center') Database for extension management.
-			// END - POD-Extension DB
-			// POD-Password DB
-			a(href='lms')
-				.col-md-2
-					.well.well-sm
-						h3(align='center') Lifecycle Management
-						p(align='center')
-							img(src='/assets/img/key.png', alt='Key')
-						p(align='center') Database for equipment management.
-			// END - POD-Password DB
+
+block content
 
 
 

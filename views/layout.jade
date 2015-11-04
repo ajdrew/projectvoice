@@ -1,7 +1,26 @@
 doctype 5
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title #{title}
+    // INCLUDE: CSS
+    link(rel='stylesheet', href='/assets/css/bootstrap.css')
   body
     block content
+    block footer
+      footer
+        p Amway.voice - Management Platform (running on Node.js, Express, MongoDB, and Jade)
+        // INCLUDE: JS - At end for better page loads.
+        script(src='/assets/js/jquery-1.7.2.min.js')
+        script(src='/assets/js/bootstrap-transition.js')
+        script(src='/assets/js/bootstrap-transition.js')
+        script(src='/assets/js/bootstrap-alert.js')
+        script(src='/assets/js/bootstrap-modal.js')
+        script(src='/assets/js/bootstrap-dropdown.js')
+        script(src='/assets/js/bootstrap-scrollspy.js')
+        script(src='/assets/js/bootstrap-tab.js')
+        script(src='/assets/js/bootstrap-tooltip.js')
+        script(src='/assets/js/bootstrap-popover.js')
+        script(src='/assets/js/bootstrap-button.js')
+        script(src='/assets/js/bootstrap-collapse.js')
+        script(src='/assets/js/bootstrap-carousel.js')
+        script(src='/assets/js/bootstrap-typeahead.js')

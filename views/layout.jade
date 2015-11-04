@@ -1,36 +1,36 @@
 html
-  head
-    title #{title}
-    // INCLUDE: CSS
-    link(rel='stylesheet', href='/assets/css/bootstrap.css')
-    link(rel='shortcut icon', href='/assets/ico/favicon.ico')
-  body
-    // Navigation Bar
-    nav.navbar.navbar-default
-          .navbar-header
-            a.navbar-brand(href='/') #{title}
-              // span.glyphicon.glyphicon-earphone &nbsp; #{title}
-    // END - Navigation Bar
+	head
+		title #{title}
+		// INCLUDE: CSS
+		link(rel='stylesheet', href='/assets/css/bootstrap.css')
+		link(rel='shortcut icon', href='/assets/ico/favicon.ico')
+	body
+		// Navigation Bar
+		nav.navbar.navbar-default
+			.navbar-header
+				a.navbar-brand(href='/') #{title}
+					span.glyphicon.glyphicon-earphone &nbsp;
+		// END - Navigation Bar
 
-    block content
+		block content
 
-    // FOOTER
-    hr
-    block footer
-      footer
-        p Amway.voice - Management Platform (running on Node.js, Express, MongoDB, and Jade)
-        // INCLUDE: JS - At end for better page loads.
-        script(src='/assets/js/jquery-1.7.2.min.js')
-        script(src='/assets/js/bootstrap-transition.js')
-        script(src='/assets/js/bootstrap-transition.js')
-        script(src='/assets/js/bootstrap-alert.js')
-        script(src='/assets/js/bootstrap-modal.js')
-        script(src='/assets/js/bootstrap-dropdown.js')
-        script(src='/assets/js/bootstrap-scrollspy.js')
-        script(src='/assets/js/bootstrap-tab.js')
-        script(src='/assets/js/bootstrap-tooltip.js')
-        script(src='/assets/js/bootstrap-popover.js')
-        script(src='/assets/js/bootstrap-button.js')
-        script(src='/assets/js/bootstrap-collapse.js')
-        script(src='/assets/js/bootstrap-carousel.js')
-        script(src='/assets/js/bootstrap-typeahead.js')
+		// FOOTER
+		hr
+		block footer
+			footer
+				p Amway.voice - Management Platform (running on Node.js, Express, MongoDB, and Jade)
+				// INCLUDE: JS - At end for better page loads.
+				script(src='/assets/js/jquery-1.7.2.min.js')
+				script(src='/assets/js/bootstrap-transition.js')
+				script(src='/assets/js/bootstrap-transition.js')
+				script(src='/assets/js/bootstrap-alert.js')
+				script(src='/assets/js/bootstrap-modal.js')
+				script(src='/assets/js/bootstrap-dropdown.js')
+				script(src='/assets/js/bootstrap-scrollspy.js')
+				script(src='/assets/js/bootstrap-tab.js')
+				script(src='/assets/js/bootstrap-tooltip.js')
+				script(src='/assets/js/bootstrap-popover.js')
+				script(src='/assets/js/bootstrap-button.js')
+				script(src='/assets/js/bootstrap-collapse.js')
+				script(src='/assets/js/bootstrap-carousel.js')
+				script(src='/assets/js/bootstrap-typeahead.js')

@@ -29,13 +29,13 @@ app.configure(function(){
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 
-  app.engine('html', require('hbs').__express);
-  app.set('views', __dirname + '/views/html');
-  app.set('view engine', 'html');
+  // app.engine('html', require('hbs').__express);
+  // app.set('views', __dirname + '/views/html');
+  // app.set('view engine', 'html');
 
-  // app.set('view engine', 'jade');
-  // app.engine('jade', require('hbs').__express);
-  // app.set('views', __dirname + '/views');
+  app.engine('jade', require('hbs').__express);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
 
 });
 
@@ -50,7 +50,7 @@ app.get('/', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('index.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+            res.render('index', { layout : 'layout' , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 

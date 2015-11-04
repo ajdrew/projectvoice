@@ -10,9 +10,26 @@ html
 			.container-fluid
 				.navbar-header
 					a.navbar-brand(href='/') #{title}
-						.glyphicon.glyphicon-earphone &nbsp; 
-
+						.glyphicon.glyphicon-earphone &nbsp;
 block content
+.container-fluid
+	// GRID SYSTEM
+		.row
+			// ROW 2 (FULL LENGTH)
+			// POD-Extension DB
+			a(href='extensions')
+				.col-md-3
+					.well.well-sm
+						p(align='center')
+						h3 Extension Database
+						p
+						|
+						p(align='center')
+							img(src='/assets/img/database.png', alt='Database')
+						|
+						p(align='center') Database for extension management.
+			// END - POD-Extension DB
+
 
 
 // FOOTER

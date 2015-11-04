@@ -29,11 +29,11 @@ app.configure(function(){
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 
-  // app.engine('html', require('hbs').__express);
+  app.engine('html', require('hbs').__express);
   // app.set('views', __dirname + '/views/html');
   // app.set('view engine', 'html');
 
-  app.engine('jade', require('hbs').__express);
+  // app.engine('jade', require('hbs').__express);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
 

@@ -50,7 +50,7 @@ app.get('/', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('index', { layout : 'layout' , 'title' : 'Amway.voice', 'results' : results });
+            res.render('index', { layout : 'layout.jade' , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 

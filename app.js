@@ -25,7 +25,7 @@ app.configure(function(){
   app.set('view engine', 'jade');
   */
 
-  app.use(express.favicon('/assets/ico/favicon.ico'));
+  app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.cookieParser());

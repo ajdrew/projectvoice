@@ -2,4 +2,15 @@ extends ../layout.jade
 
 block content
 
-include searchbar.jade
+.row
+    // ROW - SEARCH
+      .col-lg-4.col-md-offset-4
+        form#extension-find.form-inline(method='post', action='/extensions/search')
+          .form-group
+            .input-group
+              span.input-group-btn
+                button.btn.btn-default(type='submit', onclick="toggle('toggle-show');") Search
+              |                 
+              input.form-control(type='text', placeholder='Extension or Name...', name='search')
+            // /input-group
+    // END ROW - SEARCH

@@ -9,7 +9,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find().toArray(function(err, results) {
-              res.render('extensions/extensions.jade', { layout : 'layout.jade' , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions/extensions.jade', { layout : '../layout.jade' , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 

@@ -111,7 +111,7 @@ module.exports = function(app) {
   });
 
   // DB - FILTERS
-  app.get('/extensions/filter/ad', function(req, res){
+  app.get('/extensions/filter/USNS41', function(req, res){
 
     var listData = function(err, collection) {
         collection.find({place:"AD"}).toArray(function(err, results) {
@@ -126,7 +126,7 @@ module.exports = function(app) {
       });
     });
 
-  app.get('/extensions/filter/bp', function(req, res){
+  app.get('/extensions/filter/USBP02', function(req, res){
 
       var listData = function(err, collection) {
           collection.find({place:"BP"}).toArray(function(err, results) {
@@ -141,7 +141,7 @@ module.exports = function(app) {
         });
   });
 
-  app.get('/extensions/filter/br', function(req, res){
+  app.get('/extensions/filter/BRCM01', function(req, res){
 
       var listData = function(err, collection) {
           collection.find({place:"BR"}).toArray(function(err, results) {
@@ -156,7 +156,7 @@ module.exports = function(app) {
         });
   });
 
-  app.get('/extensions/filter/ca', function(req, res){
+  app.get('/extensions/filter/CACM01-PUB', function(req, res){
 
       var listData = function(err, collection) {
           collection.find({place:"CA"}).toArray(function(err, results) {
@@ -171,7 +171,7 @@ module.exports = function(app) {
         });
   });
 
-  app.get('/extensions/filter/co', function(req, res){
+  app.get('/extensions/filter/CONS01', function(req, res){
 
       var listData = function(err, collection) {
           collection.find({place:"CO"}).toArray(function(err, results) {
@@ -186,7 +186,7 @@ module.exports = function(app) {
         });
   });
 
-  app.get('/extensions/filter/cr', function(req, res){
+  app.get('/extensions/filter/CRNS01', function(req, res){
 
       var listData = function(err, collection) {
           collection.find({place:"CR"}).toArray(function(err, results) {
@@ -201,7 +201,7 @@ module.exports = function(app) {
         });
   });
 
-  app.get('/extensions/filter/mx', function(req, res){
+  app.get('/extensions/filter/MXCM01', function(req, res){
 
       var listData = function(err, collection) {
           collection.find({place:"MX"}).toArray(function(err, results) {

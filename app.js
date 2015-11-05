@@ -30,12 +30,12 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 
   app.engine('html', require('hbs').__express);
-  // app.set('views', __dirname + '/views/html');
-  // app.set('view engine', 'html');
+  app.set('views', __dirname + '/views/html');
+  app.set('view engine', 'html');
 
   // app.engine('jade', require('hbs').__express);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+  // app.set('views', __dirname + '/views');
+  // app.set('view engine', 'jade');
 
 });
 
@@ -50,7 +50,7 @@ app.get('/', function(req, res){
 
     var listData = function(err, collection) {
         collection.find().toArray(function(err, results) {
-            res.render('index.jade', { layout : 'layout.jade' , 'title' : 'Amway.voice', 'results' : results });
+            res.render('index.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 
@@ -63,8 +63,8 @@ app.get('/', function(req, res){
 })
 
 // INCLUDE - Extensions DB app routes
-// var routingextensions = require('./routes/extensions.js')(app);
-var routingextensions = require('./routes/extensionsjade.js')(app);
+var routingextensions = require('./routes/extensions.js')(app);
+// var routingextensions = require('./routes/extensionsjade.js')(app);
 
 // INCLUDE - LMS DB app routes
 var routingextensions = require('./routes/lms.js')(app);

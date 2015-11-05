@@ -204,7 +204,7 @@ module.exports = function(app) {
   app.get('/extensions/filter/MXCM01', function(req, res){
 
       var listData = function(err, collection) {
-          collection.find({place:"MX"}).toArray(function(err, results) {
+          collection.find({place:"MXCM01"}).toArray(function(err, results) {
               res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }

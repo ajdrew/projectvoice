@@ -4,4 +4,44 @@ block content
 
 include searchbar.jade
 
-include filters.jade
+.row
+	.col-md-6.col-md-offset-3
+		a.btn.btn-success(href='#', onclick="toggle('toggle-add-extension');")
+			i.glyphicon.glyphicon-plus-sign
+			| Add
+		|           
+		a.btn.btn-info(href='/extensions/filter/ad')
+			i.glyphicon.glyphicon-filter
+			| AD
+		|           
+		a.btn.btn-info(href='/extensions/filter/bp')
+			i.glyphicon.glyphicon-filter
+			| BP
+		|           
+		a.btn.btn-info(href='/extensions/filter/br')
+			i.glyphicon.glyphicon-filter
+			| BR
+		|           
+		a.btn.btn-info(href='/extensions/filter/ca')
+			i.glyphicon.glyphicon-filter
+			| CA
+		|           
+		a.btn.btn-info(href='/extensions/filter/co')
+			i.glyphicon.glyphicon-filter
+			| CO
+		|           
+		a.btn.btn-info(href='/extensions/filter/cr')
+			i.glyphicon.glyphicon-filter
+			| CR
+		|           
+		a.btn.btn-info(href='/extensions/filter/mx')
+			i.glyphicon.glyphicon-filter
+			| MX
+		|           
+		a.btn.btn-info(href='/extensions/show')
+			i.glyphicon.glyphicon-filter
+			| All
+		|           
+		a.btn.btn-warning(href='/extensions/filter/open')
+			i.glyphicon.glyphicon-asterisk
+			| Magic Button

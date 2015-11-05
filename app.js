@@ -63,7 +63,8 @@ app.get('/', function(req, res){
 })
 
 // INCLUDE - Extensions DB app routes
-var routingextensions = require('./routes/extensions.js')(app);
+// var routingextensions = require('./routes/extensions.js')(app);
+var routingextensions = require('./routes/extensionsjade.js')(app);
 
 // INCLUDE - LMS DB app routes
 var routingextensions = require('./routes/lms.js')(app);

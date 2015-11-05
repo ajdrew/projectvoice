@@ -25,7 +25,22 @@
 
 <body>
 
-  <div class="header"></div>
+  <!--Navigation Bar -->
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
+      </div>
+    </div>
+  </nav>
+  <!-- END - Navigation Bar -->
 
   <div class="container-fluid">
     <!-- GRID SYSTEM -->
@@ -100,14 +115,6 @@
   <script src="/assets/js/bootstrap-carousel.js"></script>
   <script src="/assets/js/bootstrap-typeahead.js"></script>
   <!-- END - Javascript Includes -->
-
-  <!-- INCLUDE SCRIPTS -->
-  <script>
-    $(document).ready(function() {
-      $('.header').load("/assets/htmlmodules/navbar.html");
-    });
-  </script>
-
 
 </body>
 

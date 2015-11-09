@@ -47,19 +47,7 @@ app.configure('development', function(){
 // EXPRESS ROUTING
 // NAVIGATION - INDEX
 app.get('/', function(req, res){
-
-    var listData = function(err, collection) {
-        collection.find().toArray(function(err, results) {
-            res.render('index.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-        });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-        Client.collection('users', listData);
-        //Client.close();
-    });
-
+    res.render('index.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
 })
 
 // INCLUDE - Extensions DB app routes

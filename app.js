@@ -3,8 +3,6 @@
  */
 
 var express = require('express'),
-  passport = require('passport'),
-  GoogleStrategy = require('passport-google').Strategy,
   routes = require('./routes'),
   http = require('http');
 
@@ -15,32 +13,6 @@ var hbs = require('hbs');
 var Db = require('mongodb').Db;
 var Server = require('mongodb').Server;
 
-// Passport session setup.
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-
-// Use the GoogleStrategy within Passport.
-passport.use(new GoogleStrategy({
-    returnURL: 'http://localhost:80/auth/google/return',
-    realm: 'http://localhost:80/'
-  },
-  function(identifier, profile, done) {
-    // asynchronous verification, for effect...
-    process.nextTick(function () {
-
-      // To keep the example simple, the user's Google profile is returned to
-      // represent the logged-in user.  In a typical application, you would want
-      // to associate the Google account with a user record in your database,
-      // and return that user instead.
-      profile.identifier = identifier;
-      return done(null, profile);
-    });
-  }
-));
 
 app.configure(function() {
   app.set('port', process.env.PORT || 80);

@@ -1,7 +1,4 @@
-/**
- * Module dependencies.
- */
-
+//Module dependencies.
 var express = require('express'),
   routes = require('./routes'),
   http = require('http');
@@ -13,6 +10,7 @@ var hbs = require('hbs');
 var Db = require('mongodb').Db;
 var Server = require('mongodb').Server;
 
+//var rs = require('./record_model.js');
 
 app.configure(function() {
   app.set('port', process.env.PORT || 80);

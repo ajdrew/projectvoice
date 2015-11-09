@@ -6,19 +6,7 @@ module.exports = function(app) {
 
   // Main navigation page
   app.get('/extensions', function(req, res){
-
-      var listData = function(err, collection) {
-          collection.find().toArray(function(err, results) {
-              res.render('extensions.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-          });
-      }
-
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-          Client.collection('extensions', listData);
-          //Client.close();
-      });
-
+    res.render('extensions.html', { layout : false , 'title' : 'Amway.voice' });
   })
 
   app.get('/extensions/show', function(req, res){

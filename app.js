@@ -33,7 +33,6 @@ app.configure(function(){
   app.set('views', __dirname + '/views/html');
   app.set('view engine', 'html');
 
-  // app.engine('jade', require('hbs').__express);
   // app.set('views', __dirname + '/views');
   // app.set('view engine', 'jade');
 

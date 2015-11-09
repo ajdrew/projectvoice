@@ -26,11 +26,11 @@ app.configure(function() {
   app.use(express.static(__dirname + '/public'));
 
   app.engine('html', require('hbs').__express);
-  app.set('views', __dirname + '/views/html');
-  app.set('view engine', 'html');
+  // app.set('views', __dirname + '/views/html');
+  // app.set('view engine', 'html');
 
-  // app.set('views', __dirname + '/views');
-  // app.set('view engine', 'jade');
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
 
 });
 
@@ -41,12 +41,22 @@ app.configure('development', function() {
 
 // EXPRESS ROUTING
 // NAVIGATION - INDEX
+/*
 app.get('/', function(req, res) {
   res.render('index.html', {
     layout: false,
     'title': 'Amway.voice'
   });
 })
+*/
+
+app.get('/', function(req, res) {
+  res.render('index.jade', {
+    layout: false,
+    'title': 'Amway.voice'
+  });
+})
+
 
 // INCLUDE - Extensions DB app routes
 var routingextensions = require('./routes/extensions.js')(app);

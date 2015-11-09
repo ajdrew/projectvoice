@@ -47,7 +47,7 @@ app.configure('development', function(){
 // EXPRESS ROUTING
 // NAVIGATION - INDEX
 app.get('/', function(req, res){
-    res.render('index.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+    res.render('index.html', { layout : false , 'title' : 'Amway.voice' });
 })
 
 // INCLUDE - Extensions DB app routes

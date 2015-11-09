@@ -1,11 +1,12 @@
-
 /**
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , http = require('http');
+var express = require('express'),
+  passport = require('passport'),
+  GoogleStrategy = require('passport-google').Strategy,
+  routes = require('./routes'),
+  http = require('http');
 
 // template engine
 var hbs = require('hbs');
@@ -14,11 +15,34 @@ var hbs = require('hbs');
 var Db = require('mongodb').Db;
 var Server = require('mongodb').Server;
 
-//var rs = require('./record_model.js');
+// Passport session setup.
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
 
-var app = express();
+// Use the GoogleStrategy within Passport.
+passport.use(new GoogleStrategy({
+    returnURL: 'http://localhost:80/auth/google/return',
+    realm: 'http://localhost:80/'
+  },
+  function(identifier, profile, done) {
+    // asynchronous verification, for effect...
+    process.nextTick(function () {
 
-app.configure(function(){
+      // To keep the example simple, the user's Google profile is returned to
+      // represent the logged-in user.  In a typical application, you would want
+      // to associate the Google account with a user record in your database,
+      // and return that user instead.
+      profile.identifier = identifier;
+      return done(null, profile);
+    });
+  }
+));
+
+app.configure(function() {
   app.set('port', process.env.PORT || 80);
 
   app.use(express.favicon());
@@ -38,15 +62,18 @@ app.configure(function(){
 
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
   app.use(express.errorHandler());
 });
 
 
 // EXPRESS ROUTING
 // NAVIGATION - INDEX
-app.get('/', function(req, res){
-    res.render('index.html', { layout : false , 'title' : 'Amway.voice' });
+app.get('/', function(req, res) {
+  res.render('index.html', {
+    layout: false,
+    'title': 'Amway.voice'
+  });
 })
 
 // INCLUDE - Extensions DB app routes
@@ -64,6 +91,6 @@ var routingextensions = require('./routes/lms-admin.js')(app);
 
 // END - EXPRESS ROUTING
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function() {
   console.log("Express server listening on port " + app.get('port'));
 });

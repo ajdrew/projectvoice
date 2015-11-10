@@ -103,7 +103,7 @@ module.exports = function(app) {
 
     var listData = function(err, collection) {
         collection.find({place:"USNS41"}).toArray(function(err, results) {
-            res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+            res.render('extensions/extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
         });
     }
 
@@ -118,7 +118,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find({place:"USBP02"}).toArray(function(err, results) {
-              res.render('extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('extensions/extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 

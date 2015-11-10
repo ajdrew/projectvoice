@@ -51,65 +51,72 @@
 
     <div class="container-fluid"> <!-- GRID SYSTEM -->
 
-      <div class="row"> <!-- ROW - ADD FORM -->
+      <div class="row">
+        <!-- ROW - ADD FORM -->
         <div class="col-lg-4 col-md-offset-4">
-              <form class="form-horizontal" method="post" action="/lms/save" id="lms-add">
-                <div class="form-group">
-                  <label for="ip">IP</label>
-                  <input type="text" class="form-control" placeholder="IP" name="ip">
-                </div>
-                <div class="form-group">
-                  <label for"hostname">Hostname</label>
-                  <input type="text" class="form-control" placeholder="Hostname" name="hostname">
-                </div>
-                <div class="form-group">
-                  <label for="country">Country</label>
-                  <select name="country" form="lms-add" class="form-control">
-                    {{#each Country}}
-                    <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="site">Site</label>
-                  <input type="text" class="form-control" placeholder="Site" name="site">
-                </div>
-                <div class="form-group">
-                  <label for="type">Type</label>
-                  <select name="type" form="lms-add" class="form-control">
-                    {{#each Type}}
-                    <option value="{{this.lmsadmintype}}">{{this.lmsadmintype}}</option>
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="version">Version</label>
-                  <input type="text" class="form-control" placeholder="Version" name="version">
-                </div>
-                <div class="form-group">
-                  <label for="description">Description</label>
-                  <input type="text" class="form-control" placeholder="Description" name="description">
-                </div>
-                <div class="form-group">
-                  <label for="access">Access</label>
-                  <select name="access" form="lms-add" class="form-control">
-                    {{#each Access}}
-                    <option value="{{this.lmsadminaccess}}">{{this.lmsadminaccess}}</option>
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="did">LDAP Integrated</label>
-                  <select name="did" form="lms-add" class="form-control">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                  </select>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form>
+          <div id="toggle-add-lms">
+            <form class="form-horizontal" method="post" action="/lms/save" id="lms-add">
+              <div class="form-group">
+                <label for="ip">IP</label>
+                <input type="text" class="form-control" placeholder="IP" name="ip">
+              </div>
+              <div class="form-group">
+                <label for "hostname">Hostname</label>
+                <input type="text" class="form-control" placeholder="Hostname" name="hostname">
+              </div>
+              <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" placeholder="Country" name="country">
+              </div>
+              <div class="form-group">
+                <label for="site">Site</label>
+                <input type="text" class="form-control" placeholder="Site" name="site">
+              </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <input type="text" class="form-control" placeholder="Type" name="type">
+              </div>
+              <div class="form-group">
+                <label for="version">Version</label>
+                <input type="text" class="form-control" placeholder="Version" name="version">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" placeholder="Description" name="description">
+              </div>
+              <div class="form-group">
+                <label for="access">Access</label>
+                <input type="text" class="form-control" placeholder="Access" name="access">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="place">Location</label>
+                <select name="place" form="extension-add" class="form-control">
+                  <option value="AD">AD</option>
+                  <option value="BP">BP</option>
+                  <option value="BR">BR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CR">CR</option>
+                  <option value="MX">MX</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="phone_number_jabber">Phone Number - Jabber</label>
+                <input type="text" class="form-control" placeholder="+[DID] or **[site code][ext]" name="phone_number_jabber">
+              </div>
+              <div class="form-group">
+                <label for="did">DID</label>
+                <select name="did" form="extension-add" class="form-control">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
           </div>
-        </div> <!-- END - ROW - ADD FORM -->
-        <span>&nbsp;</span>
+        </div>
+      </div>
+      <!-- END - ROW - ADD FORM -->
 
         <hr>
 

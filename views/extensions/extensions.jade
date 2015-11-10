@@ -1,9 +1,7 @@
 extends ../layout.jade
 
 block content
-
 // include searchbar.jade
-
 	.row
 		.col-lg-4.col-md-offset-4
 			form#extension-find.form-inline(method='post', action='/extensions/search')
@@ -12,9 +10,8 @@ block content
 						span.input-group-btn
 							button.btn.btn-default(type='submit', onclick="toggle('toggle-show');") Search
 							| input.form-control(type='text', placeholder='Extension or Name...', name='search')
-
-.row
-	.col-md-6.col-md-offset-3
+	.row
+		.col-md-6.col-md-offset-3
 		a.btn.btn-success(href='#', onclick="toggle('toggle-add-extension');")
 			i.glyphicon.glyphicon-plus-sign
 			| Add
@@ -23,32 +20,25 @@ block content
 			| AD
 		a.btn.btn-info(href='/extensions/filter/bp')
 			i.glyphicon.glyphicon-filter
-			| BP
-		|           
+			| BP         
 		a.btn.btn-info(href='/extensions/filter/br')
 			i.glyphicon.glyphicon-filter
-			| BR
-		|           
+			| BR         
 		a.btn.btn-info(href='/extensions/filter/ca')
 			i.glyphicon.glyphicon-filter
-			| CA
-		|           
+			| CA      
 		a.btn.btn-info(href='/extensions/filter/co')
 			i.glyphicon.glyphicon-filter
-			| CO
-		|           
+			| CO    
 		a.btn.btn-info(href='/extensions/filter/cr')
 			i.glyphicon.glyphicon-filter
 			| CR
-		|           
 		a.btn.btn-info(href='/extensions/filter/mx')
 			i.glyphicon.glyphicon-filter
 			| MX
-		|           
 		a.btn.btn-info(href='/extensions/show')
 			i.glyphicon.glyphicon-filter
-			| All
-		|           
+			| All   
 		a.btn.btn-warning(href='/extensions/filter/open')
 			i.glyphicon.glyphicon-asterisk
 			| Magic Button

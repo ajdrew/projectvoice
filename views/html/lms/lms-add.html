@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- CSS Styles -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+  <!-- INCLUDE: CSS-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <!-- Favicon and Touch Icons -->
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico">
 
-    <!-- Favicon and Touch Icons -->
-    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
-
-    <!-- CSS: Show/Hide add Divs-->
-    <style>
+  <!-- CSS: Show/Hide add Divs-->
+  <style>
     div[id^=toggle-add] {
-      display:none;
+      display: none;
     }
-    </style>
+  </style>
 
-    <!-- JS: Show/Hide add Divs -->
-    <script language="JavaScript" type="text/javascript">
+  <!-- JS: Show/Hide add Divs -->
+  <script type="text/javascript">
     function toggle(id) {
       var state = document.getElementById(id).style.display;
       if (state == 'block') {
@@ -37,25 +29,9 @@
         document.getElementById(id).style.display = 'block';
       }
     }
-    </script>
+  </script>
 
-    <!-- Javascript Includes -->
-    <script src="/assets/js/jquery.js"></script>
-    <script src="/assets/js/bootstrap-transition.js"></script>
-    <script src="/assets/js/bootstrap-alert.js"></script>
-    <script src="/assets/js/bootstrap-modal.js"></script>
-    <script src="/assets/js/bootstrap-dropdown.js"></script>
-    <script src="/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="/assets/js/bootstrap-tab.js"></script>
-    <script src="/assets/js/bootstrap-tooltip.js"></script>
-    <script src="/assets/js/bootstrap-popover.js"></script>
-    <script src="/assets/js/bootstrap-button.js"></script>
-    <script src="/assets/js/bootstrap-collapse.js"></script>
-    <script src="/assets/js/bootstrap-carousel.js"></script>
-    <script src="/assets/js/bootstrap-typeahead.js"></script>
-    <!-- END - Javascript Includes -->
-
-  </head>
+</head>
 
   <body>
 
@@ -135,13 +111,46 @@
         </div> <!-- END - ROW - ADD FORM -->
         <span>&nbsp;</span>
 
-          <hr>
+        <hr>
 
-          <footer> <!-- Footer -->
-            <p>Amway.voice - Testing platform</p>
-          </footer> <!-- END - Footer -->
+        <div class="container-fluid">
 
-        </div> <!-- END - GRID SYSTEM -->
+          <!-- Footer -->
+          <footer>
+            <p>Amway.voice - Management Platform</p>
+          </footer>
+          <!-- END - Footer -->
 
-      </body>
+        </div>
+        <!-- END - GRID SYSTEM -->
+
+        <!-- INCLUDE: JS -->
+        <script src="/assets/js/jquery-1.7.2.min.js"></script>
+        <script src="/assets/js/bootstrap-transition.js"></script>
+        <script src="/assets/js/bootstrap-alert.js"></script>
+        <script src="/assets/js/bootstrap-modal.js"></script>
+        <script src="/assets/js/bootstrap-dropdown.js"></script>
+        <script src="/assets/js/bootstrap-scrollspy.js"></script>
+        <script src="/assets/js/bootstrap-tab.js"></script>
+        <script src="/assets/js/bootstrap-tooltip.js"></script>
+        <script src="/assets/js/bootstrap-popover.js"></script>
+        <script src="/assets/js/bootstrap-button.js"></script>
+        <script src="/assets/js/bootstrap-collapse.js"></script>
+        <script src="/assets/js/bootstrap-carousel.js"></script>
+        <script src="/assets/js/bootstrap-typeahead.js"></script>
+        <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+        <!-- JS: Date Insert Function for ADD FORM -->
+        <script type="text/javascript">
+          (function($) {
+            $('#time').on('click', function(event) {
+              var time = new Date();
+              $('#out_date').val(time.toDateString());
+            });
+
+          })(jQuery);
+        </script>
+
+    </body>
+
     </html>

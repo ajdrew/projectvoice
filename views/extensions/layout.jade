@@ -1,0 +1,39 @@
+doctype html
+html
+	head
+		title #{title}
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		// INCLUDE: CSS
+		link(rel='stylesheet', href='/assets/css/bootstrap.css')
+		link(rel='shortcut icon', href='/assets/ico/favicon.ico')
+	body
+
+	include nav.jade
+
+.container-fluid
+
+	block content
+
+
+
+// FOOTER
+hr
+block footer
+.container-fluid
+	footer
+		p Amway.voice - Management Platform
+		// INCLUDE: JS - At end for better page loads.
+		script(src='/assets/js/jquery-1.7.2.min.js')
+		script(src='/assets/js/bootstrap-transition.js')
+		script(src='/assets/js/bootstrap-transition.js')
+		script(src='/assets/js/bootstrap-alert.js')
+		script(src='/assets/js/bootstrap-modal.js')
+		script(src='/assets/js/bootstrap-dropdown.js')
+		script(src='/assets/js/bootstrap-scrollspy.js')
+		script(src='/assets/js/bootstrap-tab.js')
+		script(src='/assets/js/bootstrap-tooltip.js')
+		script(src='/assets/js/bootstrap-popover.js')
+		script(src='/assets/js/bootstrap-button.js')
+		script(src='/assets/js/bootstrap-collapse.js')
+		script(src='/assets/js/bootstrap-carousel.js')
+		script(src='/assets/js/bootstrap-typeahead.js')

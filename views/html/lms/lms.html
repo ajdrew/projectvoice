@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- INCLUDE: CSS-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Favicon and Touch Icons -->
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+  <!-- CSS: Show/Hide add Divs-->
+  <style>
+    div[id^=toggle-add] {
+      display: none;
+    }
+  </style>
+
+  <!-- JS: Show/Hide add Divs -->
+  <script type="text/javascript">
+    function toggle(id) {
+      var state = document.getElementById(id).style.display;
+      if (state == 'block') {
+        document.getElementById(id).style.display = 'none';
+      } else {
+        document.getElementById(id).style.display = 'block';
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <!--Navigation Bar -->
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
+      </div>
+    </div>
+  </nav>
+  <!-- END - Navigation Bar -->
+
+  <div class="container-fluid">
+    <!-- GRID SYSTEM -->
+
+    <div class="row">
+      <!-- ROW - SEARCH -->
+      <div class="col-lg-4 col-md-offset-4">
+        <form class="form-inline" method="post" action="/lms/search" id="lms-find">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="IP or Name..." name="search">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-defualt dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="#">All</a></li>
+                  <li><a href="#">USA</a></li>
+                </ul>
+              </div>
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
+              </div>
+            </div>
+            <!-- /input-group -->
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- END ROW - SEARCH-->
+    <p>&nbsp;</p>
+    <!-- SIMPLE SPACER -->
+
+    <div class="row">
+      <!-- ROW - FILTERS -->
+      <div class="col-lg-6 col-md-offset-3">
+        <a href="/lms/add" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
+        <a href="/extensions/filter/ad" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>AD</a>
+        <a href="/extensions/filter/bp" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BP</a>
+        <a href="/extensions/filter/br" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BR</a>
+        <a href="/extensions/filter/ca" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CA</a>
+        <a href="/extensions/filter/co" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CO</a>
+        <a href="/extensions/filter/cr" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CR</a>
+        <a href="/extensions/filter/mx" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MX</a>
+        <a href="/extensions/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
+      </div>
+    </div>
+    <!-- END ROW - FILTERS -->
+    <p>&nbsp;</p>
+    <!-- SIMPLE SPACER -->
+
+    <hr>
+
+    <div class="container-fluid">
+
+      <!-- Footer -->
+      <footer>
+        <p>Amway.voice - Management Platform</p>
+      </footer>
+      <!-- END - Footer -->
+
+    </div>
+    <!-- END - GRID SYSTEM -->
+
+    <!-- INCLUDE: JS -->
+    <script src="/assets/js/jquery-1.7.2.min.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+    <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+    <!-- JS: Date Insert Function for ADD FORM -->
+    <script type="text/javascript">
+      (function($) {
+        $('#time').on('click', function(event) {
+          var time = new Date();
+          $('#out_date').val(time.toDateString());
+        });
+
+      })(jQuery);
+    </script>
+
+</body>
+
+</html>

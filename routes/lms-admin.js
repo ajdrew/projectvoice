@@ -103,7 +103,7 @@ module.exports = function(app) {
 
     function complete() {
       if (type !== null && access !== null && country !== null && contract !== null && ucschassis !== null && vsphere !== null && elm !== null) {
-        res.render('lms-admin.html', {
+        res.render('lms/lms-admin.html', {
           layout: false,
           'title': 'Amway.voice',
           'Type': type,

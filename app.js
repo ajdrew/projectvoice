@@ -1,11 +1,7 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , routes = require('./routes')
-  , http = require('http');
+// Module dependencies
+var express = require('express'),
+  routes = require('./routes'),
+  http = require('http');
 
 // template engine
 var hbs = require('hbs');
@@ -18,7 +14,7 @@ var Server = require('mongodb').Server;
 
 var app = express();
 
-app.configure(function(){
+app.configure(function() {
   app.set('port', process.env.PORT || 80);
 
   app.use(express.favicon());
@@ -33,34 +29,33 @@ app.configure(function(){
   app.set('views', __dirname + '/views/html');
   app.set('view engine', 'html');
 
-  // app.engine('jade', require('hbs').__express);
   // app.set('views', __dirname + '/views');
   // app.set('view engine', 'jade');
 
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
   app.use(express.errorHandler());
 });
 
 
 // EXPRESS ROUTING
 // NAVIGATION - INDEX
-app.get('/', function(req, res){
-
-    var listData = function(err, collection) {
-        collection.find().toArray(function(err, results) {
-            res.render('index.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
-        });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-        Client.collection('users', listData);
-        //Client.close();
-    });
-
+app.get('/', function(req, res) {
+  res.render('index.html', {
+    layout: false,
+    'title': 'Amway.voice'
+  });
 })
+/*
+app.get('/', function(req, res) {
+  res.render('index.jade', {
+    layout: false,
+    'title': 'Amway.voice'
+  });
+})
+*/
+
 
 // INCLUDE - Extensions DB app routes
 var routingextensions = require('./routes/extensions.js')(app);
@@ -77,6 +72,6 @@ var routingextensions = require('./routes/lms-admin.js')(app);
 
 // END - EXPRESS ROUTING
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function() {
   console.log("Express server listening on port " + app.get('port'));
 });

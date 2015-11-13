@@ -9,7 +9,7 @@ module.exports = function(app) {
 
       var listData = function(err, collection) {
           collection.find().toArray(function(err, results) {
-              res.render('lms.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('lms/lms.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 
@@ -120,7 +120,7 @@ module.exports = function(app) {
 
     function complete() {
       if (type !== null && access !== null && country !== null && contract !== null && ucschassis !== null && vsphere !== null && elm !== null) {
-        res.render('lms-add.html', {
+        res.render('lms/lms-add.html', {
           layout: false,
           'title': 'Amway.voice',
           'Type': type,

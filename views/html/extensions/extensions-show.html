@@ -6,7 +6,7 @@
   <title>{{title}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- INCLUDE: CSS-->
+  <!-- CSS Styles -->
   <link href="/assets/css/bootstrap.css" rel="stylesheet">
 
   <!-- Favicon and Touch Icons -->
@@ -20,7 +20,7 @@
   </style>
 
   <!-- JS: Show/Hide add Divs -->
-  <script type="text/javascript">
+  <script language="JavaScript" type="text/javascript">
     function toggle(id) {
       var state = document.getElementById(id).style.display;
       if (state == 'block') {
@@ -74,7 +74,6 @@
     </div>
     <!-- END ROW - SEARCH-->
     <p>&nbsp;</p>
-    <!-- SIMPLE SPACER -->
 
     <div class="row">
       <!-- ROW - FILTERS -->
@@ -93,13 +92,12 @@
     </div>
     <!-- END ROW - FILTERS -->
     <p>&nbsp;</p>
-    <!-- SIMPLE SPACER -->
 
     <div class="row">
       <!-- ROW - ADD FORM -->
       <div class="col-md-12">
         <div id="toggle-add-extension">
-          <form class="form-inline" method="post" action="/extensions/save" id="extension-add">
+          <form class="form-inline" method="post" action="/save_extension" id="extension-add">
             <div class="form-group">
               <label class="sr-only" for="extension">Extension</label>
               <input type="text" class="form-control" placeholder="Extension" name="extension">
@@ -156,15 +154,51 @@
     <!-- END - ROW - ADD FORM -->
     <span>&nbsp;</span>
 
-  </div>
-  <!-- END - GRID SYSTEM -->
+    <div class="row">
+      <!-- ROW - SHOW TABLE -->
+      <div class="col-md-12">
+        <div id="toggle-show">
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Extension</th>
+                <th>User ID</th>
+                <th>Name or Description</th>
+                <th>Email</th>
+                <th>Location</th>
+                <th>Phone Number - Jabber</th>
+                <th>DID</th>
+                <th>Out Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each results}}
+              <tr>
+                <td>{{this.extension}}</td>
+                <td>{{this.user_id}}</td>
+                <td>{{this.whole_name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.place}}</td>
+                <td>{{this.phone_number_jabber}}</td>
+                <td>{{this.did}}</td>
+                <td>{{this.out_date}}</td>
+                <td>
+                  <a href="/extensions/edit/{{this._id}}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                  <a href="/extensions/delete/{{this._id}}" class="btn btn-danger btn-xs" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
-  <hr>
+    <hr>
 
-  <div class="container-fluid">
-
-    <!-- Footer -->
     <footer>
+      <!-- Footer -->
       <p>Amway.voice - Management Platform</p>
     </footer>
     <!-- END - Footer -->
@@ -172,8 +206,9 @@
   </div>
   <!-- END - GRID SYSTEM -->
 
-  <!-- INCLUDE: JS -->
-  <script src="/assets/js/jquery-1.7.2.min.js"></script>
+  <!-- Javascript Includes -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="/assets/js/jquery.js"></script>
   <script src="/assets/js/bootstrap-transition.js"></script>
   <script src="/assets/js/bootstrap-alert.js"></script>
   <script src="/assets/js/bootstrap-modal.js"></script>
@@ -186,18 +221,19 @@
   <script src="/assets/js/bootstrap-collapse.js"></script>
   <script src="/assets/js/bootstrap-carousel.js"></script>
   <script src="/assets/js/bootstrap-typeahead.js"></script>
-  <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+  <!-- END - Javascript Includes -->
 
   <!-- JS: Date Insert Function for ADD FORM -->
   <script type="text/javascript">
     (function($) {
       $('#time').on('click', function(event) {
         var time = new Date();
-        $('#out_date').val(time.toDateString());
+        $('#out_date').val(time.toISOString().substring(0, 10));
       });
 
     })(jQuery);
   </script>
+
 
 </body>
 

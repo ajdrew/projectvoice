@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- INCLUDE: CSS-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Favicon and Touch Icons -->
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+  <!-- JS: Show/Hide add Divs -->
+  <script type="text/javascript">
+    function toggle(id) {
+      var state = document.getElementById(id).style.display;
+      if (state == 'block') {
+        document.getElementById(id).style.display = 'none';
+      } else {
+        document.getElementById(id).style.display = 'block';
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <!--Navigation Bar -->
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
+      </div>
+    </div>
+  </nav>
+  <!-- END - Navigation Bar -->
+
+  <div class="container-fluid">
+    <!-- GRID SYSTEM -->
+
+    <div class="row">
+      <!-- ROW - ADD FORM -->
+      <div class="col-lg-6 col-md-offset-2">
+        <form class="form-horizontal" method="post" action="/lms/save" id="lms-add">
+          <h3>General</h3>
+          <hr>
+          <div class="form-group">
+            <label for="ip" class="col-sm-4 control-label">IP</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="IP" name="ip">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for "hostname" class="col-sm-4 control-label">Hostname</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Hostname" name="hostname">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="country" class="col-sm-4 control-label">Country</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Country" name="country">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="site" class="col-sm-4 control-label">Site</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Site" name="site">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="type" class="col-sm-4 control-label">Type</label>
+            <div class="col-sm-8">
+              <select name="type" form="lms-add" class="form-control">
+                {{#each Type}}
+                <option value="{{this.lmsadmintype}}">{{this.lmsadmintype}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description" class="col-sm-4 control-label">Description</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Description" name="description">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ciscocontract" class="col-sm-4 control-label">Cisco Contract</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Cisco Contract" name="Cisco Contract">
+            </div>
+          </div>
+          <hr>
+          <h3>Versioning</h3>
+          <hr>
+          <div class="form-group">
+            <label for="versiongeneral" class="col-sm-4 control-label">Version - General</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Version" name="versiongeneral">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="versioncmeios" class="col-sm-4 control-label">Version - CME IOS</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Version" name="versioncmeios">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="versioncimc" class="col-sm-4 control-label">Version - CIMC</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Version" name="versioncimc">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="versionwindows" class="col-sm-4 control-label">Version - Windows</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Version" name="versionwindows">
+            </div>
+          </div>
+          <hr>
+          <h3>Access</h3>
+          <hr>
+          <div class="form-group">
+            <label for="access" class="col-sm-4 control-label">Access</label>
+            <div class="col-sm-8">
+              <select name="access" form="lms-add" class="form-control">
+                {{#each Access}}
+                <option value="{{this.lmsadminaccess}}">{{this.lmsadminaccess}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sslrenewaldate" class="col-sm-4 control-label">SSL Renewal Date</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Date" name="sslrenewaldate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ldap" class="col-sm-4 control-label">LDAP</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Access" name="ldap">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="iosusername" class="col-sm-4 control-label">IOS Login</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Username" name="iosusername">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Password" name="iospassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ucsusername" class="col-sm-4 control-label">UCS Login</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Username" name="ucsusername">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Password" name="ucspassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="appusername" class="col-sm-4 control-label">Application Login</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Username" name="appusername">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Password" name="apppassword">
+            </div>
+          </div>
+          <hr>
+          <h3>Voice</h3>
+          <hr>
+          <div class="form-group">
+            <label for="voiceappusername" class="col-sm-4 control-label">Voice - Application Login</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Username" name="voiceappusername">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Password" name="voiceapppassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="voiceplatusername" class="col-sm-4 control-label">Voice - Platform Login</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Username" name="voiceplatusername">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Password" name="voiceplatpassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="voicedatabase" class="col-sm-4 control-label">Voice - Database</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Voice - Database" name="voicedatabase">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="voicelicensehost" class="col-sm-4 control-label">Voice - License Host</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Voice - License Host" name="voicelicensehost">
+            </div>
+          </div>
+          <hr>
+          <h3>Virtualization</h3>
+          <hr>
+          <div class="form-group">
+            <label for="virtualized" class="col-sm-4 control-label">Virtualized</label>
+            <div class="col-sm-8">
+              <input type="checkbox" name="virtualized">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vsphere" class="col-sm-4 control-label">vSphere Manager</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="vSphere" name="vsphere">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="esxlicense" class="col-sm-4 control-label">ESX License</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="ESX License" name="esxlicense">
+            </div>
+          </div>
+          <hr>
+          <h3>Physical</h3>
+          <hr>
+          <div class="form-group">
+            <label for="hardwaretype" class="col-sm-4 control-label">Hardware - Type</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Hardware - Type" name="hardwaretype">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="hardwareserial" class="col-sm-4 control-label">Hardware - Serial</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" placeholder="Hardware - Serial" name="hardwareserial">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END - ROW - ADD FORM -->
+
+  <hr>
+
+  <div class="container-fluid">
+
+    <!-- Footer -->
+    <footer>
+      <p>Amway.voice - Management Platform</p>
+    </footer>
+    <!-- END - Footer -->
+
+  </div>
+  <!-- END - GRID SYSTEM -->
+
+  <!-- INCLUDE: JS -->
+  <script src="/assets/js/jquery-1.7.2.min.js"></script>
+  <script src="/assets/js/bootstrap-transition.js"></script>
+  <script src="/assets/js/bootstrap-alert.js"></script>
+  <script src="/assets/js/bootstrap-modal.js"></script>
+  <script src="/assets/js/bootstrap-dropdown.js"></script>
+  <script src="/assets/js/bootstrap-scrollspy.js"></script>
+  <script src="/assets/js/bootstrap-tab.js"></script>
+  <script src="/assets/js/bootstrap-tooltip.js"></script>
+  <script src="/assets/js/bootstrap-popover.js"></script>
+  <script src="/assets/js/bootstrap-button.js"></script>
+  <script src="/assets/js/bootstrap-collapse.js"></script>
+  <script src="/assets/js/bootstrap-carousel.js"></script>
+  <script src="/assets/js/bootstrap-typeahead.js"></script>
+  <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+  <!-- JS: Date Insert Function for ADD FORM -->
+  <script type="text/javascript">
+    (function($) {
+      $('#time').on('click', function(event) {
+        var time = new Date();
+        $('#out_date').val(time.toDateString());
+      });
+
+    })(jQuery);
+  </script>
+
+</body>
+
+</html>

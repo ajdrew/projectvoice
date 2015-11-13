@@ -1,4 +1,4 @@
 #!/bin/bash
-git fetch origin
-git merge origin/master
+git fetch origin development:developnt
+git merge origin/development
 sudo node app.js

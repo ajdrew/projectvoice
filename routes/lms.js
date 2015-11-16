@@ -101,7 +101,7 @@ module.exports = function(app) {
     }
 
     var listDataElm = function(err, collection) {
-      collection.find().toArray(function(err, results) {
+      collection.find({}, optionselm).toArray(function(err, results) {
         if (err) throw err;
         elm = results;
         complete();

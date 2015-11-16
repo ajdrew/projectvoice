@@ -137,9 +137,9 @@ module.exports = function(app) {
   })
 
   // DB - CRUD
-  app.post('/save_extension', function(req, res){
+  app.post('/lms/save', function(req, res){
       console.log(req.body);
-      var data = {'extension' : req.body.extension , 'user_id' : req.body.user_id, 'whole_name' : req.body.whole_name, 'email' : req.body.email, 'place' : req.body.place, 'phone_number_jabber' : req.body.phone_number_jabber, 'did' : req.body.did };
+      var data = {'lmsip' : req.body.lmsip, 'lmshostname' : req.body.lmshostname, 'lmscountry' : req.body.lmscountry, 'lmssite' : req.body.lmssite, 'lmstype' : req.body.lmstype, 'lmsdescription' : req.body.lmsdescription, 'lmsciscocontract' : req.body.lmsciscocontract, 'lmsversiongeneral' : req.body.lmsversiongeneral, 'lmsversioncmeios' : req.body.lmsversioncmeios,  };
       var insertData = function(err, collection) {
           collection.insert(data);
       }

@@ -185,7 +185,7 @@ module.exports = function(app) {
       Client.close();
     });
 
-    res.redirect('extensions');
+    res.redirect('/lms');
   });
 
   app.get('/extensions/edit/:id', function(req, res) {

@@ -281,7 +281,7 @@ module.exports = function(app) {
     res.redirect('/lms/admin');
   });
 
-  app.get('/lms/admin/ucschassis/delete/:id', function(req, res) {
+  app.get('/lms/admin/sites/delete/:id', function(req, res) {
     var ObjectID = require('mongodb').ObjectID;
 
     var removeData = function(err, collection) {
@@ -293,7 +293,7 @@ module.exports = function(app) {
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('lmsadminucschassis', removeData);
+      Client.collection('lmsadminsites', removeData);
       //Client.close();
     });
     res.redirect('/lms/admin');

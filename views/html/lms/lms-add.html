@@ -81,7 +81,7 @@
             <label for="site" class="col-sm-4 control-label">Site</label>
             <div class="col-sm-8">
               <select name="site" form="lms-add" class="form-control">
-                {{#each Site}}
+                {{#each Sites}}
                 <option value="{{this.lmsadminsites}}">{{this.lmsadminsites}}</option>
                 {{/each}}
               </select>

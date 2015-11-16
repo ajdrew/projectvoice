@@ -11,7 +11,7 @@ module.exports = function(app) {
     var access = null;
     var country = null;
     var contract = null;
-    var ucschassis = null;
+    var sites = null;
     var vsphere = null;
     var elm = null;
 
@@ -24,8 +24,8 @@ module.exports = function(app) {
     var optionscountry = {
       "sort": "lmsadmincountry"
     }
-    var optionsucschassis = {
-      "sort": "lmsadminucschassis"
+    var optionssites = {
+      "sort": "lmsadminsites"
     }
     var optionsvsphere = {
       "sort": "lmsadminvsphere"
@@ -66,10 +66,10 @@ module.exports = function(app) {
       });
     }
 
-    var listDataUcschassis = function(err, collection) {
-      collection.find({}, optionsucschassis).toArray(function(err, results) {
+    var listDataSites = function(err, collection) {
+      collection.find({}, optionssites).toArray(function(err, results) {
         if (err) throw err;
-        ucschassis = results;
+        sites = results;
         complete();
       });
     }
@@ -96,13 +96,13 @@ module.exports = function(app) {
       Client.collection('lmsadminaccess', listDataAccess);
       Client.collection('lmsadmincountry', listDataCountry);
       Client.collection('lmsadmincontract', listDataContract);
-      Client.collection('lmsadminucschassis', listDataUcschassis);
+      Client.collection('lmsadminsites', listDataSites);
       Client.collection('lmsadminvsphere', listDataVsphere);
       Client.collection('lmsadminelm', listDataElm);
     });
 
     function complete() {
-      if (type !== null && access !== null && country !== null && contract !== null && ucschassis !== null && vsphere !== null && elm !== null) {
+      if (type !== null && access !== null && country !== null && contract !== null && sites !== null && vsphere !== null && elm !== null) {
         res.render('lms/lms-admin.html', {
           layout: false,
           'title': 'Amway.voice',
@@ -110,7 +110,7 @@ module.exports = function(app) {
           'Access': access,
           'Country': country,
           'Contract': contract,
-          'Ucschassis': ucschassis,
+          'Sites': sites,
           'Vsphere': vsphere,
           'Elm': elm
         });
@@ -263,18 +263,18 @@ module.exports = function(app) {
     res.redirect('/lms/admin');
   });
 
-  // DB - CRUD - UCSCHASSIS
-  app.post('/lms/admin/ucschassis/save', function(req, res) {
+  // DB - CRUD - SITES
+  app.post('/lms/admin/sites/save', function(req, res) {
     console.log(req.body);
     var data = {
-      'lmsadminucschassis': req.body.lmsadminucschassis
+      'lmsadminsites': req.body.lmsadminsites
     };
     var insertData = function(err, collection) {
       collection.insert(data);
     }
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('lmsadminucschassis', insertData);
+      Client.collection('lmsadminsites', insertData);
       Client.close();
     });
 

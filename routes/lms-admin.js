@@ -16,7 +16,7 @@ module.exports = function(app) {
     var elm = null;
 
     var optionstype = {
-      "sort": "lmsadminaccess"
+      "sort": "lmsadmintype"
     }
     var optionsaccess = {
       "sort": "lmsadminaccess"

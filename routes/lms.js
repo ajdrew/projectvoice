@@ -32,8 +32,9 @@ module.exports = function(app) {
     var vsphere = null;
     var elm = null;
 
+
     var optionstype = {
-      "sort": "lmsadminaccess"
+      "sort": "lmsadmintype"
     }
     var optionsaccess = {
       "sort": "lmsadminaccess"

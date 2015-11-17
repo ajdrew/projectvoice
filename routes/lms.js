@@ -29,6 +29,7 @@ module.exports = function(app) {
       if (country !== null) {
         res.render('lms/lms.html', {
           layout: false,
+          'title': 'Amway.voice',
           'Country': country,
         });
       }

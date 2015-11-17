@@ -188,7 +188,7 @@ module.exports = function(app) {
     res.redirect('/lms');
   });
 
-  app.get('/extensions/edit/:id', function(req, res) {
+  app.get('/lms/edit/:id', function(req, res) {
 
     var ObjectID = require('mongodb').ObjectID;
 
@@ -209,13 +209,13 @@ module.exports = function(app) {
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('extensions', listData);
+      Client.collection('lms', listData);
       //Client.close();
     });
 
   });
 
-  app.post('/extensions/update', function(req, res) {
+  app.post('/lms/update', function(req, res) {
     console.log(req.body);
 
     var ObjectID = require('mongodb').ObjectID;
@@ -239,14 +239,14 @@ module.exports = function(app) {
     }
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('extensions', updateData);
+      Client.collection('lms', updateData);
       Client.close();
     });
 
-    res.redirect('extensions');
+    res.redirect('/lms');
   });
 
-  app.get('/extensions/delete/:id', function(req, res) {
+  app.get('/lms/delete/:id', function(req, res) {
     var ObjectID = require('mongodb').ObjectID;
 
     var removeData = function(err, collection) {
@@ -258,14 +258,30 @@ module.exports = function(app) {
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('extensions', removeData);
+      Client.collection('lms', removeData);
       //Client.close();
     });
-    res.redirect('extensions');
+    res.redirect('lms');
   });
 
+  app.get('/lms/show', function(req, res){
+      console.log(req.body);
+      var listData = function(err, collection) {
+          collection.find().toArray(function(err, results) {
+              res.render('lms-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+          });
+      }
+
+      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+      Client.open(function(err, pClient) {
+          Client.collection('lms', listData);
+          //Client.close();
+      });
+
+  })
+
   // DB - SEARCH
-  app.post('/extensions/search', function(req, res) {
+  app.post('/lms/search', function(req, res) {
     console.log(req.body);
     var search = req.body.search;
     //console.log(echo $search);
@@ -287,7 +303,7 @@ module.exports = function(app) {
     }
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('extensions', listData);
+      Client.collection('lms', listData);
       //Client.close();
     });
   });

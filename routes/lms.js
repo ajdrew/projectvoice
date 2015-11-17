@@ -307,8 +307,6 @@ module.exports = function(app) {
           lmsip: new RegExp(search, "i")
         }, {
           lmshostname: new RegExp(search, "i")
-        }, {
-          lmscountry: new RegExp(lmsfiltercountry)
         }]
       }).toArray(function(err, results) {
         res.render('lms/lms-show.html', {

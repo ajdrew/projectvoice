@@ -300,12 +300,15 @@ module.exports = function(app) {
   app.post('/lms/search', function(req, res) {
     console.log(req.body);
     var search = req.body.search;
+    var filtercountry = req.body.lmsfiltercountry;
     var listData = function(err, collection) {
       collection.find({
         $or: [{
-          lmsip: new RegExp(search)
+          lmsip: new RegExp(search, "i")
         }, {
-          lmshostname: new RegExp(search)
+          lmshostname: new RegExp(search, "i")
+        }, {
+          lmscountry: new RegExp(lmsfiltercountry)
         }]
       }).toArray(function(err, results) {
         res.render('lms/lms-show.html', {

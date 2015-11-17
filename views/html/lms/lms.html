@@ -45,7 +45,22 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="IP or Name..." name="search">
               <div class="input-group-btn">
-                <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
+                <button type="submit" class="btn btn-default" type="button">Search</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form class"form-inline" method="post" action="/lms/filter/country" id="lms-filter-country">
+          <div class="form-group">
+            <div class="input-group">
+            <label for="lmscountry" class="col-sm-4 control-label">OR Filter on Country = </label>
+              <select name="lms-filter-country" form="lms-filter-country" class="form-control">
+                {{#each Country}}
+                <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
+                {{/each}}
+              </select>
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default" type="button">Search</button>
               </div>
             </div>
           </div>

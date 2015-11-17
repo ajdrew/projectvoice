@@ -341,7 +341,7 @@ module.exports = function(app) {
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('extensions', listData);
+      Client.collection('lms', listData);
     });
   });
 }

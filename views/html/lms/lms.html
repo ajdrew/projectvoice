@@ -12,25 +12,6 @@
   <!-- Favicon and Touch Icons -->
   <link rel="shortcut icon" href="/assets/ico/favicon.ico">
 
-  <!-- CSS: Show/Hide add Divs-->
-  <style>
-    div[id^=toggle-add] {
-      display: none;
-    }
-  </style>
-
-  <!-- JS: Show/Hide add Divs -->
-  <script type="text/javascript">
-    function toggle(id) {
-      var state = document.getElementById(id).style.display;
-      if (state == 'block') {
-        document.getElementById(id).style.display = 'none';
-      } else {
-        document.getElementById(id).style.display = 'block';
-      }
-    }
-  </script>
-
 </head>
 
 <body>
@@ -64,19 +45,9 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="IP or Name..." name="search">
               <div class="input-group-btn">
-                <button type="button" class="btn btn-defualt dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="#">All</a></li>
-                  <li><a href="#">USA</a></li>
-                </ul>
-              </div>
-              <div class="input-group-btn">
                 <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
               </div>
             </div>
-            <!-- /input-group -->
           </div>
         </form>
       </div>
@@ -124,17 +95,6 @@
     <script src="/assets/js/bootstrap-carousel.js"></script>
     <script src="/assets/js/bootstrap-typeahead.js"></script>
     <!-- <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
-
-    <!-- JS: Date Insert Function for ADD FORM -->
-    <script type="text/javascript">
-      (function($) {
-        $('#time').on('click', function(event) {
-          var time = new Date();
-          $('#out_date').val(time.toDateString());
-        });
-
-      })(jQuery);
-    </script>
 
 </body>
 

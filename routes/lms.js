@@ -284,17 +284,15 @@ module.exports = function(app) {
   app.post('/lms/search', function(req, res) {
     console.log(req.body);
     var search = req.body.search;
-    //console.log(echo $search);
-    //var search = 'MX';
     var listData = function(err, collection) {
       collection.find({
         $or: [{
-          extension: new RegExp(search)
+          lmsip: new RegExp(search)
         }, {
-          whole_name: new RegExp(search)
+          lmshostname: new RegExp(search)
         }]
       }).toArray(function(err, results) {
-        res.render('extensions-show.html', {
+        res.render('lms/lms-show.html', {
           layout: false,
           'title': 'Amway.voice',
           'results': results

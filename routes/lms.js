@@ -323,7 +323,7 @@ module.exports = function(app) {
   });
 
   // FILTER - COUNTRY
-  app.get('/lms/filter/country', function(req, res) {
+  app.post('/lms/filter/country', function(req, res) {
     console.log(req.bod);
     var filtercountry = req.body.lmsfiltercountry;
 

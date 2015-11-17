@@ -268,7 +268,7 @@ module.exports = function(app) {
       console.log(req.body);
       var listData = function(err, collection) {
           collection.find().toArray(function(err, results) {
-              res.render('lms-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
+              res.render('lms/lms-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }
 

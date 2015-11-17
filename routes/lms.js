@@ -322,10 +322,10 @@ module.exports = function(app) {
   });
 
   // FILTER - COUNTRY
-  app.get('/extensions/filter/bp', function(req, res) {
+  app.get('/lms/filter/country', function(req, res) {
     console.log(req.bod);
     var filtercountry = req.body.lmsfiltercountry;
-    
+
     var listData = function(err, collection) {
       collection.find({
         lmsadmincountry: "USA"

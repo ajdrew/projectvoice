@@ -50,11 +50,11 @@
             </div>
           </div>
         </form>
-        <form class"form-inline" method="post" action="/lms/filter/country" id="lms-filter-country">
+        <form class"form-inline" method="post" action="/lms/filter/country" id="lmsfiltercountry">
           <div class="form-group">
             <div class="input-group">
             <label for="lmscountry" class="col-sm-4 control-label">OR Filter on Country = </label>
-              <select name="lms-filter-country" form="lms-filter-country" class="form-control">
+              <select name="lmsfiltercountry" form="lmsfiltercountry" class="form-control">
                 {{#each Country}}
                 <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
                 {{/each}}

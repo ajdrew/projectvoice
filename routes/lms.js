@@ -324,13 +324,11 @@ module.exports = function(app) {
   // FILTER - COUNTRY
   app.get('/extensions/filter/bp', function(req, res) {
     console.log(req.bod);
-    var filter - country = req.body.filter - country;
-
-
-
+    var filtercountry = req.body.lmsfiltercountry;
+    
     var listData = function(err, collection) {
       collection.find({
-        place: "BP"
+        lmsadmincountry: "USA"
       }).toArray(function(err, results) {
         res.render('lms/lms-show.html', {
           layout: false,

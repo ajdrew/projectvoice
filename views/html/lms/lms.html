@@ -51,24 +51,21 @@
           </div>
           <a href="/lms/add" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
           <a href="/lms/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
-        </form>
-
-        <form class"form-inline" method="post" action="/lms/filter/country" id="lmsfiltercountry">
-          <div class="form-group">
-            <div class="input-group">
-            <label for="lmsfiltercountry" class="col-sm-4 control-label">OR Filter on Country = </label>
-              <select name="lmsfiltercountry" form="lmsfiltercountry" class="form-control">
-                {{#each Country}}
-                <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
-                {{/each}}
-              </select>
-              <div class="input-group-btn">
-                <button type="submit" class="btn btn-default" type="button">Search</button>
+          <form class"form-inline" method="post" action="/lms/filter/country" id="lmsfiltercountry">
+            <div class="form-group">
+              <div class="input-group">
+                <select name="lmsfiltercountry" form="lmsfiltercountry" class="form-control">
+                  {{#each Country}}
+                  <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
+                  {{/each}}
+                </select>
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-default" type="button">Search</button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </form>
-
       </div>
     </div>
     <!-- END ROW - SEARCH-->

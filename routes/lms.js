@@ -329,7 +329,7 @@ module.exports = function(app) {
 
     var listData = function(err, collection) {
       collection.find({
-        lmscountry: "USA"
+        lmscountry: new RegExp(filtercountry)
       }).toArray(function(err, results) {
         res.render('lms/lms-show.html', {
           layout: false,

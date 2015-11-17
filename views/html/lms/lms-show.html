@@ -100,8 +100,12 @@
           <table class="table table-striped table-bordered table-condensed">
             <thead>
               <tr>
-                <th colspan="7">General</th>
+                <th colspan="8">General</th>
                 <th colspan="4">Versioning</th>
+                <th colspan="9">Access</th>
+                <th colspan="6">Voice</th>
+                <th colspan="3">Virtualization</th>
+                <th colspan="2">Physical</th>
               </tr>
               <tr>
                 <th>IP</th>
@@ -116,6 +120,26 @@
                 <th>CME IOS</th>
                 <th>CIMC</th>
                 <th>Windows</th>
+                <th>Access</th>
+                <th>SSL Renewal Date</th>
+                <th>LDAP</th>
+                <th>IOS Username</th>
+                <th>IOS Password</th>
+                <th>UCS Username</th>
+                <th>UCS Password</th>
+                <th>Application Username</th>
+                <th>Application Password</th>
+                <th>Application Username</th>
+                <th>Application Password</th>
+                <th>Platform Username</th>
+                <th>Platform Password</th>
+                <th>Database</th>
+                <th>ELM/PLM</th>
+                <th>Virtualized</th>
+                <th>vSphere Manager</th>
+                <th>ESX License</th>
+                <th>Type</th>
+                <th>Serial</th>
               </tr>
             </thead>
             <tbody>
@@ -132,6 +156,30 @@
                   <a href="/lms/edit/{{this._id}}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                   <a href="/lms/delete/{{this._id}}" class="btn btn-danger btn-xs" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
                 </td>
+                <td>{{this.lmsversiongeneral}}</td>
+                <td>{{this.lmsversioncmeios}}</td>
+                <td>{{this.lmsversioncimc}}</td>
+                <td>{{this.lmsversionwindows}}</td>
+                <td>{{this.lmsaccess}}</td>
+                <td>{{this.lmssslrenewaldate}}</td>
+                <td>{{this.lmsldap}}</td>
+                <td>{{this.lmsiosusername}}</td>
+                <td>{{this.lmsiospassword}}</td>
+                <td>{{this.lmsucsusername}}</td>
+                <td>{{this.lmsucspassword}}</td>
+                <td>{{this.lmsappusername}}</td>
+                <td>{{this.lmsapppassword}}</td>
+                <td>{{this.lmsvoiceappusername}}</td>
+                <td>{{this.lmsvoiceapppassword}}</td>
+                <td>{{this.lmsvoiceplatusername}}</td>
+                <td>{{this.lmsvoiceplatpassword}}</td>
+                <td>{{this.lmsvoicedatabase}}</td>
+                <td>{{this.lmselm}}</td>
+                <td>{{this.lmsvirtualized}}</td>
+                <td>{{this.lmsvsphere}}</td>
+                <td>{{this.lmsesxlicense}}</td>
+                <td>{{this.lmshardwaretype}}</td>
+                <td>{{this.lmshardwareserial}}</td>
               </tr>
               {{/each}}
             </tbody>

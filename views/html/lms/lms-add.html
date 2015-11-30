@@ -12,18 +12,6 @@
   <!-- Favicon and Touch Icons -->
   <link rel="shortcut icon" href="/assets/ico/favicon.ico">
 
-  <!-- JS: Show/Hide add Divs -->
-  <script type="text/javascript">
-    function toggle(id) {
-      var state = document.getElementById(id).style.display;
-      if (state == 'block') {
-        document.getElementById(id).style.display = 'none';
-      } else {
-        document.getElementById(id).style.display = 'block';
-      }
-    }
-  </script>
-
 </head>
 
 <body>
@@ -56,33 +44,41 @@
           <h3>General</h3>
           <hr>
           <div class="form-group">
-            <label for="ip" class="col-sm-4 control-label">IP</label>
+            <label for="lmsip" class="col-sm-4 control-label">IP</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="IP" name="ip">
+              <input type="text" class="form-control" placeholder="IP" name="lmsip">
             </div>
           </div>
           <div class="form-group">
-            <label for "hostname" class="col-sm-4 control-label">Hostname</label>
+            <label for "lmshostname" class="col-sm-4 control-label">Hostname</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Hostname" name="hostname">
+              <input type="text" class="form-control" placeholder="Hostname" name="lmshostname">
             </div>
           </div>
           <div class="form-group">
-            <label for="country" class="col-sm-4 control-label">Country</label>
+            <label for="lmscountry" class="col-sm-4 control-label">Country</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Country" name="country">
+              <select name="lmscountry" form="lms-add" class="form-control">
+                {{#each Country}}
+                <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
+                {{/each}}
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="site" class="col-sm-4 control-label">Site</label>
+            <label for="lmssite" class="col-sm-4 control-label">Site</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Site" name="site">
+              <select name="lmssite" form="lms-add" class="form-control">
+                {{#each Sites}}
+                <option value="{{this.lmsadminsites}}">{{this.lmsadminsites}}</option>
+                {{/each}}
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="type" class="col-sm-4 control-label">Type</label>
+            <label for="lmstype" class="col-sm-4 control-label">Type</label>
             <div class="col-sm-8">
-              <select name="type" form="lms-add" class="form-control">
+              <select name="lmstype" form="lms-add" class="form-control">
                 {{#each Type}}
                 <option value="{{this.lmsadmintype}}">{{this.lmsadmintype}}</option>
                 {{/each}}
@@ -90,51 +86,55 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="description" class="col-sm-4 control-label">Description</label>
+            <label for="lmsdescription" class="col-sm-4 control-label">Description</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Description" name="description">
+              <input type="text" class="form-control" placeholder="Description" name="lmsdescription">
             </div>
           </div>
           <div class="form-group">
-            <label for="ciscocontract" class="col-sm-4 control-label">Cisco Contract</label>
+            <label for="lmsciscocontract" class="col-sm-4 control-label">Cisco Contract</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Cisco Contract" name="Cisco Contract">
+              <select name="lmsciscocontract" form="lms-add" class="form-control">
+                {{#each Contract}}
+                <option value="{{this.lmsadmincontract}}">{{this.lmsadmincontract}}</option>
+                {{/each}}
+              </select>
             </div>
           </div>
           <hr>
           <h3>Versioning</h3>
           <hr>
           <div class="form-group">
-            <label for="versiongeneral" class="col-sm-4 control-label">Version - General</label>
+            <label for="lmsversiongeneral" class="col-sm-4 control-label">Version - General</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="versiongeneral">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversiongeneral">
             </div>
           </div>
           <div class="form-group">
-            <label for="versioncmeios" class="col-sm-4 control-label">Version - CME IOS</label>
+            <label for="lmsversioncmeios" class="col-sm-4 control-label">Version - CME IOS</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="versioncmeios">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversioncmeios">
             </div>
           </div>
           <div class="form-group">
-            <label for="versioncimc" class="col-sm-4 control-label">Version - CIMC</label>
+            <label for="lmsversioncimc" class="col-sm-4 control-label">Version - CIMC</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="versioncimc">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversioncimc">
             </div>
           </div>
           <div class="form-group">
-            <label for="versionwindows" class="col-sm-4 control-label">Version - Windows</label>
+            <label for="lmsversionwindows" class="col-sm-4 control-label">Version - Windows</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="versionwindows">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversionwindows">
             </div>
           </div>
           <hr>
           <h3>Access</h3>
           <hr>
           <div class="form-group">
-            <label for="access" class="col-sm-4 control-label">Access</label>
+            <label for="lmsaccess" class="col-sm-4 control-label">Access</label>
             <div class="col-sm-8">
-              <select name="access" form="lms-add" class="form-control">
+              <select name="lmsaccess" form="lms-add" class="form-control">
                 {{#each Access}}
                 <option value="{{this.lmsadminaccess}}">{{this.lmsadminaccess}}</option>
                 {{/each}}
@@ -142,111 +142,122 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="sslrenewaldate" class="col-sm-4 control-label">SSL Renewal Date</label>
+            <label for="lmssslrenewaldate" class="col-sm-4 control-label">SSL Renewal Date</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Date" name="sslrenewaldate">
+              <input type="text" class="form-control" placeholder="Date" name="lmssslrenewaldate">
             </div>
           </div>
           <div class="form-group">
-            <label for="ldap" class="col-sm-4 control-label">LDAP</label>
+            <label for="lmsldap" class="col-sm-4 control-label">LDAP</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Access" name="ldap">
+              <select name="lmsldap" form="lms-add" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="iosusername" class="col-sm-4 control-label">IOS Login</label>
+            <label for="lmsiosusername" class="col-sm-4 control-label">IOS Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="iosusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsiosusername">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="iospassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsiospassword">
             </div>
           </div>
           <div class="form-group">
-            <label for="ucsusername" class="col-sm-4 control-label">UCS Login</label>
+            <label for="lmsucsusername" class="col-sm-4 control-label">UCS Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="ucsusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsucsusername">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="ucspassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsucspassword">
             </div>
           </div>
           <div class="form-group">
             <label for="appusername" class="col-sm-4 control-label">Application Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="appusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsappusername">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="apppassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsapppassword">
             </div>
           </div>
           <hr>
           <h3>Voice</h3>
           <hr>
           <div class="form-group">
-            <label for="voiceappusername" class="col-sm-4 control-label">Voice - Application Login</label>
+            <label for="lmsvoiceappusername" class="col-sm-4 control-label">Voice - Application Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="voiceappusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsvoiceappusername">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="voiceapppassword">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="voiceplatusername" class="col-sm-4 control-label">Voice - Platform Login</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="voiceplatusername">
-            </div>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="voiceplatpassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsvoiceapppassword">
             </div>
           </div>
           <div class="form-group">
-            <label for="voicedatabase" class="col-sm-4 control-label">Voice - Database</label>
+            <label for="lmsvoiceplatusername" class="col-sm-4 control-label">Voice - Platform Login</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Username" name="lmsvoiceplatusername">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" placeholder="Password" name="lmsvoiceplatpassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lmsvoicedatabase" class="col-sm-4 control-label">Voice - Database</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Voice - Database" name="voicedatabase">
+              <input type="text" class="form-control" placeholder="Voice - Database" name="lmsvoicedatabase">
             </div>
           </div>
           <div class="form-group">
-            <label for="voicelicensehost" class="col-sm-4 control-label">Voice - License Host</label>
+            <label for="lmselm" class="col-sm-4 control-label">Voice - ELM/PLM</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Voice - License Host" name="voicelicensehost">
+              <select name="lmselm" form="lms-add" class="form-control">
+                {{#each Elm}}
+                <option value="{{this.lmsadminelm}}">{{this.lmsadminelm}}</option>
+                {{/each}}
+              </select>
             </div>
           </div>
           <hr>
           <h3>Virtualization</h3>
           <hr>
           <div class="form-group">
-            <label for="virtualized" class="col-sm-4 control-label">Virtualized</label>
+            <label for="lmsvirtualized" class="col-sm-4 control-label">Virtualized</label>
             <div class="col-sm-8">
-              <input type="checkbox" name="virtualized">
+              <input type="checkbox" name="lmsvirtualized">
             </div>
           </div>
           <div class="form-group">
-            <label for="vsphere" class="col-sm-4 control-label">vSphere Manager</label>
+            <label for="lmsvsphere" class="col-sm-4 control-label">vSphere Manager</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="vSphere" name="vsphere">
+              <select name="lmsvsphere" form="lms-add" class="form-control">
+                {{#each Vsphere}}
+                <option value="{{this.lmsadminvsphere}}">{{this.lmsadminvsphere}}</option>
+                {{/each}}
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="esxlicense" class="col-sm-4 control-label">ESX License</label>
+            <label for="lmsesxlicense" class="col-sm-4 control-label">ESX License</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="ESX License" name="esxlicense">
+              <input type="text" class="form-control" placeholder="ESX License" name="lmsesxlicense">
             </div>
           </div>
           <hr>
           <h3>Physical</h3>
           <hr>
           <div class="form-group">
-            <label for="hardwaretype" class="col-sm-4 control-label">Hardware - Type</label>
+            <label for="lmshardwaretype" class="col-sm-4 control-label">Hardware - Type</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Hardware - Type" name="hardwaretype">
+              <input type="text" class="form-control" placeholder="Hardware - Type" name="lmshardwaretype">
             </div>
           </div>
           <div class="form-group">
-            <label for="hardwareserial" class="col-sm-4 control-label">Hardware - Serial</label>
+            <label for="lmshardwareserial" class="col-sm-4 control-label">Hardware - Serial</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Hardware - Serial" name="hardwareserial">
+              <input type="text" class="form-control" placeholder="Hardware - Serial" name="lmshardwareserial">
             </div>
           </div>
 

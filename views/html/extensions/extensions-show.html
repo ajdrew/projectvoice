@@ -99,7 +99,6 @@
         <div id="toggle-add-extension">
           <form method="post" action="/extensions/save" id="extension-add">
             <div class="row">
-
               <div class="col-sm-1">
                 <label for="extension">Extension</label>
               </div>
@@ -109,47 +108,39 @@
               <div class="col-sm-2">
                 <label for="whole_name">Name or Description</label>
               </div>
-
+              <div class="col-sm-2">
+                <label for="email">Email</label>
+              </div>
+              <div class="col-sm-1">
+                <label for="place">Location</label>
+              </div>
+              <div class="col-sm-2">
+                <label for="phone_number_jabber">Phone Number - Jabber</label>
+              </div>
+              <div class="col-sm-1">
+                <label for="did">DID</label>
+              </div>
+              <div class="col-sm-1">
+                <label for="status">Status</label>
+              </div>
+              <div class="col-sm-1">
+                <label for="OUT Date">OUT Date</label>
+              </div>
             </div>
             <div class="row">
-
               <div class="col-sm-1">
                 <input type="text" class="form-control" placeholder="Extension" name="extension">
               </div>
               <div class="col-sm-1">
                 <input type="text" class="form-control" placeholder="User ID" name="user_id">
               </div>
-              <div class="col-sm-1">
+              <div class="col-sm-2">
                 <input type="text" class="form-control" placeholder="Name or Description" name="whole_name">
               </div>
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-            <td>
-              <div class="form-group">
-                <label class="sr-only" for="whole_name">Name or Description</label>
-                <input type="text" class="form-control" placeholder="Name or Description" name="whole_name">
-              </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <label class="sr-only" for="email">Email</label>
+              <div class="col-sm-2">
                 <input type="text" class="form-control" placeholder="email@email.com" name="email">
               </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <label class="sr-only" for="place">Location</label>
+              <div class="col-sm-1">
                 <select name="place" form="extension-add" class="form-control">
                   <option value="USNS41">USNS41</option>
                   <option value="USBP02">USBP02</option>
@@ -160,35 +151,23 @@
                   <option value="MXCM01">MXCM01</option>
                 </select>
               </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <label class="sr-only" for="phone_number_jabber">Phone Number - Jabber</label>
+              <div class="col-sm-2">
                 <input type="text" class="form-control" placeholder="+[DID] or **[site code][ext]" name="phone_number_jabber">
               </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <label class="sr-only" for="did">DID</label>
+              <div class="col-sm-1">
                 <select name="did" form="extension-add" class="form-control">
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
               </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <label class="sr-only" for="status">Status</label>
+              <div class="col-sm-1">
                 <select name="status" form="extension-add" class="form-control">
                   <option value="OPEN">OPEN</option>
                   <option value="ASSIGNED">ASSIGNED</option>
                   <option value="RESERVED">RESERVED</option>
                 </select>
               </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <label class="sr-only" for="OUT Date">OUT Date</label>
+              <div class="col-sm-1">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="Out Date" name="out_date" id="out_date">
                   <span class="input-group-btn">
@@ -196,13 +175,12 @@
                   </span>
                 </div>
               </div>
-            </td>
-            <td>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </td>
-            </tr>
-            </tbody>
-            </table>
+            </div>
+            <div class="row">
+              <div class="col-sm-1">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>

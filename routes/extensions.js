@@ -228,7 +228,7 @@ module.exports = function(app) {
       //console.log(echo $search);
       //var search = 'MX';
       var listData = function(err, collection) {
-          collection.find({$or:[{extension: new RegExp(search, "i")},{whole_name: new RegExp(search, "i")}]}).toArray(function(err, results) {
+          collection.find({$or:[{extension: new RegExp(search, "i")},{whole_name: new RegExp(search, "i")},{user_id: new RegExp(search, "i")}]}).toArray(function(err, results) {
               res.render('extensions/extensions-show.html', { layout : false , 'title' : 'Amway.voice', 'results' : results });
           });
       }

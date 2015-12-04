@@ -99,64 +99,86 @@
       <!-- ROW - ADD FORM -->
       <div class="col-md-12">
         <div id="toggle-add-extension">
-          <form class="form-inline" method="post" action="/extensions/save" id="extension-add">
+          <form class="form-horizontal" method="post" action="/extensions/save" id="extension-add">
             <div class="form-group">
-              <label class="sr-only" for="extension">Extension</label>
-              <input type="text" class="form-control" placeholder="Extension" name="extension">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for "user_id">User ID</label>
-              <input type="text" class="form-control" placeholder="User ID" name="user_id">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="whole_name">Name or Description</label>
-              <input type="text" class="form-control" placeholder="Name or Description" name="whole_name">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="email">Email</label>
-              <input type="text" class="form-control" placeholder="email@email.com" name="email">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="place">Location</label>
-              <select name="place" form="extension-add" class="form-control">
-                <option value="USNS41">USNS41</option>
-                <option value="USBP02">USBP02</option>
-                <option value="BRCM01">BRCM01</option>
-                <option value="CACM01-PUB">CACM01-PUB</option>
-                <option value="CONS01">CONS01</option>
-                <option value="CRNS01">CRNS01</option>
-                <option value="MXCM01">MXCM01</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="phone_number_jabber">Phone Number - Jabber</label>
-              <input type="text" class="form-control" placeholder="+[DID] or **[site code][ext]" name="phone_number_jabber">
-            </div>
-            <div class="form-group">
-              <label for="did">DID</label>
-              <select name="did" form="extension-add" class="form-control">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="status">Status</label>
-              <select name="status" form="extension-add" class="form-control">
-                <option value="OPEN">OPEN</option>
-                <option value="ASSIGNED">ASSIGNED</option>
-                <option value="RESERVED">RESERVED</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="OUT Date">OUT Date</label>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Out Date" name="out_date" id="out_date">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
+              <label class="col-md-2 control-label" for="extension">Extension</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Extension" name="extension">
               </div>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for "user_id">User ID</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="User ID" name="user_id">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="whole_name">Name or Description</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Name or Description" name="whole_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="email">Email</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="email@email.com" name="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="place">Location</label>
+              <div class="col-md-2">
+                <select name="place" form="extension-add" class="form-control">
+                  <option value="USNS41">USNS41</option>
+                  <option value="USBP02">USBP02</option>
+                  <option value="BRCM01">BRCM01</option>
+                  <option value="CACM01-PUB">CACM01-PUB</option>
+                  <option value="CONS01">CONS01</option>
+                  <option value="CRNS01">CRNS01</option>
+                  <option value="MXCM01">MXCM01</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="phone_number_jabber">Phone Number - Jabber</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="+[DID] or **[site code][ext]" name="phone_number_jabber">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="did">DID</label>
+              <div class="col-md-2">
+                <select name="did" form="extension-add" class="form-control">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="status">Status</label>
+              <div class="col-md-2">
+                <select name="status" form="extension-add" class="form-control">
+                  <option value="OPEN">OPEN</option>
+                  <option value="ASSIGNED">ASSIGNED</option>
+                  <option value="RESERVED">RESERVED</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="Out Date">Out Date</label>
+              <div class="col-md-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Out Date" name="out_date" id="out_date">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-2 col-md-offset-2">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>

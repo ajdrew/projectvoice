@@ -31,7 +31,7 @@ module.exports = function(app) {
         res.render('extensions/extensions.html', {
           layout: false,
           'title': 'Amway.voice',
-          'Location': location,
+          'Locations': locations,
         });
       }
     }

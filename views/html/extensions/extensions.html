@@ -62,12 +62,11 @@
         <form class="form-inline" method="post" action="/extensions/search" id="extension-find">
           <div class="form-group">
             <div class="input-group">
+              <input type="text" class="form-control" placeholder="Extension or Name..." name="search">
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
               </span>
-              <input type="text" class="form-control" placeholder="Extension or Name..." name="search">
             </div>
-            <!-- /input-group -->
           </div>
         </form>
       </div>
@@ -78,17 +77,36 @@
 
     <div class="row">
       <!-- ROW - FILTERS -->
-      <div class="col-md-10 col-md-offset-1">
-        <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
-        <a href="/extensions/filter/USNS41" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>USNS41</a>
-        <a href="/extensions/filter/USBP02" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>USBP02</a>
-        <a href="/extensions/filter/BRCM01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BRCM01</a>
-        <a href="/extensions/filter/CACM01-PUB" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CACM01-PUB</a>
-        <a href="/extensions/filter/CONS01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CONS01</a>
-        <a href="/extensions/filter/CRNS01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CRNS01</a>
-        <a href="/extensions/filter/MXCM01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MXCM01</a>
-        <a href="/extensions/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
-        <a href="/extensions/filter/open" class="btn btn-warning"><i class="glyphicon glyphicon-asterisk"></i>Magic Button (ADA)</a>
+      <div class="col-md-4 col-md-offset-4">
+        <form class="form-inline" method="post" action="/extensions/search" id="extension-filter">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
+                <select name="place" form="extension-add" class="form-control">
+                  <option value="USNS41">USNS41</option>
+                  <option value="USBP02">USBP02</option>
+                  <option value="BRCM01">BRCM01</option>
+                  <option value="CACM01-PUB">CACM01-PUB</option>
+                  <option value="CONS01">CONS01</option>
+                  <option value="CRNS01">CRNS01</option>
+                  <option value="MXCM01">MXCM01</option>
+                </select>
+              </span>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+              <input type="text" class="form-control" placeholder="Extension or Name..." name="search">
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     <!-- END ROW - FILTERS -->

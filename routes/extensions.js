@@ -311,7 +311,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/extensions/filter', function(req, res) {
+  app.post('/extensions/filter', function(req, res) {
 
     var filter = req.body.filter;
     var options = {

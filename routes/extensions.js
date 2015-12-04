@@ -294,7 +294,7 @@ module.exports = function(app) {
 
     var listData = function(err, collection) {
       collection.find({
-        whole_name: "OPEN"
+        status: "OPEN"
       }, options).toArray(function(err, results) {
         res.render('extensions/extensions-show.html', {
           layout: false,

@@ -311,6 +311,32 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/extensions/filter', function(req, res) {
+
+    var filter = req.body.filter;
+    var options = {
+      "sort": "extension"
+    }
+
+    var listData = function(err, collection) {
+      collection.find({
+        place: new RegExp(filter)
+      }, options).toArray(function(err, results) {
+        res.render('extensions/extensions-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'results': results
+        });
+      });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('extensions', listData);
+      //Client.close();
+    });
+  });
+
   // DB - SEARCH
   app.post('/extensions/search', function(req, res) {
     console.log(req.body);

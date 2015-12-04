@@ -42,7 +42,7 @@ module.exports = function(app) {
   app.post('/extensions/admin/location/save', function(req, res) {
     console.log(req.body);
     var data = {
-      'extensionsadminlocations': req.body.lmsadmintype
+      'extensionsadminlocations': req.body.extensionsadminlocations
     };
     var insertData = function(err, collection) {
       collection.insert(data);

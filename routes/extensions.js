@@ -4,7 +4,7 @@ module.exports = function(app) {
   var Db = require('mongodb').Db;
   var Server = require('mongodb').Server;
 
-  // PAGE - MAIN
+  // PAGES
   app.get('/extensions', function(req, res) {
     res.render('extensions/extensions.html', {
       layout: false,

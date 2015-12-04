@@ -21,25 +21,17 @@ module.exports = function(app) {
       });
     }
 
-
-
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('extensionsadminlocations', listDataType);
     });
 
     function complete() {
-      if (type !== null && access !== null && country !== null && contract !== null && sites !== null && vsphere !== null && elm !== null) {
-        res.render('lms/lms-admin.html', {
+      if (locations !== null) {
+        res.render('extensions/extensions-admin.html', {
           layout: false,
           'title': 'Amway.voice',
-          'Type': type,
-          'Access': access,
-          'Country': country,
-          'Contract': contract,
-          'Sites': sites,
-          'Vsphere': vsphere,
-          'Elm': elm
+          'Locations': locations,
         });
       }
     }

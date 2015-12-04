@@ -6,10 +6,35 @@ module.exports = function(app) {
 
   // PAGES
   app.get('/extensions', function(req, res) {
-    res.render('extensions/extensions.html', {
-      layout: false,
-      'title': 'Amway.voice'
+
+    var locations = null;
+
+    var optionslocations = {
+      "sort": "extensionsadminlocations"
+    }
+
+    var listDataLocations = function(err, collection) {
+      collection.find({}, optionslocations).toArray(function(err, results) {
+        if (err) throw err;
+        locations = results;
+        complete();
+      });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('extensionsadminlocations', listDataLocations);
     });
+
+    function complete() {
+      if (type !== null) {
+        res.render('extensions/extensions.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Location': location,
+        });
+      }
+    }
   })
 
   app.get('/extensions/show', function(req, res) {

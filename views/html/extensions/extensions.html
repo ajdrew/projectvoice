@@ -94,6 +94,26 @@
 
     <div class="row"><!-- ROW - FILTERS -->
       <div class="col-md-4 col-md-offset-4">
+        <form class="form-inline" method="post" action="/extensions/filter" id="extension-filter">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <select name="filter" form="extension-filter" class="form-control">
+                  {{#each Location}}
+                  <option value="{{this.extensionsadminlocations}}">{{this.extensionsadminlocations}}</option>
+                  {{/each}}
+                </select>
+                <button type="submit" class="btn btn-default" type="button">Search</button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div><!-- END ROW - FILTERS -->
+    <p>&nbsp;</p><!-- SIMPLE SPACER -->
+
+    <div class="row"><!-- ROW - FILTERS -->
+      <div class="col-md-4 col-md-offset-4">
         <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
         <a href="/extensions/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
         <a href="/extensions/filter/open" class="btn btn-warning"><i class="glyphicon glyphicon-asterisk"></i>Magic Button (ADA)</a>

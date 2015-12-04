@@ -27,7 +27,7 @@ module.exports = function(app) {
     });
 
     function complete() {
-      if (type !== null) {
+      if (locations !== null) {
         res.render('extensions/extensions.html', {
           layout: false,
           'title': 'Amway.voice',

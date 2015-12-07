@@ -250,6 +250,51 @@ module.exports = function(app) {
     }
   });
 
+  app.post('/extensions/all', function(req, res) {
+
+    var locations = null;
+    var resultsx = null;
+    var options = {
+      "sort": "extension"
+    }
+    var optionslocations = {
+      "sort": "extensionsadminlocations"
+    }
+
+    var listDataLocations = function(err, collection) {
+      collection.find({}, optionslocations).toArray(function(err, results) {
+        if (err) throw err;
+        locations = results;
+        complete();
+      });
+    }
+
+    var listData = function(err, collection) {
+      collection.find().toArray(function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('extensions', listData);
+      Client.collection('extensionsadminlocations', listDataLocations);
+    });
+
+    function complete() {
+      if (locations !== null && resultsx !== null) {
+        res.render('extensions/extensions-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Locations': locations,
+          'Results' : resultsx,
+        });
+      }
+    }
+  });
+
   app.get('/extensions/filter/open', function(req, res) {
 
     var options = {

@@ -370,7 +370,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/extensions/search', function(req, res) {
+  app.post('/extensions/search', function(req, res) {
     console.log(req.body);
     var search = req.body.search;
     var locations = null;

@@ -264,7 +264,7 @@ module.exports = function(app) {
         res.render('extensions/extensions-show.html', {
           layout: false,
           'title': 'Amway.voice',
-          'results': results
+          'Results': results
         });
       });
     }
@@ -292,7 +292,7 @@ module.exports = function(app) {
         res.render('extensions/extensions-show.html', {
           layout: false,
           'title': 'Amway.voice',
-          'results': results
+          'Results': results
         });
       });
     }

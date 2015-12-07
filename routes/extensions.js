@@ -206,6 +206,7 @@ module.exports = function(app) {
 
     var filter = req.body.filter;
     var locations = null;
+    var results = null;
     var options = {
       "sort": "extension"
     }

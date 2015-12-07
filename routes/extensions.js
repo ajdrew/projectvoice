@@ -57,7 +57,7 @@ module.exports = function(app) {
 
   })
 
-  app.get('/extensions/show', function(req, res) {
+  app.get('/extensions/show2', function(req, res) {
     res.render('extensions/extensions-show.html', {
       layout: false,
       'title': 'Amway.voice'
@@ -65,8 +65,7 @@ module.exports = function(app) {
   })
 
 
-  app.get('/extensions/show3', function(req, res) {
-    console.log(req.body);
+  app.get('/extensions/show', function(req, res) {
 
     var locations = null;
 
@@ -84,13 +83,12 @@ module.exports = function(app) {
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('extensionsadminlocations', listDataLocations)
+      Client.collection('extensionsadminlocations', listDataLocations);
     });
-
 
     function complete() {
       if (locations !== null) {
-        res.render('extensions/extensions-show.html', {
+        res.render('extensions/extensions.html', {
           layout: false,
           'title': 'Amway.voice',
           'Locations': locations,

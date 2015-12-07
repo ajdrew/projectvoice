@@ -297,31 +297,54 @@ module.exports = function(app) {
 
   app.get('/extensions/filter/open', function(req, res) {
 
+    var locations = null;
+    var resultsx = null;
     var options = {
       "limit": 1,
       "sort": "out_date"
+    }
+    var optionslocations = {
+      "sort": "extensionsadminlocations"
+    }
+
+    var listDataLocations = function(err, collection) {
+      collection.find({}, optionslocations).toArray(function(err, results) {
+        if (err) throw err;
+        locations = results;
+        complete();
+      });
     }
 
     var listData = function(err, collection) {
       collection.find({
         status: "OPEN"
       }, options).toArray(function(err, results) {
-        res.render('extensions/extensions-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'Results': results
+        if (err) throw err;
+        resultsx = results;
+        complete();
         });
-      });
     }
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('extensions', listData);
+      Client.collection('extensionsadminlocations', listDataLocations);
     });
+
+    function complete() {
+      if (locations !== null && resultsx !== null) {
+        res.render('extensions/extensions-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Locations': locations,
+          'Results' : resultsx,
+        });
+      }
+    }
   });
 
   // DB - SEARCH
-  app.post('/extensions/search', function(req, res) {
+  app.post('/extensions/search1', function(req, res) {
     console.log(req.body);
     var search = req.body.search;
     var listData = function(err, collection) {
@@ -345,5 +368,56 @@ module.exports = function(app) {
     Client.open(function(err, pClient) {
       Client.collection('extensions', listData);
     });
+  });
+
+  app.get('/extensions/search', function(req, res) {
+    console.log(req.body);
+    var search = req.body.search;
+    var locations = null;
+    var resultsx = null;
+    var optionslocations = {
+      "sort": "extensionsadminlocations"
+    }
+
+    var listDataLocations = function(err, collection) {
+      collection.find({}, optionslocations).toArray(function(err, results) {
+        if (err) throw err;
+        locations = results;
+        complete();
+      });
+    }
+
+    var listData = function(err, collection) {
+      collection.find({
+        $or: [{
+          extension: new RegExp(search, "i")
+        }, {
+          whole_name: new RegExp(search, "i")
+        }, {
+          user_id: new RegExp(search, "i")
+        }]
+      }).toArray(function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('extensions', listData);
+      Client.collection('extensionsadminlocations', listDataLocations);
+    });
+
+    function complete() {
+      if (locations !== null && resultsx !== null) {
+        res.render('extensions/extensions-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Locations': locations,
+          'Results' : resultsx,
+        });
+      }
+    }
   });
 }

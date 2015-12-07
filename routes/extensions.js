@@ -229,7 +229,6 @@ module.exports = function(app) {
         results = results;
         complete();
         });
-      });
     }
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));

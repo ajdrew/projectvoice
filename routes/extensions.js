@@ -206,7 +206,7 @@ module.exports = function(app) {
 
     var filter = req.body.filter;
     var locations = null;
-    var results = null;
+    var resultsx = null;
     var options = {
       "sort": "extension"
     }
@@ -227,7 +227,7 @@ module.exports = function(app) {
         place: new RegExp(filter)
       }, options).toArray(function(err, results) {
         if (err) throw err;
-        results = results;
+        resultsx = results;
         complete();
         });
     }
@@ -239,12 +239,12 @@ module.exports = function(app) {
     });
 
     function complete() {
-      if (locations !== null && results !== null) {
+      if (locations !== null && resultsx !== null) {
         res.render('extensions/extensions-show.html', {
           layout: false,
           'title': 'Amway.voice',
           'Locations': locations,
-          'Results' : results,
+          'Results' : resultsx,
         });
       }
     }

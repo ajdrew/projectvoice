@@ -75,30 +75,6 @@
             <div class="input-group">
               <span class="input-group-btn">
                 <select name="filter" form="extension-filter" class="form-control">
-                  <option value="USNS41">USNS41</option>
-                  <option value="USBP02">USBP02</option>
-                  <option value="BRCM01">BRCM01</option>
-                  <option value="CACM01-PUB">CACM01-PUB</option>
-                  <option value="CONS01">CONS01</option>
-                  <option value="CRNS01">CRNS01</option>
-                  <option value="MXCM01">MXCM01</option>
-                </select>
-                <button type="submit" class="btn btn-default" type="button">Search</button>
-              </span>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div><!-- END ROW - FILTERS -->
-    <p>&nbsp;</p><!-- SIMPLE SPACER -->
-
-    <div class="row"><!-- ROW - FILTERS -->
-      <div class="col-md-4 col-md-offset-4">
-        <form class="form-inline" method="post" action="/extensions/filter" id="extension-filter">
-          <div class="form-group">
-            <div class="input-group">
-              <span class="input-group-btn">
-                <select name="filter" form="extension-filter" class="form-control">
                   {{#each Locations}}
                   <option value="{{this.extensionsadminlocations}}">{{this.extensionsadminlocations}}</option>
                   {{/each}}

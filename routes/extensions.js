@@ -62,13 +62,9 @@ module.exports = function(app) {
     console.log(req.body);
 
     var locations = null;
-    var resultsx = null;
 
     var optionslocations = {
       "sort": "extensionsadminlocations"
-    }
-    var optionsextention = {
-      "sort": "extension"
     }
 
     var listDataLocations = function(err, collection) {
@@ -78,28 +74,19 @@ module.exports = function(app) {
         complete();
       });
     }
-    var listData = function(err, collection) {
-      collection.find({}, optionsextention).toArray(function(err, results) {
-        if (err) throw err;
-        resultsx = results;
-        complete();
-      });
-    }
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('extensionsadminlocations', listDataLocations)
-      Client.collection('extensions', listData);
     });
 
 
     function complete() {
-      if (locations !== null && resultsx !== null) {
+      if (locations !== null) {
         res.render('extensions/extensions-show.html', {
           layout: false,
           'title': 'Amway.voice',
           'Locations': locations,
-          'Resultsx': resultsx,
         });
       }
     }

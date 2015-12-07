@@ -250,7 +250,7 @@ module.exports = function(app) {
     }
   });
 
-  app.post('/extensions/all', function(req, res) {
+  app.get('/extensions/all', function(req, res) {
 
     var locations = null;
     var resultsx = null;

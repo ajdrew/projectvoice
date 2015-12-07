@@ -39,20 +39,49 @@ module.exports = function(app) {
 
   app.get('/extensions/show', function(req, res) {
     console.log(req.body);
+
+    var locations = null;
+    var resultsx = null;
+
+    var optionslocations = {
+      "sort": "extensionsadminlocations"
+    }
+    var optionsextention = {
+      "sort": "extension"
+    }
+
+    var listDataLocations = function(err, collection) {
+      collection.find({}, optionslocations).toArray(function(err, results) {
+        if (err) throw err;
+        locations = results;
+        complete();
+      });
+    }
     var listData = function(err, collection) {
-      collection.find().toArray(function(err, results) {
-        res.render('extensions/extensions-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'results': results
-        });
+      collection.find({}, optionsextention).toArray(function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
       });
     }
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
+      Client.collection('extensions', listDataLocations)
       Client.collection('extensions', listData);
     });
+
+
+    function complete() {
+      if (locations !== null && resultsx !== null) {
+        res.render('extensions/extensions-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Locations': locations,
+          'Resultsx': resultsx,
+        });
+      }
+    }
 
   })
 

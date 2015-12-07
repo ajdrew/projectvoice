@@ -37,7 +37,7 @@ module.exports = function(app) {
     }
   })
 
-  app.get('/extensions/search', function(req, res) {
+  app.get('/extensions/show1', function(req, res) {
     console.log(req.body);
     var listData = function(err, collection) {
       collection.find().toArray(function(err, results) {
@@ -57,8 +57,15 @@ module.exports = function(app) {
 
   })
 
-
   app.get('/extensions/show', function(req, res) {
+    res.render('extensions/extensions-show.html', {
+      layout: false,
+      'title': 'Amway.voice'
+    });
+  })
+
+
+  app.get('/extensions/show3', function(req, res) {
     console.log(req.body);
 
     var locations = null;

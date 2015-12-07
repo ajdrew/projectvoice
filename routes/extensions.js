@@ -57,7 +57,7 @@ module.exports = function(app) {
 
   })
 
-  app.get('/extensions/show2', function(req, res) {
+  app.get('/extensions/show', function(req, res) {
     res.render('extensions/extensions-show.html', {
       layout: false,
       'title': 'Amway.voice'
@@ -65,7 +65,7 @@ module.exports = function(app) {
   })
 
 
-  app.get('/extensions/show', function(req, res) {
+  app.get('/extensions/show3', function(req, res) {
 
     var locations = null;
 

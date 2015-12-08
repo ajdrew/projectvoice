@@ -37,65 +37,11 @@ module.exports = function(app) {
     }
   })
 
-  app.get('/extensions/show1', function(req, res) {
-    console.log(req.body);
-    var listData = function(err, collection) {
-      collection.find().toArray(function(err, results) {
-        res.render('extensions/extensions-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'results': results
-        });
-      });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('extensions', listData);
-      //Client.close();
-    });
-
-  })
-
   app.get('/extensions/show', function(req, res) {
     res.render('extensions/extensions-show.html', {
       layout: false,
       'title': 'Amway.voice'
     });
-  })
-
-
-  app.get('/extensions/show3', function(req, res) {
-
-    var locations = null;
-
-    var optionslocations = {
-      "sort": "extensionsadminlocations"
-    }
-
-    var listDataLocations = function(err, collection) {
-      collection.find({}, optionslocations).toArray(function(err, results) {
-        if (err) throw err;
-        locations = results;
-        complete();
-      });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('extensionsadminlocations', listDataLocations);
-    });
-
-    function complete() {
-      if (locations !== null) {
-        res.render('extensions/extensions.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'Locations': locations,
-        });
-      }
-    }
-
   })
 
   // DB - CRUD
@@ -344,32 +290,6 @@ module.exports = function(app) {
   });
 
   // DB - SEARCH
-  app.post('/extensions/search1', function(req, res) {
-    console.log(req.body);
-    var search = req.body.search;
-    var listData = function(err, collection) {
-      collection.find({
-        $or: [{
-          extension: new RegExp(search, "i")
-        }, {
-          whole_name: new RegExp(search, "i")
-        }, {
-          user_id: new RegExp(search, "i")
-        }]
-      }).toArray(function(err, results) {
-        res.render('extensions/extensions-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'Results': results
-        });
-      });
-    }
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('extensions', listData);
-    });
-  });
-
   app.post('/extensions/search', function(req, res) {
     console.log(req.body);
     var search = req.body.search;

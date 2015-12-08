@@ -69,13 +69,9 @@
             <input class="place" type="hidden" value="{{Results.place}}">
             <div class="col-md-2">
               <select name="place" form="extensions-edit" class="form-control">
-                <option value="USNS41">USNS41</option>
-                <option value="USBP02">USBP02</option>
-                <option value="BRCM01">BRCM01</option>
-                <option value="CACM01-PUB">CACM01-PUB</option>
-                <option value="CONS01">CONS01</option>
-                <option value="CRNS01">CRNS01</option>
-                <option value="MXCM01">MXCM01</option>
+                {{#each Locations}}
+                <option value="{{this.extensionsadminlocations}}">{{this.extensionsadminlocations}}</option>
+                {{/each}}
               </select>
             </div>
           </div>

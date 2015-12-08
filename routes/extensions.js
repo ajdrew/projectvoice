@@ -75,7 +75,32 @@ module.exports = function(app) {
     var ObjectID = require('mongodb').ObjectID;
 
     var listData = function(err, collection) {
+      var chosenId = new ObjectID(req.params.id);
+      collection.findOne({
+        '_id': chosenId
+      }, function(err, results) {
+        console.log(results);
+        res.render('extensions/extensions-edit.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'results': results
+        });
+      });
+    }
 
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('extensions', listData);
+    });
+
+  });
+
+  //OLD
+  app.get('/extension', function(req, res) {
+    console.log(req.body);
+    var ObjectID = require('mongodb').ObjectID;
+
+    var listData = function(err, collection) {
       var chosenId = new ObjectID(req.params.id);
       collection.findOne({
         '_id': chosenId

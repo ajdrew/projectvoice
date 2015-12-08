@@ -88,7 +88,6 @@ module.exports = function(app) {
         resultsx = results;
         complete();
         });
-      });
     }
 
     var listDataLocations = function(err, collection) {

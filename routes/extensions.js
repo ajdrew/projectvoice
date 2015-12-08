@@ -114,8 +114,6 @@ module.exports = function(app) {
         });
       }
     }
-  })
-
   });
 
   //OLD

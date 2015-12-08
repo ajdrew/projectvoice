@@ -47,23 +47,15 @@ app.get('/', function(req, res) {
     'title': 'Amway.voice'
   });
 })
-/*
-app.get('/', function(req, res) {
-  res.render('index.jade', {
-    layout: false,
-    'title': 'Amway.voice'
-  });
-})
-*/
 
 
 // INCLUDE - Extensions DB app routes
 var routingextensions = require('./routes/extensions.js')(app);
-// var routingextensions = require('./routes/extensionsjade.js')(app);
+// INCLUDE - Extensions-admin DB app routes
+var routingextensions = require('./routes/extensions-admin.js')(app);
 
 // INCLUDE - LMS DB app routes
 var routingextensions = require('./routes/lms.js')(app);
-
 // INCLUDE - LMS-admin DB app routes
 var routingextensions = require('./routes/lms-admin.js')(app);
 

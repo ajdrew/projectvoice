@@ -56,97 +56,131 @@
   <div class="container-fluid">
     <!-- GRID SYSTEM -->
 
-    <div class="row">
-      <!-- ROW - SEARCH -->
-      <div class="col-lg-4 col-md-offset-4">
+    <div class="row"><!-- ROW - SEARCH -->
+      <div class="col-md-4 col-md-offset-4">
         <form class="form-inline" method="post" action="/extensions/search" id="extension-find">
           <div class="form-group">
             <div class="input-group">
+              <input type="text" class="form-control" placeholder="Extension or Name or AIU" name="search">
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
               </span>
-              <input type="text" class="form-control" placeholder="Extension or Name..." name="search">
             </div>
-            <!-- /input-group -->
           </div>
         </form>
       </div>
-    </div>
-    <!-- END ROW - SEARCH-->
-    <p>&nbsp;</p>
+    </div><!-- END ROW - SEARCH-->
+    <p>&nbsp;</p><!-- SIMPLE SPACER -->
 
-    <div class="row">
-      <!-- ROW - FILTERS -->
-      <div class="col-md-10 col-md-offset-1">
+    <div class="row"><!-- ROW - FILTERS -->
+      <div class="col-md-4 col-md-offset-4">
+        <form class="form-inline" method="post" action="/extensions/filter" id="extension-filter">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <select name="filter" form="extension-filter" class="form-control">
+                  {{#each Locations}}
+                  <option value="{{this.extensionsadminlocations}}">{{this.extensionsadminlocations}}</option>
+                  {{/each}}
+                </select>
+                <button type="submit" class="btn btn-default" type="button">Search</button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div><!-- END ROW - FILTERS -->
+    <p>&nbsp;</p><!-- SIMPLE SPACER -->
+
+    <div class="row"><!-- ROW - FILTERS -->
+      <div class="col-md-4 col-md-offset-4">
         <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
-        <a href="/extensions/filter/USNS41" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>USNS41</a>
-        <a href="/extensions/filter/USBP02" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>USBP02</a>
-        <a href="/extensions/filter/BRCM01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BRCM01</a>
-        <a href="/extensions/filter/CACM01-PUB" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CACM01-PUB</a>
-        <a href="/extensions/filter/CONS01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CONS01</a>
-        <a href="/extensions/filter/CRNS01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CRNS01</a>
-        <a href="/extensions/filter/MXCM01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MXCM01</a>
-        <a href="/extensions/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
+        <a href="/extensions/all" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
         <a href="/extensions/filter/open" class="btn btn-warning"><i class="glyphicon glyphicon-asterisk"></i>Magic Button (ADA)</a>
       </div>
-    </div>
-    <!-- END ROW - FILTERS -->
-    <p>&nbsp;</p>
+    </div><!-- END ROW - FILTERS -->
+    <p>&nbsp;</p><!-- SIMPLE SPACER -->
 
     <div class="row">
       <!-- ROW - ADD FORM -->
-      <div class="col-md-12">
+      <div class="col-md-12 col-md-offset-2">
         <div id="toggle-add-extension">
-          <form class="form-inline" method="post" action="/save_extension" id="extension-add">
+          <form class="form-horizontal" method="post" action="/extensions/save" id="extension-add">
             <div class="form-group">
-              <label class="sr-only" for="extension">Extension</label>
-              <input type="text" class="form-control" placeholder="Extension" name="extension">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for "user_id">User ID</label>
-              <input type="text" class="form-control" placeholder="User ID" name="user_id">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="whole_name">Name or Description</label>
-              <input type="text" class="form-control" placeholder="Name or Description" name="whole_name">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="email">Email</label>
-              <input type="text" class="form-control" placeholder="email@email.com" name="email">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="place">Location</label>
-              <select name="place" form="extension-add" class="form-control">
-                <option value="USNS41">USNS41</option>
-                <option value="USBP02">USBP02</option>
-                <option value="BRCM01">BRCM01</option>
-                <option value="CACM01-PUB">CACM01-PUB</option>
-                <option value="CONS01">CONS01</option>
-                <option value="CRNS01">CRNS01</option>
-                <option value="MXCM01">MXCM01</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="phone_number_jabber">Phone Number - Jabber</label>
-              <input type="text" class="form-control" placeholder="+[DID] or **[site code][ext]" name="phone_number_jabber">
-            </div>
-            <div class="form-group">
-              <label for="did">DID</label>
-              <select name="did" form="extension-add" class="form-control">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="OUT Date">OUT Date</label>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Out Date" name="out_date" id="out_date">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
+              <label class="col-md-2 control-label" for="extension">Extension</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Extension" name="extension">
               </div>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for "user_id">User ID</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="User ID" name="user_id">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="whole_name">Name or Description</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Name or Description" name="whole_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="email">Email</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="email@email.com" name="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="place">Location</label>
+              <div class="col-md-2">
+                <select name="place" form="extension-add" class="form-control">
+                  {{#each Locations}}
+                  <option value="{{this.extensionsadminlocations}}">{{this.extensionsadminlocations}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="phone_number_jabber">Phone Number - Jabber</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="+[DID] or **[site code][ext]" name="phone_number_jabber">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="did">DID</label>
+              <div class="col-md-2">
+                <select name="did" form="extension-add" class="form-control">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="status">Status</label>
+              <div class="col-md-2">
+                <select name="status" form="extension-add" class="form-control">
+                  <option value="OPEN">OPEN</option>
+                  <option value="ASSIGNED">ASSIGNED</option>
+                  <option value="RESERVED">RESERVED</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="Out Date">Out Date</label>
+              <div class="col-md-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Out Date" name="out_date" id="out_date">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-2 col-md-offset-2">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -154,54 +188,56 @@
     <!-- END - ROW - ADD FORM -->
     <span>&nbsp;</span>
 
-    <div class="row">
-      <!-- ROW - SHOW TABLE -->
-      <div class="col-md-12">
-        <div id="toggle-show">
-          <table class="table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Extension</th>
-                <th>User ID</th>
-                <th>Name or Description</th>
-                <th>Email</th>
-                <th>Location</th>
-                <th>Phone Number - Jabber</th>
-                <th>DID</th>
-                <th>Out Date</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each results}}
-              <tr>
-                <td>{{this.extension}}</td>
-                <td>{{this.user_id}}</td>
-                <td>{{this.whole_name}}</td>
-                <td>{{this.email}}</td>
-                <td>{{this.place}}</td>
-                <td>{{this.phone_number_jabber}}</td>
-                <td>{{this.did}}</td>
-                <td>{{this.out_date}}</td>
-                <td>
-                  <a href="/extensions/edit/{{this._id}}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                  <a href="/extensions/delete/{{this._id}}" class="btn btn-danger btn-xs" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
-                </td>
-              </tr>
-              {{/each}}
-            </tbody>
-          </table>
-        </div>
+  <div class="row">
+    <!-- ROW - SHOW TABLE -->
+    <div class="col-md-12">
+      <div id="toggle-show">
+        <table class="table table-striped table-bordered table-condensed">
+          <thead>
+            <tr>
+              <th>Extension</th>
+              <th>User ID</th>
+              <th>Name or Description</th>
+              <th>Email</th>
+              <th>Location</th>
+              <th>Phone Number - Jabber</th>
+              <th>DID</th>
+              <th>Status</th>
+              <th>Out Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each Results}}
+            <tr>
+              <td>{{this.extension}}</td>
+              <td>{{this.user_id}}</td>
+              <td>{{this.whole_name}}</td>
+              <td>{{this.email}}</td>
+              <td>{{this.place}}</td>
+              <td>{{this.phone_number_jabber}}</td>
+              <td>{{this.did}}</td>
+              <td>{{this.status}}</td>
+              <td>{{this.out_date}}</td>
+              <td>
+                <a href="/extensions/edit/{{this._id}}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                <a href="/extensions/delete/{{this._id}}" class="btn btn-danger btn-xs" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
 
-    <hr>
+  <hr>
 
-    <footer>
-      <!-- Footer -->
-      <p>Amway.voice - Management Platform</p>
-    </footer>
-    <!-- END - Footer -->
+  <footer>
+    <!-- Footer -->
+    <p>Amway.voice - Management Platform</p>
+  </footer>
+  <!-- END - Footer -->
 
   </div>
   <!-- END - GRID SYSTEM -->
@@ -233,7 +269,6 @@
 
     })(jQuery);
   </script>
-
 
 </body>
 

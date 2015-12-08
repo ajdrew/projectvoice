@@ -33,97 +33,91 @@
   </nav>
   <!-- END - Navigation Bar -->
 
-  <div class="container-fluid">
-    <!-- GRID SYSTEM -->
+  <div class="container-fluid"><!-- GRID SYSTEM -->
 
-      <div class="row"> <!-- ROW - SEARCH -->
-        <div class="col-lg-4 col-md-offset-4">
-          <form class="form-inline" method="post" action="/extensions/search" id="extension-find">
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-default" type="button" onclick="toggle('toggle-show');">Search</button>
-                </span>
-                <input type="text" class="form-control" placeholder="Extension ..." name="search">
-              </div><!-- /input-group -->
+    <div class="row">
+      <!-- ROW - EDIT FORM -->
+      <div class="col-md-12 col-md-offset-2">
+        <form class="form-horizontal" method="post" action="/extensions/update" id="extensions-edit">
+          <input type="hidden" name="id" value="{{Results._id}}">
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="extension">Extension</label>
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="Extension" name="extension" value="{{Results.extension}}">
             </div>
-          </form>
-        </div>
-      </div> <!-- END ROW - SEARCH-->
-      <p>&nbsp;</p>
-
-      <div class="row"><!-- ROW - FILTERS -->
-        <div class="col-md-10 col-md-offset-1">
-          <a href="#" onclick="toggle('toggle-add-extension');" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i>Add</a>
-          <a href="/extensions/filter/USNS41" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>USNS41</a>
-          <a href="/extensions/filter/USBP02" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>USBP02</a>
-          <a href="/extensions/filter/BRCM01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>BRCM01</a>
-          <a href="/extensions/filter/CACM01-PUB" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CACM01-PUB</a>
-          <a href="/extensions/filter/CONS01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CONS01</a>
-          <a href="/extensions/filter/CRNS01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>CRNS01</a>
-          <a href="/extensions/filter/MXCM01" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>MXCM01</a>
-          <a href="/extensions/show" class="btn btn-info"><i class="glyphicon glyphicon-filter"></i>All</a>
-          <a href="/extensions/filter/open" class="btn btn-warning"><i class="glyphicon glyphicon-asterisk"></i>Magic Button (ADA)</a>
-        </div>
-      </div><!-- END ROW - FILTERS -->
-      <p>&nbsp;</p>
-
-      <div class="row"> <!-- ROW - EDIT FORM -->
-        <div class="col-md-12">
-          <form method="post" class="form-inline" action="/extensions/update" id="extensions-edit">
-            <input type="hidden" name="id" value="{{results._id}}">
-            <div class="form-group">
-              <label  class="sr-only" for="extension">Extension</label>
-              <input type="text" class="form-control" placeholder="Extension" name="extension" value="{{results.extension}}">
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for "user_id">User ID</label>
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="User ID" name="user_id" value="{{Results.user_id}}">
             </div>
-            <div class="form-group">
-              <label class="sr-only" for"user_id">User ID</label>
-              <input type="text" class="form-control" placeholder="User ID" name="user_id" value="{{results.user_id}}">
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="whole_name">Name or Description</label>
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="Name or Description" name="whole_name" value="{{Results.whole_name}}">
             </div>
-            <div class="form-group">
-              <label class="sr-only" for="whole_name">Name or Description</label>
-              <input type="text" class="form-control" placeholder="Name or Description" name="whole_name" value="{{results.whole_name}}">
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="email">Email</label>
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="email@email.com" name="email" value="{{Results.email}}">
             </div>
-            <div class="form-group">
-              <label class="sr-only" for="email">Email</label>
-              <input type="text" class="form-control" placeholder="email@email.com" name="email" value="{{results.email}}">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="place">Location</label>
-              <input class="place" type="hidden" value="{{results.place}}">
-              <!-- <input type="text" class="form-control" placeholder="AD, BP, BR, CA, CO, CR, MX" name="place" value="{{results.place}}"> -->
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="place">Location</label>
+            <input class="place" type="hidden" value="{{Results.place}}">
+            <div class="col-md-2">
               <select name="place" form="extensions-edit" class="form-control">
-                <option value="USNS41">USNS41</option>
-                <option value="USBP02">USBP02</option>
-                <option value="BRCM01">BRCM01</option>
-                <option value="CACM01-PUB">CACM01-PUB</option>
-                <option value="CONS01">CONS01</option>
-                <option value="CRNS01">CRNS01</option>
-                <option value="MXCM01">MXCM01</option>
+                {{#each Locations}}
+                <option value="{{this.extensionsadminlocations}}">{{this.extensionsadminlocations}}</option>
+                {{/each}}
               </select>
             </div>
-            <div class="form-group">
-              <label class="sr-only" for="phone_number_jabber">Phone Number - Jabber</label>
-              <input type="text" class="form-control" placeholder="+[DID] or **[site code][extension]" name="phone_number_jabber" value="{{results.phone_number_jabber}}">
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="phone_number_jabber">Phone Number - Jabber</label>
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="+[DID] or **[site code][extension]" name="phone_number_jabber" value="{{Results.phone_number_jabber}}">
             </div>
-            <div class="form-group">
-              <label for="did">DID</label>
-              <input class="default_group" type="hidden" value="{{results.did}}">
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="did">DID</label>
+            <input class="default_group" type="hidden" value="{{Results.did}}">
+            <div class="col-md-2">
               <select name="did" form="extensions-edit" class="form-control">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
             </div>
-            <div class="form-group">
-              <label class="sr-only" for="out_date">Out Date</label>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="status">Status</label>
+            <input class="status" type="hidden" value="{{Results.status}}">
+            <div class="col-md-2">
+              <select name="status" form="extensions-edit" class="form-control">
+                <option value="OPEN">OPEN</option>
+                <option value="ASSIGNED">ASSIGNED</option>
+                <option value="RESERVED">RESERVED</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="out_date">Out Date</label>
+            <div class="col-md-2">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Out Date" name="out_date" value="{{results.out_date}}" id="out_date">
+                <input type="text" class="form-control" placeholder="Out Date" name="out_date" value="{{Results.out_date}}" id="out_date">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" id="time"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
+              </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <div class="form-group">
+            <div class="col-md-2 col-md-offset-2">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -167,18 +161,25 @@
     })(jQuery);
   </script>
 
-<!-- JS: Populate a dropdown menu with correct DB value -->
+  <!-- JS: Populate a dropdown menu with correct DB value -->
   <script type="text/javascript">
-  (function($) {
-  var group = $('input.default_group').val();
-  $('option[value="'+ group +'"]').attr('selected', 'selected');
+    (function($) {
+      var group = $('input.default_group').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
     })(jQuery);
   </script>
 
   <script type="text/javascript">
-  (function($) {
-  var group = $('input.place').val();
-  $('option[value="'+ group +'"]').attr('selected', 'selected');
+    (function($) {
+      var group = $('input.place').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.status').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
     })(jQuery);
   </script>
 

@@ -72,26 +72,50 @@ module.exports = function(app) {
 
   app.get('/extensions/edit/:id', function(req, res) {
     console.log(req.body);
+    var locations = null;
+    var resultsx = null;
     var ObjectID = require('mongodb').ObjectID;
+    var optionslocations = {
+      "sort": "extensionsadminlocations"
+    }
 
     var listData = function(err, collection) {
       var chosenId = new ObjectID(req.params.id);
       collection.findOne({
         '_id': chosenId
       }, function(err, results) {
-        console.log(results);
-        res.render('extensions/extensions-edit.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'results': results
+        if (err) throw err;
+        resultsx = results;
+        complete();
         });
+      });
+    }
+
+    var listDataLocations = function(err, collection) {
+      collection.find({}, optionslocations).toArray(function(err, results) {
+        if (err) throw err;
+        locations = results;
+        complete();
       });
     }
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
+      Client.collection('extensionsadminlocations', listDataLocations);
       Client.collection('extensions', listData);
     });
+
+    function complete() {
+      if (locations !== null && resultsx !== null) {
+        res.render('extensions/extensions-edit.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Locations': locations,
+          'Results': resultsx,
+        });
+      }
+    }
+  })
 
   });
 

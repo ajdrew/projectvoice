@@ -366,7 +366,7 @@ module.exports = function(app) {
     var listData = function(err, collection) {
       collection.find({
         lmscountry: new RegExp(filtercountry)
-      }, options).toArray(function(err, results) {
+      }).toArray(function(err, results) {
         if (err) throw err;
         resultsx = results;
         complete();

@@ -324,7 +324,7 @@ module.exports = function(app) {
   });
 
   // FILTER - COUNTRY
-  app.post('/lms/search/country', function(req, res) {
+  app.post('/lms/search/country1', function(req, res) {
     console.log(req.bod);
     var filtercountry = req.body.lmsfiltercountry;
 
@@ -344,5 +344,50 @@ module.exports = function(app) {
     Client.open(function(err, pClient) {
       Client.collection('lms', listData);
     });
+  });
+
+  app.post('/lms/search/country', function(req, res) {
+
+    var filtercountry = req.body.lmsfiltercountry;
+    var resultsx = null;
+    var country = null;
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
+
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
+      });
+    }
+
+    var listData = function(err, collection) {
+      collection.find({
+        lmscountry: new RegExp(filtercountry)
+      }, options).toArray(function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lms', listData);
+      Client.collection('lmsadmincountry', listDataCountry);
+    });
+
+    function complete() {
+      if (country !== null && resultsx !== null) {
+        res.render('lms/lms-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Country': country,
+          'Results' : resultsx,
+        });
+      }
+    }
   });
 }

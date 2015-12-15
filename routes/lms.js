@@ -323,29 +323,6 @@ module.exports = function(app) {
     });
   });
 
-  // FILTER - COUNTRY
-  app.post('/lms/search/country1', function(req, res) {
-    console.log(req.bod);
-    var filtercountry = req.body.lmsfiltercountry;
-
-    var listData = function(err, collection) {
-      collection.find({
-        lmscountry: new RegExp(filtercountry)
-      }).toArray(function(err, results) {
-        res.render('lms/lms-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'results': results
-        });
-      });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('lms', listData);
-    });
-  });
-
   app.post('/lms/search/country', function(req, res) {
 
     var filtercountry = req.body.lmsfiltercountry;

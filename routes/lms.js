@@ -211,7 +211,7 @@ module.exports = function(app) {
         '_id': chosenId
       }, function(err, results) {
         console.log(results);
-        res.render('lms-edit.html', {
+        res.render('lms/lms-edit.html', {
           layout: false,
           'title': 'Amway.voice',
           'results': results

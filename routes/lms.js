@@ -283,7 +283,7 @@ module.exports = function(app) {
         res.render('lms/lms-show.html', {
           layout: false,
           'title': 'Amway.voice',
-          'results': results
+          'Results': results
         });
       });
     }

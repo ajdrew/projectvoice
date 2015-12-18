@@ -214,7 +214,7 @@ module.exports = function(app) {
         res.render('lms/lms-edit.html', {
           layout: false,
           'title': 'Amway.voice',
-          'results': results
+          'Results': results
         });
       });
     }

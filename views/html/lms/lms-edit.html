@@ -58,7 +58,7 @@
           </div>
           <div class="form-group">
             <label for="lmscountry" class="col-sm-4 control-label">Country</label>
-            <input class="place" type="hidden" value="{{Results.lmsadmincountry}}">
+            <input class="place" type="hidden" value="{{Results.lmscountry}}">
             <div class="col-sm-8">
               <select name="lmscountry" form="lms-add" class="form-control">
                 {{#each Country}}
@@ -69,7 +69,7 @@
           </div>
           <div class="form-group">
             <label for="lmssite" class="col-sm-4 control-label">Site</label>
-            <input class="place" type="hidden" value="{{Results.lmsadminsite}}">
+            <input class="place" type="hidden" value="{{Results.lmssite}}">
             <div class="col-sm-8">
               <select name="lmssite" form="lms-add" class="form-control">
                 {{#each Sites}}
@@ -80,7 +80,7 @@
           </div>
           <div class="form-group">
             <label for="lmstype" class="col-sm-4 control-label">Type</label>
-            <input class="place" type="hidden" value="{{Results.lmsadmintype}}">
+            <input class="place" type="hidden" value="{{Results.lmstype}}">
             <div class="col-sm-8">
               <select name="lmstype" form="lms-add" class="form-control">
                 {{#each Type}}
@@ -97,7 +97,7 @@
           </div>
           <div class="form-group">
             <label for="lmsciscocontract" class="col-sm-4 control-label">Cisco Contract</label>
-            <input class="place" type="hidden" value="{{Results.lmsadmincontract}}">
+            <input class="place" type="hidden" value="{{Results.lmsciscocontract}}">
             <div class="col-sm-8">
               <select name="lmsciscocontract" form="lms-add" class="form-control">
                 {{#each Contract}}
@@ -138,7 +138,7 @@
           <hr>
           <div class="form-group">
             <label for="lmsaccess" class="col-sm-4 control-label">Access</label>
-            <input class="place" type="hidden" value="{{Results.lmsadminaccess}}">
+            <input class="place" type="hidden" value="{{Results.lmsaccess}}">
             <div class="col-sm-8">
               <select name="lmsaccess" form="lms-add" class="form-control">
                 {{#each Access}}
@@ -315,6 +315,70 @@
         $('#out_date').val(time.toDateString());
       });
 
+    })(jQuery);
+  </script>
+
+  <!-- JS: Populate a dropdown menu with correct DB value -->
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.default_group').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmscountry').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmssite').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmstype').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsciscocontract').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsaccess').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsldap').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmselm').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsvsphere').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
     })(jQuery);
   </script>
 

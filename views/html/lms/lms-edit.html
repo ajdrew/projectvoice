@@ -60,7 +60,7 @@
             <label for="lmscountry" class="col-sm-4 control-label">Country</label>
             <input class="lmscountry" type="hidden" value="{{Results.lmscountry}}">
             <div class="col-sm-8">
-              <select name="lmscountry" form="lms-add" class="form-control">
+              <select name="lmscountry" form="lms-edit" class="form-control">
                 {{#each Country}}
                 <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
                 {{/each}}
@@ -71,7 +71,7 @@
             <label for="lmssite" class="col-sm-4 control-label">Site</label>
             <input class="lmssite" type="hidden" value="{{Results.lmssite}}">
             <div class="col-sm-8">
-              <select name="lmssite" form="lms-add" class="form-control">
+              <select name="lmssite" form="lms-edit" class="form-control">
                 {{#each Sites}}
                 <option value="{{this.lmsadminsites}}">{{this.lmsadminsites}}</option>
                 {{/each}}
@@ -82,7 +82,7 @@
             <label for="lmstype" class="col-sm-4 control-label">Type</label>
             <input class="lmstype" type="hidden" value="{{Results.lmstype}}">
             <div class="col-sm-8">
-              <select name="lmstype" form="lms-add" class="form-control">
+              <select name="lmstype" form="lms-edit" class="form-control">
                 {{#each Type}}
                 <option value="{{this.lmsadmintype}}">{{this.lmsadmintype}}</option>
                 {{/each}}
@@ -99,7 +99,7 @@
             <label for="lmsciscocontract" class="col-sm-4 control-label">Cisco Contract</label>
             <input class="lmsciscocontract" type="hidden" value="{{Results.lmsciscocontract}}">
             <div class="col-sm-8">
-              <select name="lmsciscocontract" form="lms-add" class="form-control">
+              <select name="lmsciscocontract" form="lms-edit" class="form-control">
                 {{#each Contract}}
                 <option value="{{this.lmsadmincontract}}">{{this.lmsadmincontract}}</option>
                 {{/each}}
@@ -140,7 +140,7 @@
             <label for="lmsaccess" class="col-sm-4 control-label">Access</label>
             <input class="lmsaccess" type="hidden" value="{{Results.lmsaccess}}">
             <div class="col-sm-8">
-              <select name="lmsaccess" form="lms-add" class="form-control">
+              <select name="lmsaccess" form="lms-edit" class="form-control">
                 {{#each Access}}
                 <option value="{{this.lmsadminaccess}}">{{this.lmsadminaccess}}</option>
                 {{/each}}
@@ -157,7 +157,7 @@
             <label for="lmsldap" class="col-sm-4 control-label">LDAP</label>
             <input class="lmsldap" type="hidden" value="{{Results.lmsldap}}">
             <div class="col-sm-8">
-              <select name="lmsldap" form="lms-add" class="form-control">
+              <select name="lmsldap" form="lms-edit" class="form-control">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
@@ -221,7 +221,7 @@
             <label for="lmselm" class="col-sm-4 control-label">Voice - ELM/PLM</label>
             <input class="lmselm" type="hidden" value="{{Results.lmselm}}">
             <div class="col-sm-8">
-              <select name="lmselm" form="lms-add" class="form-control">
+              <select name="lmselm" form="lms-edit" class="form-control">
                 {{#each Elm}}
                 <option value="{{this.lmsadminelm}}">{{this.lmsadminelm}}</option>
                 {{/each}}
@@ -241,7 +241,7 @@
             <label for="lmsvsphere" class="col-sm-4 control-label">vSphere Manager</label>
             <input class="lmsvsphere" type="hidden" value="{{Results.lmsvsphere}}">
             <div class="col-sm-8">
-              <select name="lmsvsphere" form="lms-add" class="form-control">
+              <select name="lmsvsphere" form="lms-edit" class="form-control">
                 {{#each Vsphere}}
                 <option value="{{this.lmsadminvsphere}}">{{this.lmsadminvsphere}}</option>
                 {{/each}}

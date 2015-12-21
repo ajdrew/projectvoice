@@ -364,13 +364,37 @@ module.exports = function(app) {
     var ObjectID = require('mongodb').ObjectID;
 
     var data = {
-      'extension': req.body.extension,
-      'user_id': req.body.user_id,
-      'whole_name': req.body.whole_name,
-      'email': req.body.email,
-      'place': req.body.place,
-      'phone_number_jabber': req.body.phone_number_jabber,
-      'did': req.body.did
+      'lmsip': req.body.lmsip,
+      'lmshostname': req.body.lmshostname,
+      'lmscountry': req.body.lmscountry,
+      'lmssite': req.body.lmssite,
+      'lmstype': req.body.lmstype,
+      'lmsdescription': req.body.lmsdescription,
+      'lmsciscocontract': req.body.lmsciscocontract,
+      'lmsversiongeneral': req.body.lmsversiongeneral,
+      'lmsversioncmeios': req.body.lmsversioncmeios,
+      'lmsversioncimc': req.body.lmsversioncimc,
+      'lmsversionwindows': req.body.lmsversionwindows,
+      'lmsaccess': req.body.lmsaccess,
+      'lmssslrenewaldate': req.body.lmssslrenewaldate,
+      'lmsldap': req.body.lmsldap,
+      'lmsiosusername': req.body.lmsiosusername,
+      'lmsiospassword': req.body.lmsiospassword,
+      'lmsucsusername': req.body.lmsucsusername,
+      'lmsucspassword': req.body.lmsucspassword,
+      'lmsappusername': req.body.lmsappusername,
+      'lmsapppassword': req.body.lmsapppassword,
+      'lmsvoiceappusername': req.body.lmsvoiceappusername,
+      'lmsvoiceapppassword': req.body.lmsvoiceapppassword,
+      'lmsvoiceplatusername': req.body.lmsvoiceplatusername,
+      'lmsvoiceplatpassword': req.body.lmsvoiceplatpassword,
+      'lmsvoicedatabase': req.body.lmsvoicedatabase,
+      'lmselm': req.body.lmselm,
+      'lmsvirtualized': req.body.lmsvirtualized,
+      'lmsvsphere': req.body.lmsvsphere,
+      'lmsesxlicense': req.body.lmsesxlicense,
+      'lmshardwaretype': req.body.lmshardwaretype,
+      'lmshardwareserial': req.body.lmshardwareserial
     };
     var updateData = function(err, collection) {
       var chosenId = new ObjectID(req.body.id);

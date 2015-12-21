@@ -200,7 +200,7 @@ module.exports = function(app) {
     res.redirect('/lms');
   });
 
-  app.get('/lms/edit/:id', function(req, res) {
+  app.get('/lms/edit2/:id', function(req, res) {
 
     var ObjectID = require('mongodb').ObjectID;
 
@@ -218,7 +218,7 @@ module.exports = function(app) {
       });
     }
 
-    app.get('/lms/add2', function(req, res) {
+    app.get('/lms/edit/:id', function(req, res) {
 
       var ObjectID = require('mongodb').ObjectID;
       var type = null;
@@ -228,6 +228,7 @@ module.exports = function(app) {
       var sites = null;
       var vsphere = null;
       var elm = null;
+      var resultsx = null;
 
 
       var optionstype = {
@@ -247,6 +248,17 @@ module.exports = function(app) {
       }
       var optionselm = {
         "sort": "lmsadminelm"
+      }
+
+      var listData = function(err, collection) {
+        var chosenId = new ObjectID(req.params.id);
+        collection.findOne({
+          '_id': chosenId
+        }, function(err, results) {
+          if (err) throw err;
+          resultsx = results;
+          complete();
+          });
       }
 
       var listDataType = function(err, collection) {
@@ -314,10 +326,11 @@ module.exports = function(app) {
         Client.collection('lmsadminsites', listDataSites);
         Client.collection('lmsadminvsphere', listDataVsphere);
         Client.collection('lmsadminelm', listDataElm);
+        Client.collection('lms', listData);
       });
 
       function complete() {
-        if (type !== null && access !== null && country !== null && contract !== null && sites !== null && vsphere !== null && elm !== null) {
+        if (resultsx !== null && type !== null && access !== null && country !== null && contract !== null && sites !== null && vsphere !== null && elm !== null) {
           res.render('lms/lms-add.html', {
             layout: false,
             'title': 'Amway.voice',
@@ -328,6 +341,7 @@ module.exports = function(app) {
             'Sites': sites,
             'Vsphere': vsphere,
             'Elm': elm
+            'Results': resultsx
           });
         }
       }

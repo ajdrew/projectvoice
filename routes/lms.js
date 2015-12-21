@@ -200,7 +200,7 @@ module.exports = function(app) {
     res.redirect('/lms');
   });
 
-  app.get('/lms/edit/:id', function(req, res) {
+  app.get('/lms/edit2/:id', function(req, res) {
 
     var ObjectID = require('mongodb').ObjectID;
 
@@ -218,7 +218,7 @@ module.exports = function(app) {
       });
     }
 
-    app.get('/lms/edit2/:id', function(req, res) {
+    app.get('/lms/edit/:id', function(req, res) {
 
       var ObjectID = require('mongodb').ObjectID;
       var type = null;
@@ -331,7 +331,7 @@ module.exports = function(app) {
 
       function complete() {
         if (resultsx !== null && type !== null && access !== null && country !== null && contract !== null && sites !== null && vsphere !== null && elm !== null) {
-          res.render('lms/lms-add.html', {
+          res.render('lms/lms-edit.html', {
             layout: false,
             'title': 'Amway.voice',
             'Type': type,

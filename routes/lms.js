@@ -200,7 +200,7 @@ module.exports = function(app) {
     res.redirect('/lms');
   });
 
-  app.get('/lms/edit2/:id', function(req, res) {
+  app.get('/lms/edit/:id', function(req, res) {
 
     var ObjectID = require('mongodb').ObjectID;
 
@@ -218,7 +218,7 @@ module.exports = function(app) {
       });
     }
 
-    app.get('/lms/edit/:id', function(req, res) {
+    app.get('/lms/edit2/:id', function(req, res) {
 
       var ObjectID = require('mongodb').ObjectID;
       var type = null;

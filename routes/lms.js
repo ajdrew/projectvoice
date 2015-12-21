@@ -234,11 +234,6 @@ module.exports = function(app) {
         });
       }
 
-      var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-      Client.open(function(err, pClient) {
-        Client.collection('lms', listData);
-      });
-
       function complete() {
         if (resultsx !== null) {
           res.render('lms/lms-edit.html', {

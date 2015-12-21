@@ -224,12 +224,33 @@ module.exports = function(app) {
 
   app.get('/lms/edit/:id', function(req, res) {
     console.log(req.body);
-    var resultsx = null;
     var ObjectID = require('mongodb').ObjectID;
+    var resultsx = null;
     var country = null;
+    var sites = null;
+    var type = null;
+    var contract = null;
+    var access = null;
+    var elm = null;
+    var vsphere = null;
 
     var optionscountry = {
       "sort": "lmsadmincountry"
+    }
+    var optionssites = {
+      "sort": "lmsadminsites"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
+    }
+    var optionsaccess = {
+      "sort": "lmsadminaccess"
+    }
+    var optionsvsphere = {
+      "sort": "lmsadminvsphere"
+    }
+    var optionselm = {
+      "sort": "lmsadminelm"
     }
 
     var listData = function(err, collection) {
@@ -240,7 +261,7 @@ module.exports = function(app) {
         if (err) throw err;
         resultsx = results;
         complete();
-        });
+      });
     }
 
     var listDataCountry = function(err, collection) {
@@ -251,19 +272,87 @@ module.exports = function(app) {
       });
     }
 
+    var listDataSites = function(err, collection) {
+      collection.find({}, optionssites).toArray(function(err, results) {
+        if (err) throw err;
+        sites = results;
+        complete();
+      });
+    }
+
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
+
+    var listDataContract = function(err, collection) {
+      collection.find().toArray(function(err, results) {
+        if (err) throw err;
+        contract = results;
+        complete();
+      });
+    }
+
+    var listDataAccess = function(err, collection) {
+      collection.find({}, optionsaccess).toArray(function(err, results) {
+        if (err) throw err;
+        access = results;
+        complete();
+      });
+    }
+
+    var listDataElm = function(err, collection) {
+      collection.find({}, optionselm).toArray(function(err, results) {
+        if (err) throw err;
+        elm = results;
+        complete();
+      });
+    }
+
+    var listDataElm = function(err, collection) {
+      collection.find({}, optionselm).toArray(function(err, results) {
+        if (err) throw err;
+        elm = results;
+        complete();
+      });
+    }
+
+    var listDataVsphere = function(err, collection) {
+      collection.find({}, optionsvsphere).toArray(function(err, results) {
+        if (err) throw err;
+        vsphere = results;
+        complete();
+      });
+    }
+
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('lms', listData);
       Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadminsites', listDataSites);
+      Client.collection('lmsadmintype', listDataType);
+      Client.collection('lmsadmincontract', listDataContract);
+      Client.collection('lmsadminaccess', listDataAccess);
+      Client.collection('lmsadminelm', listDataElm);
+      Client.collection('lmsadminvsphere', listDataVsphere);
     });
 
     function complete() {
-      if (resultsx !== null && country !== null) {
+      if (resultsx !== null && country !== null && sites !== null && type !== null && contract !== null && access !== null && elm !== null && vsphere !== null) {
         res.render('lms/lms-edit.html', {
           layout: false,
           'title': 'Amway.voice',
           'Results': resultsx,
           'Country': country,
+          'Sites': sites,
+          'Type': type,
+          'Contract': contract,
+          'Access': access,
+          'Elm': elm,
+          'Vsphere': vsphere,
         });
       }
     }

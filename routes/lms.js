@@ -226,6 +226,11 @@ module.exports = function(app) {
     console.log(req.body);
     var resultsx = null;
     var ObjectID = require('mongodb').ObjectID;
+    var country = null;
+
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
 
     var listData = function(err, collection) {
       var chosenId = new ObjectID(req.params.id);
@@ -238,17 +243,27 @@ module.exports = function(app) {
         });
     }
 
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
+      });
+    }
+
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('lms', listData);
+      Client.collection('lmsadmincountry', listDataCountry);
     });
 
     function complete() {
-      if (resultsx !== null) {
+      if (resultsx !== null && country !== null) {
         res.render('lms/lms-edit.html', {
           layout: false,
           'title': 'Amway.voice',
           'Results': resultsx,
+          'Country': country,
         });
       }
     }

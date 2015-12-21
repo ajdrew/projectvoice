@@ -201,9 +201,7 @@ module.exports = function(app) {
   });
 
   app.get('/lms/edit/:id', function(req, res) {
-
     var ObjectID = require('mongodb').ObjectID;
-
     var listData = function(err, collection) {
       var chosenId = new ObjectID(req.params.id);
       collection.findOne({
@@ -217,13 +215,43 @@ module.exports = function(app) {
         });
       });
     }
-
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('lms', listData);
       //Client.close();
     });
+  });
 
+  app.get('/lms/edit/:id', function(req, res) {
+    console.log(req.body);
+    var resultsx = null;
+    var ObjectID = require('mongodb').ObjectID;
+
+    var listData = function(err, collection) {
+      var chosenId = new ObjectID(req.params.id);
+      collection.findOne({
+        '_id': chosenId
+      }, function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
+        });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lms', listData);
+    });
+
+    function complete() {
+      if (resultsx !== null) {
+        res.render('lms/lms-edit.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Results': resultsx,
+        });
+      }
+    }
   });
 
   app.post('/lms/update', function(req, res) {

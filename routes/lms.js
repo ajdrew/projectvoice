@@ -205,7 +205,6 @@ module.exports = function(app) {
     var ObjectID = require('mongodb').ObjectID;
 
     var listData = function(err, collection) {
-
       var chosenId = new ObjectID(req.params.id);
       collection.findOne({
         '_id': chosenId
@@ -221,7 +220,7 @@ module.exports = function(app) {
 
     app.get('/lms/add2', function(req, res) {
 
-
+      var ObjectID = require('mongodb').ObjectID;
       var type = null;
       var access = null;
       var country = null;
@@ -462,7 +461,7 @@ module.exports = function(app) {
         if (err) throw err;
         resultsx = results;
         complete();
-        });
+      });
     }
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
@@ -477,7 +476,7 @@ module.exports = function(app) {
           layout: false,
           'title': 'Amway.voice',
           'Country': country,
-          'Results' : resultsx,
+          'Results': resultsx,
         });
       }
     }

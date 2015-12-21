@@ -340,7 +340,7 @@ module.exports = function(app) {
             'Contract': contract,
             'Sites': sites,
             'Vsphere': vsphere,
-            'Elm': elm
+            'Elm': elm,
             'Results': resultsx
           });
         }

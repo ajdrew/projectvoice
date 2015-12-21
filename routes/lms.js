@@ -255,6 +255,7 @@ module.exports = function(app) {
         collection.findOne({
           '_id': chosenId
         }, function(err, results) {
+          console.log(results);
           if (err) throw err;
           resultsx = results;
           complete();

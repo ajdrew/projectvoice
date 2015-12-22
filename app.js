@@ -10,7 +10,18 @@ var hbs = require('hbs');
 var Db = require('mongodb').Db;
 var Server = require('mongodb').Server;
 
-//var rs = require('./record_model.js');
+function checkAuth (req, res, next) {
+	console.log('checkAuth ' + req.url);
+
+	// don't serve /secure to those not logged in
+	// you should add to this list, for each and every secure url
+	if (req.url === '/lms' && (!req.session || !req.session.authenticated)) {
+		res.render('unauthorised', { status: 403 });
+		return;
+	}
+
+	next();
+}
 
 var app = express();
 
@@ -21,6 +32,8 @@ app.configure(function() {
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.cookieParser());
+  app.use(express.session({ secret: 'example' }));
+  app.use(checkAuth);
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));

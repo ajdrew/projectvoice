@@ -19,7 +19,9 @@ app.configure(function() {
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: 'example' }));
+  app.use(express.session({
+    secret: 'example'
+  }));
   app.use(checkAuth);
   app.use(express.methodOverride());
   app.use(app.router);
@@ -38,16 +40,20 @@ app.configure('development', function() {
   app.use(express.errorHandler());
 });
 
-function checkAuth (req, res, next) {
-	console.log('checkAuth ' + req.url);
+function checkAuth(req, res, next) {
+  console.log('checkAuth ' + req.url);
 
-	// don't serve /secure to those not logged in
-	// you should add to this list, for each and every secure url
-	if (req.url === '/lms' && (!req.session || !req.session.authenticated)) {
-		res.render('authorization/unauthorized.html', { status: 403 });
-		return;
-	}
-	next();
+  // don't serve /secure to those not logged in
+  // you should add to this list, for each and every secure url
+  if (req.url === '/lms' && (!req.session || !req.session.authenticated)) {
+    res.render('authorization/unauthorized.html', {
+      layout: false,
+      'title': 'Amway.voice',
+      status: 403
+    });
+    return;
+  }
+  next();
 }
 
 

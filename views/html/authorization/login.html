@@ -40,33 +40,30 @@
     <div class="row">
       <!-- ROW 2 (FULL LENGTH) -->
 
-      <!-- POD-Extension DB -->
+      <!-- POD-Login -->
       <a href="extensions">
         <div class="col-md-3">
           <div class="well well-sm">
-            <h3 align="center">Extension Database</h3>
-            <p align="center">
-              <img src="/assets/img/database.png" alt="Database">
-            </p>
-            <p align="center">Database for extension management.</p>
+            <form class="form-horizontal" method="post" action="/login" id="login">
+              <h3>Sign-in for secure access...</h3>
+              <hr>
+              <div class="form-group">
+                <label for="username" class="col-sm-1 control-label">Username</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="Username" name="username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for "password" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-8">
+                  <input type="password" class="form-control" placeholder="Password" name="password">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
           </div>
         </div>
       </a>
-      <!-- END - POD-Extension DB -->
-
-      <!-- POD-Password DB -->
-      <a href="lms">
-        <div class="col-md-3">
-          <div class="well well-sm">
-            <h3 align="center">Lifecycle Management</h3>
-            <p align="center">
-              <img src="/assets/img/key.png" alt="Key">
-            </p>
-            <p align="center">Database for equipment management.</p>
-          </div>
-        </div>
-      </a>
-      <!-- END - POD-Password DB -->
+      <!-- END - POD-Login -->
 
 
     </div>

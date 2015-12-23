@@ -16,7 +16,7 @@ function checkAuth (req, res, next) {
 	// don't serve /secure to those not logged in
 	// you should add to this list, for each and every secure url
 	if (req.url === '/lms' && (!req.session || !req.session.authenticated)) {
-		res.render('unauthorised', { status: 403 });
+		res.render('authorization/unauthorised.html', { status: 403 });
 		return;
 	}
 
@@ -72,6 +72,8 @@ var routingextensions = require('./routes/lms.js')(app);
 // INCLUDE - LMS-admin DB app routes
 var routingextensions = require('./routes/lms-admin.js')(app);
 
+// INCLUDE - Authorization app routes
+var routingextensions = require('./routes/authorization.js')(app);
 
 
 

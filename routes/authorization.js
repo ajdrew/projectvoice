@@ -16,7 +16,7 @@ module.exports = function(app) {
     res.render('login', {
       layout: false,
       'title': 'Amway.voice',
-      flash: req.flash()
+      // flash: req.flash()
     });
   });
 

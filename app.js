@@ -10,19 +10,6 @@ var hbs = require('hbs');
 var Db = require('mongodb').Db;
 var Server = require('mongodb').Server;
 
-function checkAuth (req, res, next) {
-	console.log('checkAuth ' + req.url);
-
-	// don't serve /secure to those not logged in
-	// you should add to this list, for each and every secure url
-	if (req.url === '/lms' && (!req.session || !req.session.authenticated)) {
-		res.render('unauthorized', { status: 403 });
-		return;
-	}
-
-	next();
-}
-
 var app = express();
 
 app.configure(function() {
@@ -50,6 +37,18 @@ app.configure(function() {
 app.configure('development', function() {
   app.use(express.errorHandler());
 });
+
+function checkAuth (req, res, next) {
+	console.log('checkAuth ' + req.url);
+
+	// don't serve /secure to those not logged in
+	// you should add to this list, for each and every secure url
+	if (req.url === '/lms' && (!req.session || !req.session.authenticated)) {
+		res.render('unauthorized', { status: 403 });
+		return;
+	}
+	next();
+}
 
 
 // EXPRESS ROUTING

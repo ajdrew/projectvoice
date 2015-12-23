@@ -46,7 +46,7 @@ function checkAuth(req, res, next) {
   // don't serve /secure to those not logged in
   // you should add to this list, for each and every secure url
   if (req.url === '/lms' && (!req.session || !req.session.authenticated)) {
-    res.render('authorization/unauthorized.html', {
+    res.render('authorization/login.html', {
       layout: false,
       'title': 'Amway.voice',
       status: 403

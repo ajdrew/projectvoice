@@ -4,14 +4,6 @@ module.exports = function(app) {
   var Db = require('mongodb').Db;
   var Server = require('mongodb').Server;
 
-  app.get('/login-bad', function(req, res, next) {
-    res.render('welcome');
-  });
-
-  app.get('/secure', function(req, res, next) {
-    res.render('secure');
-  });
-
   app.get('/login', function(req, res, next) {
     res.render('authorization/login.html', {
       layout: false,

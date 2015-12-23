@@ -4,7 +4,7 @@ module.exports = function(app) {
   var Db = require('mongodb').Db;
   var Server = require('mongodb').Server;
 
-  app.get('/welcome', function(req, res, next) {
+  app.get('/login-bad', function(req, res, next) {
     res.render('welcome');
   });
 
@@ -27,8 +27,11 @@ module.exports = function(app) {
       req.session.authenticated = true;
       res.redirect('/lms');
     } else {
-      req.flash('error', 'Username and password are incorrect');
-      res.redirect('/login');
+      // req.flash('error', 'Username and password are incorrect');
+      res.redirect('authorization/login-bad.html', {
+        layout: false,
+        'title': 'Amway.voice',
+      });
     }
 
   });

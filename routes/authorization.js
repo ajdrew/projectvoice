@@ -4,10 +4,6 @@ module.exports = function(app) {
   var Db = require('mongodb').Db;
   var Server = require('mongodb').Server;
 
-  app.get('/', function(req, res, next) {
-    res.render('index');
-  });
-
   app.get('/welcome', function(req, res, next) {
     res.render('welcome');
   });
@@ -39,6 +35,13 @@ module.exports = function(app) {
     delete req.session.authenticated;
     res.redirect('/');
   });
+
+  app.get('/unauthorized', function(req, res) {
+    res.render('authorization/unauthorized.html', {
+      layout: false,
+      'title': 'Amway.voice'
+    });
+  })
 
 
 }

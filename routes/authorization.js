@@ -25,7 +25,7 @@ module.exports = function(app) {
     // you might like to do a database look-up or something more scalable here
     if (req.body.username && req.body.username === 'user' && req.body.password && req.body.password === 'pass') {
       req.session.authenticated = true;
-      res.redirect('/secure');
+      res.redirect('/lms');
     } else {
       req.flash('error', 'Username and password are incorrect');
       res.redirect('/login');

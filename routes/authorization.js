@@ -27,7 +27,7 @@ module.exports = function(app) {
   });
 
   app.get('/unauthorized', function(req, res) {
-    res.render('authorization/unauthorized.html', {
+    res.render('authorization/login-retry.html', {
       layout: false,
       'title': 'Amway.voice'
     });

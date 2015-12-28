@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.post('/login', function(req, res, next) {
 
     // you might like to do a database look-up or something more scalable here
-    if (req.body.username && req.body.username === 'user' && req.body.password && req.body.password === 'pass') {
+    if (req.body.username && req.body.username === 'ccmadministrator' && req.body.password && req.body.password === 'iptel01') {
       req.session.authenticated = true;
       res.redirect('/lms');
     } else {

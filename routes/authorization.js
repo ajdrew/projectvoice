@@ -20,7 +20,7 @@ module.exports = function(app) {
       res.redirect('/lms');
     } else {
       // req.flash('error', 'Username and password are incorrect');
-      res.redirect('authorization/login-bad.html', {
+      res.redirect('/unauthorized', {
         layout: false,
         'title': 'Amway.voice',
       });

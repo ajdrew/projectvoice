@@ -8,24 +8,17 @@ module.exports = function(app) {
     res.render('authorization/login.html', {
       layout: false,
       'title': 'Amway.voice',
-      // flash: req.flash()
     });
   });
 
   app.post('/login', function(req, res, next) {
-
     // you might like to do a database look-up or something more scalable here
     if (req.body.username && req.body.username === 'ccmadministrator' && req.body.password && req.body.password === 'iptel01') {
       req.session.authenticated = true;
       res.redirect('/lms');
     } else {
-      // req.flash('error', 'Username and password are incorrect');
-      res.redirect('/unauthorized', {
-        layout: false,
-        'title': 'Amway.voice',
-      });
+      res.redirect('/unauthorized');
     }
-
   });
 
   app.get('/logout', function(req, res, next) {
@@ -38,7 +31,6 @@ module.exports = function(app) {
       layout: false,
       'title': 'Amway.voice'
     });
-  })
-
+  });
 
 }

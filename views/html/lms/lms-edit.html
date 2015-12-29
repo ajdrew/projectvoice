@@ -42,27 +42,29 @@
     <!-- GRID SYSTEM -->
 
     <div class="row">
-      <!-- ROW - ADD FORM -->
+      <!-- ROW - EDIT FORM -->
       <div class="col-lg-6 col-md-offset-2">
-        <form class="form-horizontal" method="post" action="/lms/save" id="lms-add">
+        <form class="form-horizontal" method="post" action="/lms/update" id="lms-edit">
+          <input type="hidden" name="id" value="{{Results._id}}">
           <h3>General</h3>
           <hr>
           <div class="form-group">
             <label for="lmsip" class="col-sm-4 control-label">IP</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="IP" name="lmsip">
+              <input type="text" class="form-control" placeholder="IP" name="lmsip" value="{{Results.lmsip}}">
             </div>
           </div>
           <div class="form-group">
             <label for "lmshostname" class="col-sm-4 control-label">Hostname</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Hostname" name="lmshostname">
+              <input type="text" class="form-control" placeholder="Hostname" name="lmshostname" value="{{Results.lmshostname}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmscountry" class="col-sm-4 control-label">Country</label>
+            <input class="lmscountry" type="hidden" value="{{Results.lmscountry}}">
             <div class="col-sm-8">
-              <select name="lmscountry" form="lms-add" class="form-control">
+              <select name="lmscountry" form="lms-edit" class="form-control">
                 {{#each Country}}
                 <option value="{{this.lmsadmincountry}}">{{this.lmsadmincountry}}</option>
                 {{/each}}
@@ -71,8 +73,9 @@
           </div>
           <div class="form-group">
             <label for="lmssite" class="col-sm-4 control-label">Site</label>
+            <input class="lmssite" type="hidden" value="{{Results.lmssite}}">
             <div class="col-sm-8">
-              <select name="lmssite" form="lms-add" class="form-control">
+              <select name="lmssite" form="lms-edit" class="form-control">
                 {{#each Sites}}
                 <option value="{{this.lmsadminsites}}">{{this.lmsadminsites}}</option>
                 {{/each}}
@@ -81,8 +84,9 @@
           </div>
           <div class="form-group">
             <label for="lmstype" class="col-sm-4 control-label">Type</label>
+            <input class="lmstype" type="hidden" value="{{Results.lmstype}}">
             <div class="col-sm-8">
-              <select name="lmstype" form="lms-add" class="form-control">
+              <select name="lmstype" form="lms-edit" class="form-control">
                 {{#each Type}}
                 <option value="{{this.lmsadmintype}}">{{this.lmsadmintype}}</option>
                 {{/each}}
@@ -92,13 +96,14 @@
           <div class="form-group">
             <label for="lmsdescription" class="col-sm-4 control-label">Description</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Description" name="lmsdescription">
+              <input type="text" class="form-control" placeholder="Description" name="lmsdescription" value="{{Results.lmsdescription}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsciscocontract" class="col-sm-4 control-label">Cisco Contract</label>
+            <input class="lmsciscocontract" type="hidden" value="{{Results.lmsciscocontract}}">
             <div class="col-sm-8">
-              <select name="lmsciscocontract" form="lms-add" class="form-control">
+              <select name="lmsciscocontract" form="lms-edit" class="form-control">
                 {{#each Contract}}
                 <option value="{{this.lmsadmincontract}}">{{this.lmsadmincontract}}</option>
                 {{/each}}
@@ -111,25 +116,25 @@
           <div class="form-group">
             <label for="lmsversiongeneral" class="col-sm-4 control-label">Version - General</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="lmsversiongeneral">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversiongeneral" value="{{Results.lmsversiongeneral}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsversioncmeios" class="col-sm-4 control-label">Version - CME IOS</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="lmsversioncmeios">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversioncmeios" value="{{Results.lmsversioncmeios}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsversioncimc" class="col-sm-4 control-label">Version - CIMC</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="lmsversioncimc">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversioncimc" value="{{Results.lmsversioncimc}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsversionwindows" class="col-sm-4 control-label">Version - Windows</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Version" name="lmsversionwindows">
+              <input type="text" class="form-control" placeholder="Version" name="lmsversionwindows" value="{{Results.lmsversionwindows}}">
             </div>
           </div>
           <hr>
@@ -137,8 +142,9 @@
           <hr>
           <div class="form-group">
             <label for="lmsaccess" class="col-sm-4 control-label">Access</label>
+            <input class="lmsaccess" type="hidden" value="{{Results.lmsaccess}}">
             <div class="col-sm-8">
-              <select name="lmsaccess" form="lms-add" class="form-control">
+              <select name="lmsaccess" form="lms-edit" class="form-control">
                 {{#each Access}}
                 <option value="{{this.lmsadminaccess}}">{{this.lmsadminaccess}}</option>
                 {{/each}}
@@ -148,13 +154,14 @@
           <div class="form-group">
             <label for="lmssslrenewaldate" class="col-sm-4 control-label">SSL Renewal Date</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Date" name="lmssslrenewaldate">
+              <input type="text" class="form-control" placeholder="Date" name="lmssslrenewaldate" value="{{Results.lmssslrenewaldate}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsldap" class="col-sm-4 control-label">LDAP</label>
+            <input class="lmsldap" type="hidden" value="{{Results.lmsldap}}">
             <div class="col-sm-8">
-              <select name="lmsldap" form="lms-add" class="form-control">
+              <select name="lmsldap" form="lms-edit" class="form-control">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
@@ -163,28 +170,28 @@
           <div class="form-group">
             <label for="lmsiosusername" class="col-sm-4 control-label">IOS Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="lmsiosusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsiosusername" value="{{Results.lmsiosusername}}">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="lmsiospassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsiospassword" value="{{Results.lmsiospassword}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsucsusername" class="col-sm-4 control-label">UCS Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="lmsucsusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsucsusername" value="{{Results.lmsucsusername}}">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="lmsucspassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsucspassword" value="{{Results.lmsucspassword}}">
             </div>
           </div>
           <div class="form-group">
             <label for="appusername" class="col-sm-4 control-label">Application Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="lmsappusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsappusername" value="{{Results.lmsappusername}}">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="lmsapppassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsapppassword" value="{{Results.lmsapppassword}}">
             </div>
           </div>
           <hr>
@@ -193,31 +200,32 @@
           <div class="form-group">
             <label for="lmsvoiceappusername" class="col-sm-4 control-label">Voice - Application Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="lmsvoiceappusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsvoiceappusername" value="{{Results.lmsvoiceappusername}}">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="lmsvoiceapppassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsvoiceapppassword" value="{{Results.lmsvoiceapppassword}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsvoiceplatusername" class="col-sm-4 control-label">Voice - Platform Login</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Username" name="lmsvoiceplatusername">
+              <input type="text" class="form-control" placeholder="Username" name="lmsvoiceplatusername" value="{{Results.lmsvoiceplatusername}}">
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" placeholder="Password" name="lmsvoiceplatpassword">
+              <input type="text" class="form-control" placeholder="Password" name="lmsvoiceplatpassword" value="{{Results.lmsvoiceplatpassword}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmsvoicedatabase" class="col-sm-4 control-label">Voice - Database</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Voice - Database" name="lmsvoicedatabase">
+              <input type="text" class="form-control" placeholder="Voice - Database" name="lmsvoicedatabase" value="{{Results.lmsvoicedatabase}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmselm" class="col-sm-4 control-label">Voice - ELM/PLM</label>
+            <input class="lmselm" type="hidden" value="{{Results.lmselm}}">
             <div class="col-sm-8">
-              <select name="lmselm" form="lms-add" class="form-control">
+              <select name="lmselm" form="lms-edit" class="form-control">
                 {{#each Elm}}
                 <option value="{{this.lmsadminelm}}">{{this.lmsadminelm}}</option>
                 {{/each}}
@@ -229,8 +237,9 @@
           <hr>
           <div class="form-group">
             <label for="lmsvirtualized" class="col-sm-4 control-label">Virtualized</label>
+            <input class="lmsvirtualized" type="hidden" value="{{Results.lmsvirtualized}}">
             <div class="col-sm-8">
-              <select name="lmsvirtualized" form="lms-add" class="form-control">
+              <select name="lmsvirtualized" form="lms-edit" class="form-control">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
@@ -238,8 +247,9 @@
           </div>
           <div class="form-group">
             <label for="lmsvsphere" class="col-sm-4 control-label">vSphere Manager</label>
+            <input class="lmsvsphere" type="hidden" value="{{Results.lmsvsphere}}">
             <div class="col-sm-8">
-              <select name="lmsvsphere" form="lms-add" class="form-control">
+              <select name="lmsvsphere" form="lms-edit" class="form-control">
                 {{#each Vsphere}}
                 <option value="{{this.lmsadminvsphere}}">{{this.lmsadminvsphere}}</option>
                 {{/each}}
@@ -249,7 +259,7 @@
           <div class="form-group">
             <label for="lmsesxlicense" class="col-sm-4 control-label">ESX License</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="ESX License" name="lmsesxlicense">
+              <input type="text" class="form-control" placeholder="ESX License" name="lmsesxlicense" value="{{Results.lmsesxlicense}}">
             </div>
           </div>
           <hr>
@@ -258,20 +268,20 @@
           <div class="form-group">
             <label for="lmshardwaretype" class="col-sm-4 control-label">Hardware - Type</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Hardware - Type" name="lmshardwaretype">
+              <input type="text" class="form-control" placeholder="Hardware - Type" name="lmshardwaretype" value="{{Results.lmshardwaretype}}">
             </div>
           </div>
           <div class="form-group">
             <label for="lmshardwareserial" class="col-sm-4 control-label">Hardware - Serial</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="Hardware - Serial" name="lmshardwareserial">
+              <input type="text" class="form-control" placeholder="Hardware - Serial" name="lmshardwareserial" value="{{Results.lmshardwareserial}}">
             </div>
           </div>
-
           <button type="submit" class="btn btn-default">Submit</button>
-        </form>
       </div>
+      </form>
     </div>
+  </div>
   </div>
   <!-- END - ROW - ADD FORM -->
 
@@ -312,6 +322,77 @@
         $('#out_date').val(time.toDateString());
       });
 
+    })(jQuery);
+  </script>
+
+  <!-- JS: Populate a dropdown menu with correct DB value -->
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.default_group').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmscountry').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmssite').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmstype').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsciscocontract').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsaccess').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsldap').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmselm').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsvsphere').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript">
+    (function($) {
+      var group = $('input.lmsvirtualized').val();
+      $('option[value="' + group + '"]').attr('selected', 'selected');
     })(jQuery);
   </script>
 

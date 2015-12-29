@@ -39,6 +39,10 @@
         <a class="navbar-brand" href="/">
           <span class="glyphicon glyphicon-earphone">&nbsp;</span>{{title}}</a>
       </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/logout">Logout</a></li>
+      </div>
     </div>
   </nav>
   <!-- END - Navigation Bar -->
@@ -61,7 +65,7 @@
         </form>
       </div>
       <div class="col-md-2">
-        <form class "form-inline" method="post" action="/lms/filter/country" id="lmsfiltercountry">
+        <form class "form-inline" method="post" action="/lms/search/country" id="lmsfiltercountry">
           <div class="form-group">
             <div class="input-group">
               <select name="lmsfiltercountry" form="lmsfiltercountry" class="form-control">
@@ -135,7 +139,7 @@
               </tr>
             </thead>
             <tbody>
-              {{#each results}}
+              {{#each Results}}
               <tr>
                 <td>{{this.lmsip}}</td>
                 <td>{{this.lmshostname}}</td>
@@ -168,7 +172,7 @@
                 <td>{{this.lmsvoicedatabase}}</td>
                 <td>{{this.lmselm}}</td>
                 <td>{{this.lmsvirtualized}}</td>
-                <td>{{this.lmsvsphere}}</td>
+                <td><a href="https://{{this.lmsvsphere}}">{{this.lmsvsphere}}</a></td>
                 <td>{{this.lmsesxlicense}}</td>
                 <td>{{this.lmshardwaretype}}</td>
                 <td>{{this.lmshardwareserial}}</td>

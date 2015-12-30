@@ -432,23 +432,33 @@ module.exports = function(app) {
   });
 
   app.get('/lms/show', function(req, res) {
-    console.log(req.body);
-    var listData = function(err, collection) {
-      collection.find().toArray(function(err, results) {
-        res.render('lms/lms-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'Results': results
-        });
+    var country = null;
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
+
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
       });
     }
 
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
-      Client.collection('lms', listData);
-      //Client.close();
+      Client.collection('lmsadmincountry', listDataCountry);
     });
 
+    function complete() {
+      if (country !== null) {
+        res.render('lms/lms.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Country': country,
+        });
+      }
+    }
   })
 
   // DB - SEARCH

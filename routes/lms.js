@@ -8,8 +8,12 @@ module.exports = function(app) {
   app.get('/lms', function(req, res) {
 
     var country = null;
+    var type = null;
     var optionscountry = {
       "sort": "lmsadmincountry"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
     }
 
     var listDataCountry = function(err, collection) {
@@ -19,18 +23,26 @@ module.exports = function(app) {
         complete();
       });
     }
-
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmintype', listDataType);
     });
 
     function complete() {
-      if (country !== null) {
+      if (country !== null && type !== null) {
         res.render('lms/lms.html', {
           layout: false,
           'title': 'Amway.voice',
           'Country': country,
+          'Type': type,
         });
       }
     }
@@ -432,57 +444,8 @@ module.exports = function(app) {
   });
 
   app.get('/lms/show', function(req, res) {
-    console.log(req.body);
-    var listData = function(err, collection) {
-      collection.find().toArray(function(err, results) {
-        res.render('lms/lms-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'Results': results
-        });
-      });
-    }
-
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('lms', listData);
-      //Client.close();
-    });
-
-  })
-
-  // DB - SEARCH
-  app.post('/lms/search', function(req, res) {
-    console.log(req.body);
-    var search = req.body.search;
-    var filtercountry = req.body.lmsfiltercountry;
-    var listData = function(err, collection) {
-      collection.find({
-        $or: [{
-          lmsip: new RegExp(search, "i")
-        }, {
-          lmshostname: new RegExp(search, "i")
-        }]
-      }).toArray(function(err, results) {
-        res.render('lms/lms-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'results': results
-        });
-      });
-    }
-    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
-    Client.open(function(err, pClient) {
-      Client.collection('lms', listData);
-      //Client.close();
-    });
-  });
-
-  app.post('/lms/search/country', function(req, res) {
-
-    var filtercountry = req.body.lmsfiltercountry;
-    var resultsx = null;
     var country = null;
+    var resultsx = null;
     var optionscountry = {
       "sort": "lmsadmincountry"
     }
@@ -495,6 +458,122 @@ module.exports = function(app) {
       });
     }
 
+    var listData = function(err, collection) {
+      collection.find().toArray(function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
+      });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lms', listData);
+    });
+
+    function complete() {
+      if (country !== null && resultsx !== null) {
+        res.render('lms/lms-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Country': country,
+          'Results': resultsx,
+        });
+      }
+    }
+
+  })
+
+  // DB - SEARCH
+  app.post('/lms/search', function(req, res) {
+    console.log(req.body);
+    var search = req.body.search;
+    var filtercountry = req.body.lmsfiltercountry;
+    var country = null;
+    var type = null;
+    var resultsx = null;
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
+    }
+
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
+      });
+    }
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
+    var listData = function(err, collection) {
+      collection.find({
+        $or: [{
+          lmsip: new RegExp(search, "i")
+        }, {
+          lmshostname: new RegExp(search, "i")
+        }]
+      }).toArray(function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
+      });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lms', listData);
+      Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmintype', listDataType);
+    });
+
+    function complete() {
+      if (country !== null && resultsx !== null && type !== null) {
+        res.render('lms/lms-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Country': country,
+          'Type': type,
+          'Results': resultsx,
+        });
+      }
+    }
+  });
+
+  app.post('/lms/search/country', function(req, res) {
+    var filtercountry = req.body.lmsfiltercountry;
+    var type = null;
+    var resultsx = null;
+    var country = null;
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
+    }
+
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
+      });
+    }
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
     var listData = function(err, collection) {
       collection.find({
         lmscountry: new RegExp(filtercountry)
@@ -509,14 +588,74 @@ module.exports = function(app) {
     Client.open(function(err, pClient) {
       Client.collection('lms', listData);
       Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmintype', listDataType);
     });
 
     function complete() {
-      if (country !== null && resultsx !== null) {
+      if (country !== null && resultsx !== null && type !== null) {
         res.render('lms/lms-show.html', {
           layout: false,
           'title': 'Amway.voice',
           'Country': country,
+          'Type': type,
+          'Results': resultsx,
+        });
+      }
+    }
+  });
+
+  app.post('/lms/search/type', function(req, res) {
+    console.log(req.body);
+    var lmsfiltertype = req.body.lmsfiltertype;
+    var type = null;
+    var resultsx = null;
+    var country = null;
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
+    }
+
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
+      });
+    }
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
+
+    var listData = function(err, collection) {
+      collection.find({
+        lmstype: new RegExp(lmsfiltertype)
+      }).toArray(function(err, results) {
+        if (err) throw err;
+        resultsx = results;
+        complete();
+      });
+    }
+
+    var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
+    Client.open(function(err, pClient) {
+      Client.collection('lms', listData);
+      Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmintype', listDataType);
+    });
+
+    function complete() {
+      if (country !== null && resultsx !== null && type !== null) {
+        res.render('lms/lms-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Country': country,
+          'Type': type,
           'Results': resultsx,
         });
       }

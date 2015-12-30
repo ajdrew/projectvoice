@@ -515,10 +515,14 @@ module.exports = function(app) {
   app.post('/lms/search/country', function(req, res) {
 
     var filtercountry = req.body.lmsfiltercountry;
+    var type = null;
     var resultsx = null;
     var country = null;
     var optionscountry = {
       "sort": "lmsadmincountry"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
     }
 
     var listDataCountry = function(err, collection) {
@@ -528,7 +532,13 @@ module.exports = function(app) {
         complete();
       });
     }
-
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
     var listData = function(err, collection) {
       collection.find({
         lmscountry: new RegExp(filtercountry)
@@ -543,14 +553,16 @@ module.exports = function(app) {
     Client.open(function(err, pClient) {
       Client.collection('lms', listData);
       Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmintype', listDataType);
     });
 
     function complete() {
-      if (country !== null && resultsx !== null) {
+      if (country !== null && resultsx !== null && type !== null) {
         res.render('lms/lms-show.html', {
           layout: false,
           'title': 'Amway.voice',
           'Country': country,
+          'Type': type,
           'Results': resultsx,
         });
       }

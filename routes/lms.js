@@ -445,9 +445,13 @@ module.exports = function(app) {
 
   app.get('/lms/show', function(req, res) {
     var country = null;
+    var type = null;
     var resultsx = null;
     var optionscountry = {
       "sort": "lmsadmincountry"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
     }
 
     var listDataCountry = function(err, collection) {
@@ -457,7 +461,13 @@ module.exports = function(app) {
         complete();
       });
     }
-
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
     var listData = function(err, collection) {
       collection.find().toArray(function(err, results) {
         if (err) throw err;
@@ -469,6 +479,7 @@ module.exports = function(app) {
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmintype', listDataType);
       Client.collection('lms', listData);
     });
 
@@ -478,6 +489,7 @@ module.exports = function(app) {
           layout: false,
           'title': 'Amway.voice',
           'Country': country,
+          'Type': type,
           'Results': resultsx,
         });
       }

@@ -490,6 +490,30 @@ module.exports = function(app) {
     console.log(req.body);
     var search = req.body.search;
     var filtercountry = req.body.lmsfiltercountry;
+    var country = null;
+    var type = null;
+    var resultsx = null;
+    var optionscountry = {
+      "sort": "lmsadmincountry"
+    }
+    var optionstype = {
+      "sort": "lmsadmintype"
+    }
+
+    var listDataCountry = function(err, collection) {
+      collection.find({}, optionscountry).toArray(function(err, results) {
+        if (err) throw err;
+        country = results;
+        complete();
+      });
+    }
+    var listDataType = function(err, collection) {
+      collection.find({}, optionstype).toArray(function(err, results) {
+        if (err) throw err;
+        type = results;
+        complete();
+      });
+    }
     var listData = function(err, collection) {
       collection.find({
         $or: [{
@@ -498,22 +522,33 @@ module.exports = function(app) {
           lmshostname: new RegExp(search, "i")
         }]
       }).toArray(function(err, results) {
-        res.render('lms/lms-show.html', {
-          layout: false,
-          'title': 'Amway.voice',
-          'results': results
-        });
+        if (err) throw err;
+        resultsx = results;
+        complete();
       });
     }
+
     var Client = new Db('amway-voice', new Server('172.30.53.200', 27017, {}));
     Client.open(function(err, pClient) {
       Client.collection('lms', listData);
-      //Client.close();
+      Client.collection('lmsadmincountry', listDataCountry);
+      Client.collection('lmsadmintype', listDataType);
     });
+
+    function complete() {
+      if (country !== null && resultsx !== null && type !== null) {
+        res.render('lms/lms-show.html', {
+          layout: false,
+          'title': 'Amway.voice',
+          'Country': country,
+          'Type': type,
+          'Results': resultsx,
+        });
+      }
+    }
   });
 
   app.post('/lms/search/country', function(req, res) {
-
     var filtercountry = req.body.lmsfiltercountry;
     var type = null;
     var resultsx = null;

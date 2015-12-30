@@ -484,7 +484,7 @@ module.exports = function(app) {
     });
 
     function complete() {
-      if (country !== null && resultsx !== null) {
+      if (country !== null && resultsx !== null && type !== null) {
         res.render('lms/lms-show.html', {
           layout: false,
           'title': 'Amway.voice',

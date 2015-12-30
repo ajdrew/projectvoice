@@ -35,6 +35,7 @@ module.exports = function(app) {
       Client.collection('lmsadmincountry', listDataCountry);
       Client.collection('lmsadmintype', listDataType);
     });
+
     function complete() {
       if (country !== null && type !== null) {
         res.render('lms/lms.html', {
@@ -557,7 +558,7 @@ module.exports = function(app) {
   });
 
   app.post('/lms/search/type', function(req, res) {
-
+    console.log(req.body);
     var lmsfiltertype = req.body.lmsfiltertype;
     var type = null;
     var resultsx = null;

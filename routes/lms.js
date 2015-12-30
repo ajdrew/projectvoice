@@ -587,7 +587,7 @@ module.exports = function(app) {
 
     var listData = function(err, collection) {
       collection.find({
-        lmsadmintype: new RegExp(lmsfiltertype)
+        lmstype: new RegExp(lmsfiltertype)
       }).toArray(function(err, results) {
         if (err) throw err;
         resultsx = results;

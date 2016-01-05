@@ -480,7 +480,7 @@ module.exports = function(app) {
     Client.open(function(err, pClient) {
       Client.collection('lmsadmincountry', listDataCountry);
       Client.collection('lmsadmintype', listDataType);
-      Client.collection('lmsimport', listData);
+      Client.collection('lms', listData);
     });
 
     function complete() {

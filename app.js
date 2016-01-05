@@ -71,9 +71,6 @@ var routingextensions = require('./routes/lms-admin.js')(app);
 // EXPRESS ROUTING - INCLUDE - Authorization app routes
 var routingextensions = require('./routes/authorization.js')(app);
 
-// EXPRESS ROUTING - INCLUDE - Authorization app routes
-var routingextensions = require('./routes/fileupload.js')(app);
-
 
 // SERVER - SETUP AND RUN
 http.createServer(app).listen(app.get('port'), function() {

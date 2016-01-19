@@ -384,6 +384,7 @@ module.exports = function(app) {
       'lmstype': req.body.lmstype,
       'lmsdescription': req.body.lmsdescription,
       'lmsciscocontract': req.body.lmsciscocontract,
+      'lmslink': req.body.lmslink,
       'lmsversiongeneral': req.body.lmsversiongeneral,
       'lmsversioncmeios': req.body.lmsversioncmeios,
       'lmsversioncimc': req.body.lmsversioncimc,

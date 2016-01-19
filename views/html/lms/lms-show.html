@@ -128,6 +128,7 @@
                 <th>Description</th>
                 <th>Cisco Contract</th>
                 <th>Action</th>
+                <th>Link</th>
                 <th>General</th>
                 <th>CME IOS</th>
                 <th>CIMC</th>
@@ -168,6 +169,7 @@
                   <a href="/lms/edit/{{this._id}}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                   <a href="/lms/delete/{{this._id}}" class="btn btn-danger btn-xs" onclick="return confirm('Delete this item?')"><i class="glyphicon glyphicon-trash icon-white"></i> Delete</a>
                 </td>
+                <td>{{this.lmslink}}</td>
                 <td>{{this.lmsversiongeneral}}</td>
                 <td>{{this.lmsversioncmeios}}</td>
                 <td>{{this.lmsversioncimc}}</td>
